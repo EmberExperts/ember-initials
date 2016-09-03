@@ -1,7 +1,22 @@
 {
   "name": "ember-initials",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "author": "Exelord",
+  "version": "1.0.0",
+  "license": "MIT",
+  "homepage": "https://github.com/Exelord/ember-initials#readme",
+  "description": "Simple Initails Avatars for Ember 2 applications",
+  "keywords": [
+    "ember-addon",
+    "initials",
+    "avatars"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Exelord/ember-initials.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Exelord/ember-initials/issues"
+  },
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,12 +26,9 @@
     "start": "ember server",
     "test": "ember try:each"
   },
-  "repository": "",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
     "ember-ajax": "^2.0.1",
@@ -40,9 +52,6 @@
     "ember-welcome-page": "^1.0.1",
     "loader.js": "^4.0.1"
   },
-  "keywords": [
-    "ember-addon"
-  ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6"
   },

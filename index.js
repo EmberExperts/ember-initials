@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-initials'
+  name: 'ember-initials',
 };
