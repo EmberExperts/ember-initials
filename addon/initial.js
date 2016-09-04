@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import HashCode from './-private/hash-code';
+import { colorIndex } from './-private/utils';
 import {
   generateSvgElement,
   generateInitials,
@@ -27,7 +28,7 @@ export default Ember.Component.extend({
   textColor: 'white',
   fontSize: 12,
   fontWeight: 200,
-  fontFamily: 'HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica, Arial,Lucida Grande, sans-serif',
+  fontFamily: 'Helvetica Neue Light, Arial, sans-serif',
 
   colors: [
     '#1abc9c', '#16a085', '#f1c40f',
@@ -49,7 +50,7 @@ export default Ember.Component.extend({
     if (this.get('seedText') == this.get('defaultName')) {
       return this.get('defaultBackground');
     } else {
-      let colorIndex = this._colorIndex(this.get('seedText'), this.get('colors.length'));
+      let colorIndex = colorIndex(this.get('seedText'), this.get('colors.length'));
       return this.get('colors')[colorIndex];
     }
   }),
@@ -67,11 +68,6 @@ export default Ember.Component.extend({
     let textElement = generateTextElement(initials, this.get('textColor'), textStyles);
 
     return generateImage(textElement, svgElement);
-  },
-
-  _colorIndex(seedText, colorsLength) {
-    let hashCode = HashCode(seedText);
-    return Math.abs(Math.floor(hashCode % colorsLength));
   },
 
   _textStyles() {
