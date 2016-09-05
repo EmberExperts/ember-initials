@@ -26,7 +26,7 @@ export default Ember.Component.extend({
   textStyles: {},
 
   textColor: 'white',
-  fontSize: 12,
+  fontSize: '12px',
   fontWeight: 200,
   fontFamily: 'Helvetica Neue Light, Arial, sans-serif',
 
@@ -74,7 +74,7 @@ export default Ember.Component.extend({
     return {
       'font-family': this.get('fontFamily'),
       'font-weight': this.get('fontWeight'),
-      'font-size': this.get('fontSize') + 'px',
+      'font-size': this.get('fontSize'),
     };
   },
 
