@@ -41,7 +41,7 @@ export default Ember.Component.extend({
   }),
 
   initialsColor: Ember.computed('colors', 'seedText', 'defaultName', 'defaultBackground', function () {
-    if (this.get('seedText') == this.get('defaultName')) {
+    if (this.get('seedText') === this.get('defaultName')) {
       return this.get('defaultBackground');
     } else {
       let index = colorIndex(this.get('seedText'), this.get('colors.length'));
@@ -54,10 +54,10 @@ export default Ember.Component.extend({
   }),
 
   createInitials() {
-    return generateImage(this._initialsProperties());
+    return generateImage(this.initialsProperties());
   },
 
-  _initialsProperties() {
+  initialsProperties() {
     return {
       width: this.get('width'),
       height: this.get('height'),

@@ -13,4 +13,4 @@ function hashCode(string) {
 export function colorIndex(seedText, colorsLength) {
   let code = hashCode(seedText);
   return Math.abs(Math.floor(code % colorsLength));
-};
+}
