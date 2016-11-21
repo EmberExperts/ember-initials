@@ -2,7 +2,7 @@ import Ember from 'ember';
 import { colorIndex } from './-private/utils';
 import { generateInitials, generateImage } from './-private/generators';
 
-export default Ember.Mixin.extend({
+export default Ember.Mixin.create({
   tagName: 'img',
   attributeBindings: ['width', 'height', 'src'],
 
