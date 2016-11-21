@@ -1,12 +1,6 @@
 import Ember from 'ember';
-import HashCode from './-private/hash-code';
 import { colorIndex } from './-private/utils';
-import {
-  generateSvgElement,
-  generateInitials,
-  generateTextElement,
-  generateImage,
-} from './-private/generators';
+import { generateInitials, generateImage } from './-private/generators';
 
 export default Ember.Component.extend({
   tagName: 'img',
@@ -47,11 +41,11 @@ export default Ember.Component.extend({
   }),
 
   initialsColor: Ember.computed('colors', 'seedText', 'defaultName', 'defaultBackground', function () {
-    if (this.get('seedText') == this.get('defaultName')) {
+    if (this.get('seedText') === this.get('defaultName')) {
       return this.get('defaultBackground');
     } else {
-      let colorIndex = colorIndex(this.get('seedText'), this.get('colors.length'));
-      return this.get('colors')[colorIndex];
+      let index = colorIndex(this.get('seedText'), this.get('colors.length'));
+      return this.get('colors')[index];
     }
   }),
 
@@ -60,14 +54,18 @@ export default Ember.Component.extend({
   }),
 
   createInitials() {
-    let backgroundStyles = Object.assign(this._backgroundStyles(), this.get('backgroundStyles'));
-    let svgElement = generateSvgElement(this.get('width'), this.get('height'), backgroundStyles);
+    return generateImage(this.initialsProperties());
+  },
 
-    let initials = generateInitials(this.get('name'));
-    let textStyles = Object.assign(this._textStyles(), this.get('textStyles'));
-    let textElement = generateTextElement(initials, this.get('textColor'), textStyles);
-
-    return generateImage(textElement, svgElement);
+  initialsProperties() {
+    return {
+      width: this.get('width'),
+      height: this.get('height'),
+      initials: generateInitials(this.get('name')),
+      initialsColor: this.get('textColor'),
+      textStyles: Ember.assign(this._textStyles(), this.get('textStyles')),
+      backgroundStyles: Ember.assign(this._backgroundStyles(), this.get('backgroundStyles')),
+    };
   },
 
   _textStyles() {

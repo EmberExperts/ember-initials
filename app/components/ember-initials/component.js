@@ -1,3 +1,2 @@
-import Initials from 'ember-initials/initial';
-
-export default Initials.extend();
+import Initials from 'ember-initials/component';
+export default Initials;

@@ -4,7 +4,7 @@ function _generateElement(name, styles = {}, attrs = {}) {
   return Ember.$(name).attr(attrs).css(styles);
 }
 
-export function generateTextElement(text, color, styles = {}) {
+function generateTextElement(text, color, styles = {}) {
   return _generateElement('<text></text>', styles, {
     y: '50%',
     x: '50%',
@@ -15,13 +15,24 @@ export function generateTextElement(text, color, styles = {}) {
   }).html(text);
 }
 
-export function generateSvgElement(width, height, styles = {}) {
+function generateSvgElement(width, height, styles = {}) {
   return _generateElement('<svg></svg>', styles, {
     width,
     height,
     xmlns: 'http://www.w3.org/2000/svg',
     'pointer-events': 'none',
   });
+}
+
+export function generateImage(properties) {
+  let textElement = generateTextElement(properties.initials, properties.initialsColor, properties.textStyles);
+  let svgElement = generateSvgElement(properties.width, properties.height, properties.backgroundStyles);
+
+  svgElement.append(textElement);
+  let finalElement = Ember.$('<div>').append(svgElement);
+  let imageContent = window.btoa(finalElement.html());
+
+  return 'data:image/svg+xml;base64,' + imageContent;
 }
 
 export function generateInitials(name) {
@@ -37,12 +48,4 @@ export function generateInitials(name) {
   }
 
   return initials;
-}
-
-export function generateImage(textElement, svgElement) {
-  svgElement.append(textElement);
-  let finalElement = Ember.$('<div>').append(svgElement);
-  let imageContent = window.btoa(finalElement.html());
-
-  return 'data:image/svg+xml;base64,' + imageContent;
 }
