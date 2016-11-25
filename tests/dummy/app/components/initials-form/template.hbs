@@ -1,0 +1,58 @@
+<div class="col-sm-12 text-center">
+  {{initials-blocks
+    size=size
+    name=name
+    seedText=seedText
+    defaultName=defaultName
+    textColor=textColor
+    fontSize=fontSize
+    fontWeight=fontWeight
+    fontFamily=fontFamily
+  }}
+</div>
+
+<div class="col-sm-12 row form">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label>Size:</label>
+      {{input placeholder="Size" value=size type="number" class="form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label>Name:</label>
+      {{input placeholder="Name" value=name class="form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label>Seed Text:</label>
+      {{input placeholder="Seed text" value=seedText class="form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label>Default Name:</label>
+      {{input placeholder="Default Name" value=defaultName class="form-control" }}
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label>Text color:</label>
+      {{input placeholder="Text color" value=textColor class="form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label>Font size:</label>
+      {{input placeholder="Font size" type="number" value=fontSize class="form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label>Font weight:</label>
+      {{input placeholder="Font weight" type="number" value=fontWeight class="form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label>Font family:</label>
+      {{input placeholder="Font family" value=fontFamily class="form-control" }}
+    </div>
+  </div>
+</div>

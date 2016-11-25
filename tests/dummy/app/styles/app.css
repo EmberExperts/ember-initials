@@ -1,0 +1,12 @@
+.container, .form {
+  margin-top: 50px;
+}
+
+.description, .footer {
+  margin-bottom: 50px;
+}
+
+.travis {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}

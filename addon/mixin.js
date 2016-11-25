@@ -20,7 +20,7 @@ export default Ember.Mixin.create({
   textStyles: {},
 
   textColor: 'white',
-  fontSize: '12px',
+  fontSize: 12,
   fontWeight: 200,
   fontFamily: 'Helvetica Neue Light, Arial, sans-serif',
 
@@ -36,7 +36,7 @@ export default Ember.Mixin.create({
     '#b49255', '#a94136', '#5461b4',
   ],
 
-  initialsObserver: Ember.observer('name', 'seedText', function () {
+  initialsObserver: Ember.observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', function () {
     this.set('src', this.createInitials());
   }),
 
@@ -61,7 +61,7 @@ export default Ember.Mixin.create({
     return {
       width: this.get('width'),
       height: this.get('height'),
-      initials: generateInitials(this.get('name')),
+      initials: generateInitials(this.get('name') || this.get('defaultName')),
       initialsColor: this.get('textColor'),
       textStyles: Ember.assign(this._textStyles(), this.get('textStyles')),
       backgroundStyles: Ember.assign(this._backgroundStyles(), this.get('backgroundStyles')),
@@ -72,7 +72,7 @@ export default Ember.Mixin.create({
     return {
       'font-family': this.get('fontFamily'),
       'font-weight': this.get('fontWeight'),
-      'font-size': this.get('fontSize'),
+      'font-size': `${this.get('fontSize')}px`,
     };
   },
 

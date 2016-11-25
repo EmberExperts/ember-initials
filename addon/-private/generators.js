@@ -36,8 +36,8 @@ export function generateImage(properties) {
 }
 
 export function generateInitials(name) {
-  let initials = name ? name[0] : '';
-  let letters = name.match(/(\b\w)/g) || [];
+  let initials = name ? name : '';
+  let letters = initials.match(/(\b\w)/g) || [];
 
   if (letters.length > 1) {
     let first = letters.shift().toUpperCase();
