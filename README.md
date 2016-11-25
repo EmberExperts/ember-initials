@@ -6,6 +6,11 @@
 
 Ember Initials is a package for generating simple avatars with users initials. It support Ember 2 apps. Thanks to highly customizable interface you can define your own colors, defaults and styles. I promise you, it will do the job!
 
+## Demo App
+Demo app with interactive examples you can find at [http://exelord.github.io/ember-initials][9225812a]
+
+[9225812a]: http://exelord.github.io/ember-initials/ "Ember Initials Demo App"
+
 ## Install
 `ember install ember-initials`
 
