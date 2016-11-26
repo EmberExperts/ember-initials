@@ -2,6 +2,7 @@
   "predef": [
     "document",
     "window",
+    "unescape",
     "-Promise"
   ],
   "browser": true,

@@ -24,27 +24,30 @@ function generateSvgElement(width, height, styles = {}) {
   });
 }
 
+function capitalizedFirstLetter(word) {
+  return word[0].toUpperCase();
+}
+
 export function generateImage(properties) {
   let textElement = generateTextElement(properties.initials, properties.initialsColor, properties.textStyles);
   let svgElement = generateSvgElement(properties.width, properties.height, properties.backgroundStyles);
 
   svgElement.append(textElement);
   let finalElement = Ember.$('<div>').append(svgElement);
-  let imageContent = window.btoa(finalElement.html());
-
+  let imageContent = window.btoa(unescape(encodeURIComponent(finalElement.html())));
   return 'data:image/svg+xml;base64,' + imageContent;
 }
 
 export function generateInitials(name) {
-  let initials = name ? name : '';
-  let letters = initials.match(/(\b\w)/g) || [];
+  let initials = name ? name.trim() : '';
+  let letters = initials.split(' ');
 
   if (letters.length > 1) {
-    let first = letters.shift().toUpperCase();
-    let last = letters.pop().toUpperCase();
+    let first = capitalizedFirstLetter(letters.shift());
+    let last = capitalizedFirstLetter(letters.pop());
     initials = first + last;
   } else if (letters.length === 1) {
-    initials = letters.shift().toUpperCase();
+    initials = capitalizedFirstLetter(letters.shift());
   }
 
   return initials;

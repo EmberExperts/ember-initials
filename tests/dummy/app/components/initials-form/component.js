@@ -9,4 +9,8 @@ export default Ember.Component.extend({
   fontSize: 100,
   fontWeight: 100,
   fontFamily: 'Helvetica Neue Light, Arial, sans-serif',
+
+  sizeChanged: Ember.computed('size', function() {
+    return this.get('size') !== 150;
+  }),
 });

@@ -36,11 +36,11 @@ export default Ember.Mixin.create({
     '#b49255', '#a94136', '#5461b4',
   ],
 
-  initialsObserver: Ember.observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', function () {
-    this.set('src', this.createInitials());
+  initialsObserver: Ember.observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', 'size', function () {
+    this.notifyPropertyChange('src');
   }),
 
-  initialsColor: Ember.computed('colors', 'seedText', 'defaultName', 'defaultBackground', function () {
+  backgroundColor: Ember.computed('colors.length', 'seedText', 'defaultName', 'defaultBackground', function () {
     if (this.get('seedText') === this.get('defaultName')) {
       return this.get('defaultBackground');
     } else {
@@ -49,7 +49,7 @@ export default Ember.Mixin.create({
     }
   }),
 
-  src: Ember.computed('name', 'initialsColor', function () {
+  src: Ember.computed(function () {
     return this.createInitials();
   }),
 
@@ -78,7 +78,7 @@ export default Ember.Mixin.create({
 
   _backgroundStyles() {
     return {
-      'background-color': this.get('initialsColor'),
+      'background-color': this.get('backgroundColor'),
     };
   },
 });
