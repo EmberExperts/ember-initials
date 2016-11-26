@@ -13,9 +13,13 @@
 
 <div class="col-sm-12 row form">
   <div class="col-sm-6">
-    <div class="form-group">
+    <div class="form-group {{if sizeChanged 'has-warning'}}">
       <label>Size:</label>
       {{input placeholder="Size" value=size type="number" class="form-control" }}
+
+      {{#if sizeChanged}}
+        <p class="help-block">If the initials are too big or too small change the <b>Font Size</b> property. </p>
+      {{/if}}
     </div>
 
     <div class="form-group">
