@@ -35,7 +35,7 @@ export default Ember.Component.extend(Initials, {
   // your extensions
 });
 ```
-** Full list of options is available right in the code (mixin.js). If you read this probably you know what you are doing ;) **
+**Full list of options is available right in the code (mixin.js). If you read this probably you know what you are doing ;)**
 
 
 ### Examples
@@ -43,7 +43,7 @@ Bellow you can find some code examples with usage of available options.
 
 #### Font customization
 You can customize font by these arguments:
-```
+``` hbs
 {{ember-initials
   name="John Doe"
   textColor='white'
