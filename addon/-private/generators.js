@@ -25,7 +25,7 @@ function generateSvgElement(width, height, styles = {}) {
 }
 
 function capitalizedFirstLetter(word) {
-  return word[0].toUpperCase();
+  return word ? word[0].toUpperCase() : '';
 }
 
 export function generateImage(properties) {
