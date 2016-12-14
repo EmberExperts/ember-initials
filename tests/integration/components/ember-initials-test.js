@@ -32,3 +32,12 @@ test('has correct default name', function (assert) {
 
   assert.equal(initials, '?');
 });
+
+test('when name and default name are empty', function (assert) {
+  this.render(hbs`{{ember-initials name='' defaultName=''}}`);
+
+  let svg = svgObject(this);
+  let initials = svg.textContent;
+
+  assert.equal(initials, '');
+});

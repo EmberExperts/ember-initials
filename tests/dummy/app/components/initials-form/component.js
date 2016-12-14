@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  size: 150,
+  size: '150',
   name: 'Ember Initials',
   seedText: Ember.computed.reads('name'),
   defaultName: '?',
@@ -11,6 +11,6 @@ export default Ember.Component.extend({
   fontFamily: 'Helvetica Neue Light, Arial, sans-serif',
 
   sizeChanged: Ember.computed('size', function() {
-    return this.get('size') !== 150;
+    return this.get('size') !== '150';
   }),
 });
