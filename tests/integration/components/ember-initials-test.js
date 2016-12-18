@@ -5,9 +5,14 @@ import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('ember-initials', 'Ember initials Component Tests', { integration: true });
 
-function svgObject(container) {
-  let base64 = container.$('img').attr('src').split('base64,')[1];
-  return Ember.$(window.atob(base64))[0];
+function imagePromise(container) {
+  return new Ember.RSVP.Promise((resolve) => {
+    let src = container.$('img').attr('src');
+
+    Ember.$.get(src, (svg) => {
+      resolve(Ember.$(svg));
+    });
+  });
 }
 
 test('has correct tag name', function (assert) {
@@ -16,28 +21,35 @@ test('has correct tag name', function (assert) {
 });
 
 test('has correct initials', function (assert) {
+  let done = assert.async();
+
   this.render(hbs`{{ember-initials name="Super cool"}}`);
 
-  let svg = svgObject(this);
-  let initials = svg.textContent;
-
-  assert.equal(initials, 'SC');
+  imagePromise(this).then((svg) => {
+    let initials = svg.text();
+    assert.equal(initials, 'SC');
+    done();
+  });
 });
 
 test('has correct default name', function (assert) {
+  let done = assert.async();
   this.render(hbs`{{ember-initials}}`);
 
-  let svg = svgObject(this);
-  let initials = svg.textContent;
-
-  assert.equal(initials, '?');
+  imagePromise(this).then((svg) => {
+    let initials = svg.text();
+    assert.equal(initials, '?');
+    done();
+  });
 });
 
 test('when name and default name are empty', function (assert) {
+  let done = assert.async();
   this.render(hbs`{{ember-initials name='' defaultName=''}}`);
 
-  let svg = svgObject(this);
-  let initials = svg.textContent;
-
-  assert.equal(initials, '');
+  imagePromise(this).then((svg) => {
+    let initials = svg.text();
+    assert.equal(initials, '');
+    done();
+  });
 });
