@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import { colorIndex } from './-private/utils';
-import { generateInitials, generateImage } from './-private/generators';
+import { generateInitials, generateImage, removeImage } from './-private/generators';
 
 export default Ember.Mixin.create({
   tagName: 'img',
@@ -20,7 +20,7 @@ export default Ember.Mixin.create({
   textStyles: {},
 
   textColor: 'white',
-  fontSize: 12,
+  fontSize: 50,
   fontWeight: 200,
   fontFamily: 'Helvetica Neue Light, Arial, sans-serif',
 
@@ -37,6 +37,7 @@ export default Ember.Mixin.create({
   ],
 
   initialsObserver: Ember.observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', 'size', function () {
+    removeImage(this.get('src'));
     this.notifyPropertyChange('src');
   }),
 
@@ -59,8 +60,8 @@ export default Ember.Mixin.create({
 
   initialsProperties() {
     return {
-      width: this.get('width'),
-      height: this.get('height'),
+      width: 100,
+      height: 100,
       initials: generateInitials(this.get('name') || this.get('defaultName')),
       initialsColor: this.get('textColor'),
       textStyles: Ember.assign(this._textStyles(), this.get('textStyles')),

@@ -28,14 +28,18 @@ function capitalizedFirstLetter(word) {
   return word ? word[0].toUpperCase() : '';
 }
 
+export function removeImage(url) {
+  URL.revokeObjectURL(url);
+}
+
 export function generateImage(properties) {
   let textElement = generateTextElement(properties.initials, properties.initialsColor, properties.textStyles);
   let svgElement = generateSvgElement(properties.width, properties.height, properties.backgroundStyles);
 
   svgElement.append(textElement);
   let finalElement = Ember.$('<div>').append(svgElement);
-  let imageContent = window.btoa(unescape(encodeURIComponent(finalElement.html())));
-  return 'data:image/svg+xml;base64,' + imageContent;
+  let blob = new Blob([finalElement.html()], { type: "image/svg+xml" });
+  return URL.createObjectURL(blob);
 }
 
 export function generateInitials(name) {
