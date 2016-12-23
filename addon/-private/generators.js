@@ -28,7 +28,7 @@ function capitalizedFirstLetter(word) {
   return word ? word[0].toUpperCase() : '';
 }
 
-export function removeImage(url) {
+export function revokeImage(url) {
   URL.revokeObjectURL(url);
 }
 

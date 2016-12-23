@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import { colorIndex } from './-private/utils';
-import { generateInitials, generateImage, removeImage } from './-private/generators';
+import { generateInitials, generateImage, revokeImage } from './-private/generators';
 
 export default Ember.Mixin.create({
   tagName: 'img',
@@ -37,7 +37,7 @@ export default Ember.Mixin.create({
   ],
 
   initialsObserver: Ember.observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', 'size', function () {
-    removeImage(this.get('src'));
+    revokeImage(this.get('src'));
     this.notifyPropertyChange('src');
   }),
 
@@ -67,6 +67,11 @@ export default Ember.Mixin.create({
       textStyles: Ember.assign(this._textStyles(), this.get('textStyles')),
       backgroundStyles: Ember.assign(this._backgroundStyles(), this.get('backgroundStyles')),
     };
+  },
+
+  willRemoveElement() {
+    this._super(...arguments);
+    revokeImage(this.get('src'));
   },
 
   _textStyles() {
