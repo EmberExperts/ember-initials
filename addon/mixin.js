@@ -69,7 +69,7 @@ export default Ember.Mixin.create({
     };
   },
 
-  willRemoveElement() {
+  willDestroyElement() {
     this._super(...arguments);
     revokeImage(this.get('src'));
   },
