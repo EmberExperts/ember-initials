@@ -36,7 +36,7 @@ export default Ember.Mixin.create({
     '#b49255', '#a94136', '#5461b4',
   ],
 
-  initialsObserver: Ember.observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', 'size', function () {
+  initialsObserver: Ember.observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', function () {
     revokeImage(this.get('src'));
     this.notifyPropertyChange('src');
   }),

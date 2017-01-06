@@ -21,6 +21,7 @@ function generateSvgElement(width, height, styles = {}) {
     height,
     xmlns: 'http://www.w3.org/2000/svg',
     'pointer-events': 'none',
+    'viewBox': '0 0 100 100'
   });
 }
 
