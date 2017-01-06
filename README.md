@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Exelord/ember-initials.svg?branch=master)](https://travis-ci.org/Exelord/ember-initials)
+[![Dependency Status](https://gemnasium.com/badges/github.com/Exelord/ember-initials.svg)](https://gemnasium.com/github.com/Exelord/ember-initials)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Exelord/ember-initials/master/ember-initials.png" alt="ember-initials"/>
