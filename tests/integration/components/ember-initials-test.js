@@ -5,13 +5,15 @@ import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('ember-initials', 'Ember initials Component Tests', { integration: true });
 
-function imagePromise(container) {
+function imagePromise(container, svg = true) {
   return new Ember.RSVP.Promise((resolve) => {
-    let src = container.$('img').attr('src');
-
-    Ember.$.get(src, (svg) => {
-      resolve(Ember.$(svg));
-    });
+    if (svg) {
+      Ember.$.get(container.$('img').attr('src'), (image) => {
+        resolve(Ember.$(image));
+      });
+    } else {
+      resolve(container.$('img'));
+    }
   });
 }
 
@@ -50,6 +52,18 @@ test('when name and default name are empty', function (assert) {
   imagePromise(this).then((svg) => {
     let initials = svg.text();
     assert.equal(initials, '');
+    done();
+  });
+});
+
+test('when src is an image', function (assert) {
+  let done = assert.async();
+  this.set('userAvatar', '/ember-initials.png');
+  this.render(hbs`{{ember-initials src=userAvatar}}`);
+
+  imagePromise(this, false).then((image) => {
+    let src = image.attr('src');
+    assert.equal(src, this.get('userAvatar'));
     done();
   });
 });

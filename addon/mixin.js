@@ -50,9 +50,13 @@ export default Ember.Mixin.create({
     }
   }),
 
-  src: Ember.computed(function () {
-    return this.createInitials();
-  }),
+  didInsertElement() {
+    this._super(...arguments);
+
+    if (Ember.typeOf(this.get('src')) === 'undefined') {
+      this.set('src', this.createInitials());
+    }
+  },
 
   createInitials() {
     return generateImage(this.initialsProperties());
