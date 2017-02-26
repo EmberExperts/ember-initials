@@ -58,7 +58,7 @@ test('when name and default name are empty', function (assert) {
 
 test('when src is an image', function (assert) {
   let done = assert.async();
-  this.set('userAvatar', '/ember-initials.png');
+  this.set('userAvatar', '/images/logo.png');
   this.render(hbs`{{ember-initials src=userAvatar}}`);
 
   imagePromise(this, false).then((image) => {

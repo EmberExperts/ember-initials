@@ -3,8 +3,23 @@
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function (defaults) {
+  var config = defaults.project.config(EmberAddon.env());
+
   var app = new EmberAddon(defaults, {
-    // Add options here
+    sassOptions: {
+      extension: 'sass',
+    },
+    favicons: {
+      faviconsConfig: {
+        appName: 'Ember Initials',
+        appDescription: 'Ember Initials is a package for generating simple avatars with users initials. It support Ember 2 apps. Thanks to highly customizable interface you can define your own colors, defaults and styles.',
+        developerName: 'Exelord',
+        developerURL: 'www.macsour.com',
+        background: '#ffffff',
+        path: config.rootURL,  // Path for overriding default icons path. `string`
+        url: 'https://exelord.github.io/ember-initials/images/og-image.jpg',  // Absolute URL for OpenGraph image. `string`
+      }
+    }
   });
 
   /*
@@ -14,5 +29,6 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
+  app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
   return app.toTree();
 };

@@ -1,0 +1,139 @@
+@import "ember-bootstrap/bootstrap"
+
+$red-color: #B066FE
+$orange-color: #63E2FF
+
+.navbar-brand
+  padding-top: 0px
+  padding-bottom: 0px
+
+.navbar-default
+  background-color: white
+  padding: 10px 0
+
+#header
+  padding-top: 200px
+  padding-bottom: 100px
+  background: linear-gradient(45deg, white 10%, $orange-color 50%, $red-color 100%)
+
+  .logo
+    max-width: 100%
+    max-height: 400px
+
+#getting-started
+  padding: 80px 0
+
+  .pl-s
+    color: #183691
+  .pl-c1
+    color: #0086b3
+  .pl-en
+    color: #795da3
+  .pl-k
+    color: #a71d5d
+  .pl-c
+    color: #969896
+  .pl-v, .pl-smw
+    color: #ed6a43
+
+#documentation
+  text-align: center
+  padding: 80px 0
+  text-transform: uppercase
+  background: linear-gradient(45deg, white 10%, $orange-color 50%, $red-color 100%)
+
+#examples
+  padding: 80px 0
+
+  .section-heading
+    text-align: center
+    margin-bottom: 80px
+
+  .form
+    margin-top: 80px
+
+.btn-outline
+  background-color: transparent
+  color: inherit
+  transition: all .5s
+  border: black 1px solid
+
+  &.disabled
+    border-color: #777 !important
+    color: #777 !important
+
+  &:hover,&:focus,&:active
+    background-color: transparent !important
+
+
+.btn-default.btn-outline:hover
+    border-color: white
+    color: white
+
+.btn-ember
+  &.btn-outline
+    color: $red-color
+    border-color: $red-color
+
+    &:hover
+      color: $orange-color
+      border-color: $orange-color
+
+#footer
+  background: #fff
+  padding: 25px 0
+  color: #555
+
+  .content
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  .copyright
+    font-size: 13px
+    margin-bottom: 0
+
+    img
+      width: 24px
+      vertical-align: bottom
+
+    a
+      color: black
+      font-weight: bold
+
+      &:hover
+        color: $red-color
+
+  .social
+    text-align: right
+    margin-bottom: 0
+    padding-left: 0
+    display: flex
+    justify-content: space-between
+    width: 80px
+
+    li
+      display: inline-block
+
+      a
+        font-size: 22px
+        color: black
+
+        &:hover
+          color: $red-color
+
+.gitter-chat-embed
+  margin-top: 70px
+
+.gitter-open-chat-button
+  background-color: $red-color
+  bottom: 200px
+  right: -55px
+  transform: rotate(-90deg)
+
+  &:hover,&:focus
+    background-color: $orange-color
+
+  &.is-collapsed
+    transform: rotate(-90deg)
+    right: -95px
