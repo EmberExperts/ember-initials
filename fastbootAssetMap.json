@@ -1,0 +1,12 @@
+{
+  "assets": {
+    "assets/dummy.css": "assets/dummy-e51a17d2eb3b91c63d06992a9e6bc5a0.css",
+    "assets/dummy.js": "assets/dummy-9b3b57b0e26c002f7bbc4d12a2b380d4.js",
+    "assets/vendor.css": "assets/vendor-2cc3ab6c0c8b8b7103a3a8673ec9eb56.css",
+    "assets/vendor.js": "assets/vendor-9af0264f059676a693a83248163b6f8b.js",
+    "images/atom.png": "images/atom-8da5d02e2322e8ccb9a38b440e1be542.png",
+    "images/logo.png": "images/logo-10fb2135bcedeacb73d983c131296556.png",
+    "images/og-image.jpg": "images/og-image-662c992280587dab66deb50c687e89c4.jpg"
+  },
+  "prepend": ""
+}

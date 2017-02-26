@@ -1,0 +1,34 @@
+{
+  "dependencies": {},
+  "fastboot": {
+    "moduleWhitelist": [],
+    "schemaVersion": 2,
+    "manifest": {
+      "appFiles": [
+        "fastboot/dummy-9b3b57b0e26c002f7bbc4d12a2b380d4.js"
+      ],
+      "vendorFiles": [
+        "fastboot/vendor-9af0264f059676a693a83248163b6f8b.js"
+      ],
+      "htmlFile": "index.html"
+    },
+    "appConfig": {
+      "modulePrefix": "dummy",
+      "environment": "production",
+      "rootURL": "/ember-initials/",
+      "locationType": "hash",
+      "EmberENV": {
+        "FEATURES": {},
+        "EXTEND_PROTOTYPES": {
+          "Date": false
+        }
+      },
+      "APP": {
+        "name": "ember-initials",
+        "version": "2.3.1+63b74374",
+        "autoboot": false
+      },
+      "exportApplicationGlobal": false
+    }
+  }
+}
