@@ -9,6 +9,9 @@ module.exports = function (defaults) {
     sassOptions: {
       extension: 'sass',
     },
+    fingerprint: {
+      exclude: ['apple-touch-icon', 'favicon', 'mstile']
+    },
     favicons: {
       faviconsConfig: {
         appName: 'Ember Initials',
