@@ -50,13 +50,15 @@ export default Ember.Mixin.create({
     }
   }),
 
-  didInsertElement() {
-    this._super(...arguments);
-
-    if (Ember.typeOf(this.get('src')) === 'undefined') {
-      this.set('src', Ember.computed(function() { return this.createInitials(); }));
+  src: Ember.computed('fastboot.isFastBoot', function() {
+    if (!this.get('fastboot.isFastBoot')) {
+      return this.createInitials();
     }
-  },
+  }),
+
+  fastboot: Ember.computed(function() {
+    return Ember.getOwner(this).lookup('service:fastboot');
+  }),
 
   createInitials() {
     return generateImage(this.initialsProperties());
