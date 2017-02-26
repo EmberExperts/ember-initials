@@ -54,7 +54,7 @@ export default Ember.Mixin.create({
     this._super(...arguments);
 
     if (Ember.typeOf(this.get('src')) === 'undefined') {
-      this.set('src', this.createInitials());
+      this.set('src', Ember.computed(function() { return this.createInitials(); }));
     }
   },
 
