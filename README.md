@@ -26,6 +26,14 @@ Ember Initials gives you a built-in component which you can use in yours templat
 
 It will generate an avatar with `JD` initials.
 
+### Browser compatibility
+
+This addon has been checked on:
+- IE 10 and UP including EDGE
+- Firefox 44 and UP
+- Chrome 48 and UP
+- Opera 35 and UP
+
 ### Customization
 You can pass options to the `{{ember-initials}}` directive or extend your Component with a mixin:
 
