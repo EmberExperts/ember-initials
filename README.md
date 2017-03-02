@@ -67,6 +67,13 @@ To change the size of avatar add `size` options (size in pixels):
 {{ember-initials name="John Doe" size=40}}
 ```
 
+#### No Sizing
+To stop adding style attributes (width,height):
+```hbs
+{{ember-initials name="John Doe" size=null}}
+```
+
+
 #### Seed Text
 Seed text is a background color id generated through uniq string. By default it is a `name`.
 
