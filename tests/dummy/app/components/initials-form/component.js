@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   size: '150',
+  email: "example@example.com",
   name: 'Ember Initials',
   seedText: Ember.computed.reads('name'),
   defaultName: '?',

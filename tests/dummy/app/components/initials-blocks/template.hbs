@@ -1,5 +1,12 @@
 <div class="col-sm-4">
-  {{ember-initials class="img-rounded"
+  {{ember-avatars/gravatar class="img-rounded"
+    size=size
+    email=email
+  }}
+</div>
+
+<div class="col-sm-4">
+  {{ember-avatars/initials class="img-circle"
     size=size
     name=name
     seedText=seedText
@@ -12,27 +19,8 @@
 </div>
 
 <div class="col-sm-4">
-  {{ember-initials class="img-circle"
+  {{ember-avatars/image class="img-thumbnail"
+    image=image
     size=size
-    name=name
-    seedText=seedText
-    defaultName=defaultName
-    textColor=textColor
-    fontSize=fontSize
-    fontWeight=fontWeight
-    fontFamily=fontFamily
-  }}
-</div>
-
-<div class="col-sm-4">
-  {{ember-initials class="img-thumbnail"
-    size=size
-    name=name
-    seedText=seedText
-    defaultName=defaultName
-    textColor=textColor
-    fontSize=fontSize
-    fontWeight=fontWeight
-    fontFamily=fontFamily
   }}
 </div>

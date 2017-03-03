@@ -8,6 +8,8 @@
     fontSize=fontSize
     fontWeight=fontWeight
     fontFamily=fontFamily
+    email=email
+    image=image
   }}
 </div>
 
@@ -25,6 +27,16 @@
     <div class="form-group">
       <label>Name:</label>
       {{input placeholder="Name" value=name class="form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label>Gravatar Email:</label>
+      {{input placeholder="Email" value=email class="form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label>Image:</label>
+      {{input placeholder="Image Url" value=image class="form-control" }}
     </div>
 
     <div class="form-group">

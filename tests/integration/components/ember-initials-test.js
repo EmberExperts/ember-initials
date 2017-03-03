@@ -56,10 +56,47 @@ test('when name and default name are empty', function (assert) {
   });
 });
 
-test('when src is an image', function (assert) {
+test('when src is overridden by an image', function (assert) {
   let done = assert.async();
   this.set('userAvatar', '/images/logo.png');
   this.render(hbs`{{ember-initials src=userAvatar}}`);
+
+  imagePromise(this, false).then((image) => {
+    let src = image.attr('src');
+    assert.equal(src, this.get('userAvatar'));
+    done();
+  });
+});
+
+test('when image is set and exist', function (assert) {
+  let done = assert.async();
+  this.set('userAvatar', '/images/logo.png');
+  this.render(hbs`{{ember-initials image=userAvatar name="Ember Initials"}}`);
+
+  imagePromise(this, false).then((image) => {
+    let src = image.attr('src');
+    assert.equal(src, this.get('userAvatar'));
+    done();
+  });
+});
+
+test('when image is set but is empty', function (assert) {
+  let done = assert.async();
+  this.set('userAvatar', '');
+  this.render(hbs`{{ember-initials image=userAvatar name="Ember Initials"}}`);
+
+  imagePromise(this).then((svg) => {
+    let initials = svg.text();
+    assert.equal(initials, 'EI');
+    done();
+  });
+});
+
+test('when gravatar is set', function (assert) {
+  let done = assert.async();
+  this.set('userAvatar', '/images/logo.png');
+  this.set('gravatarEmail', 'example@example.com');
+  this.render(hbs`{{ember-initials gravatarEmail=gravatarEmail image=userAvatar name="Ember Initials"}}`);
 
   imagePromise(this, false).then((image) => {
     let src = image.attr('src');

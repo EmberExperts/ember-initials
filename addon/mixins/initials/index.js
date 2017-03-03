@@ -9,6 +9,7 @@ export default Ember.Mixin.create({
   defaultName: '?',
   defaultBackground: '#dd6a58',
 
+  image: null,
   name: Ember.computed.reads('defaultName'),
   seedText: Ember.computed.reads('name'),
 
@@ -50,9 +51,13 @@ export default Ember.Mixin.create({
     }
   }),
 
-  src: Ember.computed('fastboot.isFastBoot', function() {
+  src: Ember.computed('fastboot.isFastBoot', 'image', function() {
+    let image = this.get('image');
+
     if (!this.get('fastboot.isFastBoot')) {
-      return this.createInitials();
+      return image ? image : this.createInitials();
+    } else {
+      return image ? image : '';
     }
   }),
 
