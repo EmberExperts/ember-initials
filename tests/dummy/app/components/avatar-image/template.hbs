@@ -1,0 +1,53 @@
+{{#if visible}}
+  {{#if active}}
+    <div class="col-sm-4 text-center">
+      <p class="lead"><code>ember-initials/image</code></p>
+      {{ember-initials/image class="img-thumbnail" image=image size=size defaultImage=defaultImage}}
+      <p class="example-intro">This component has been designed to display user avatar from URL with a fallback to the specific default image.</p>
+      {{activate-button exampleName=exampleName activeExample=activeExample}}
+    </div>
+
+    <div class="col-sm-8">
+      {{#bs-tab as |tab|}}
+        {{#tab.pane title="Properties"}}
+          <div class="form-group">
+            <label>Gravatar Email:</label>
+            {{input placeholder="Email" value=email class="form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label>Size:</label>
+            {{input placeholder="Size" value=size type="number" class="form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label>User Avatar Image Src:</label>
+            {{input placeholder="Exmaple 'images/default.jpg' or absolute url" value=image class="form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label>Default Image Src:</label>
+            {{input placeholder="Exmaple 'images/default.jpg or absolute path'" value=defaultImage class="form-control" }}
+          </div>
+        {{/tab.pane}}
+
+        {{#tab.pane title="Generated code"}}
+          <pre>
+            \{{ember-initials/image
+              image="{{image}}"
+              size={{size}}
+              defaultImage="{{defaultImage}}"
+            }}
+          </pre>
+        {{/tab.pane}}
+      {{/bs-tab}}
+    </div>
+  {{else}}
+    <div class="text-center">
+      <p class="lead"><code>ember-initials/image</code></p>
+      {{ember-initials/image class="img-thumbnail" image=image size=size defaultImage=defaultImage}}
+      <p class="example-intro">This component has been designed to display user avatar from URL with a fallback to the specific default image.</p>
+      {{activate-button exampleName=exampleName activeExample=activeExample}}
+    </div>
+  {{/if}}
+{{/if}}
