@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { generateInitials } from 'ember-initials/-private/generators';
+import { generateInitials } from 'ember-initials/mixins/initials/-private/generators';
 
 module('Unit | Private | Generators');
 
