@@ -11,16 +11,6 @@
       {{#bs-tab as |tab|}}
         {{#tab.pane title="Properties"}}
           <div class="form-group">
-            <label>Gravatar Email:</label>
-            {{input placeholder="Email" value=email class="form-control" }}
-          </div>
-
-          <div class="form-group">
-            <label>Size:</label>
-            {{input placeholder="Size" value=size type="number" class="form-control" }}
-          </div>
-
-          <div class="form-group">
             <label>User Avatar Image Src:</label>
             {{input placeholder="Exmaple 'images/default.jpg' or absolute url" value=image class="form-control" }}
           </div>
@@ -28,6 +18,11 @@
           <div class="form-group">
             <label>Default Image Src:</label>
             {{input placeholder="Exmaple 'images/default.jpg or absolute path'" value=defaultImage class="form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label>Size:</label>
+            {{input placeholder="Size" value=size type="number" class="form-control" }}
           </div>
         {{/tab.pane}}
 

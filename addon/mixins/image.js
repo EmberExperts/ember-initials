@@ -6,10 +6,7 @@ export default Ember.Mixin.create({
   attributeBindings: ['width', 'height', 'src', 'title', 'alt'],
 
   image: null,
-
-  defaultImage: Ember.computed(function() {
-    return this.get('config.image.defaultImageUrl');
-  }),
+  defaultImage: Ember.computed.reads('config.image.defaultImageUrl'),
 
   title: 'User Avatar',
   alt: 'User Avatar',
@@ -22,5 +19,5 @@ export default Ember.Mixin.create({
   config: Ember.computed(function() {
     let appSettings = Ember.getOwner(this).resolveRegistration('config:environment').emberInitials || {};
     return Ember.assign(Config, appSettings);
-  }),
+  })
 });

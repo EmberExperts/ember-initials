@@ -12,6 +12,7 @@
           fontSize=fontSize
           fontWeight=fontWeight
           fontFamily=fontFamily
+          image=image
         }}
         <p class="example-intro">This component has been designed to display user initials based on user name and unique string like email. But it can also work as a fallback for users avatars.</p>
         {{activate-button exampleName=exampleName activeExample=activeExample}}
@@ -25,22 +26,28 @@
             <div class="form-group col-sm-6">
               <label>Name:</label>
               {{input placeholder="Name" value=name class="form-control" }}
+              <span class="help-block">Initials will be generated from this name.</span>
             </div>
 
             <div class="form-group col-sm-6">
               <label>Default Name:</label>
               {{input placeholder="Default Name" value=defaultName class="form-control" }}
+              <span class="help-block">Initials of this name will be used if name will be empty.</span>
             </div>
           </div>
 
-          <div class="form-group">
-            <label>Image:</label>
-            {{input placeholder="Image Url" value=image class="form-control" }}
-          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label>User Image:</label>
+              {{input placeholder="User image relative or absolute src" value=image class="form-control" }}
+              <span class="help-block">If image will be empty or the loading will fail, the initials will play as fallback.</span>
+            </div>
 
-          <div class="form-group">
-            <label>Seed Text:</label>
-            {{input placeholder="Seed text" value=seedText class="form-control" }}
+            <div class="form-group col-sm-6">
+              <label>Seed Text:</label>
+              {{input placeholder="Seed text" value=seedText class="form-control" }}
+              <span class="help-block">Uniq string for generating seed of initials background color, eg. user's email</span>
+            </div>
           </div>
 
           <div class="row">

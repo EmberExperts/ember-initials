@@ -4,7 +4,7 @@ import { generateInitials, generateImage, revokeImage } from './-private/generat
 
 export default Ember.Mixin.create({
   tagName: 'img',
-  attributeBindings: ['width', 'height', 'src'],
+  attributeBindings: ['width', 'height', 'src', 'onError'],
 
   defaultName: '?',
   defaultBackground: '#dd6a58',
@@ -65,6 +65,12 @@ export default Ember.Mixin.create({
     return Ember.getOwner(this).lookup('service:fastboot');
   }),
 
+  onError: Ember.computed('image', function() {
+    if (this.get('image')) {
+      return this._checkImage.bind(this);
+    }
+  }),
+
   createInitials() {
     return generateImage(this.initialsProperties());
   },
@@ -97,5 +103,9 @@ export default Ember.Mixin.create({
     return {
       'background-color': this.get('backgroundColor'),
     };
+  },
+
+  _checkImage(e) {
+    e.srcElement.src = this.createInitials();
   },
 });
