@@ -5,10 +5,10 @@
     "schemaVersion": 2,
     "manifest": {
       "appFiles": [
-        "fastboot/dummy-9b3b57b0e26c002f7bbc4d12a2b380d4.js"
+        "fastboot/dummy-e56fda31289b040b91db063b73ad9685.js"
       ],
       "vendorFiles": [
-        "fastboot/vendor-9af0264f059676a693a83248163b6f8b.js"
+        "fastboot/vendor-ab60a0a65c8a6e5ffce41606d8e1c731.js"
       ],
       "htmlFile": "index.html"
     },
@@ -25,7 +25,7 @@
       },
       "APP": {
         "name": "ember-initials",
-        "version": "2.3.1+63b74374",
+        "version": "2.4.0+0c58f42a",
         "autoboot": false
       },
       "exportApplicationGlobal": false
