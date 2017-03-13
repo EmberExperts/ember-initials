@@ -1,0 +1,65 @@
+{{#if visible}}
+  {{#if active}}
+    <div class="col-sm-4">
+      <div class="text-center">
+        <p class="lead"><code>ember-initials/gravatar</code></p>
+        {{ember-initials/gravatar class="img-rounded" size=size email=email defaultImage=defaultImage image=image relativeUrl=relativeUrl}}
+        <p class="example-intro">This component has been designed to display user avatar based on gravatar service. But it can also work as a fallback for users avatars.</p>
+        {{activate-button exampleName=exampleName activeExample=activeExample}}
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+      {{#bs-tab as |tab|}}
+        {{#tab.pane title="Properties"}}
+          <div class="form-group">
+            <label>Gravatar Email:</label>
+            {{input placeholder="Email" value=email class="form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label>User Avatar Image Src:</label>
+            {{input placeholder="Exmaple 'images/default.jpg' or absolute url" value=image class="form-control" }}
+            <span class="help-block">This user's image url will be used over a gravatar.</span>
+          </div>
+
+          <div class="form-group">
+            <label>Size:</label>
+            {{input placeholder="Size" value=size type="number" class="form-control" }}
+          </div>
+
+          <div class="form-group">
+            <label>Default Image Src:</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                Relative Url
+                {{input type="checkbox" checked=relativeUrl}}
+              </div>
+              {{input placeholder="Exmaple 'images/default.jpg'" value=defaultImage class="form-control" }}
+            </div>
+            <span class="help-block">If gravatar will not be found you can specify url of the default image.</span>
+          </div>
+        {{/tab.pane}}
+
+        {{#tab.pane title="Generated code"}}
+          <pre>
+            \{{ember-initials/gravatar
+              size={{size}}
+              email="{{email}}"
+              image="{{image}}"
+              defaultImage="{{defaultImage}}"
+              relativeUrl="{{relativeUrl}}"
+            }}
+          </pre>
+        {{/tab.pane}}
+      {{/bs-tab}}
+    </div>
+  {{else}}
+    <div class="text-center">
+      <p class="lead"><code>ember-initials/gravatar</code></p>
+      {{ember-initials/gravatar class="img-rounded" size=size email=email defaultImage=defaultImage image=image relativeUrl=relativeUrl}}
+      <p class="example-intro">This component has been designed to display user avatar based on gravatar service. But it can also work as a fallback for users avatars.</p>
+      {{activate-button exampleName=exampleName activeExample=activeExample}}
+    </div>
+  {{/if}}
+{{/if}}

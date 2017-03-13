@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import Initials from 'ember-initials/mixin';
+import Initials from 'ember-initials/mixins/initials';
 
 const { Component } = Ember;
 

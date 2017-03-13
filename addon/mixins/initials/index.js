@@ -4,11 +4,12 @@ import { generateInitials, generateImage, revokeImage } from './-private/generat
 
 export default Ember.Mixin.create({
   tagName: 'img',
-  attributeBindings: ['width', 'height', 'src'],
+  attributeBindings: ['width', 'height', 'src', 'onError'],
 
   defaultName: '?',
   defaultBackground: '#dd6a58',
 
+  image: null,
   name: Ember.computed.reads('defaultName'),
   seedText: Ember.computed.reads('name'),
 
@@ -50,14 +51,24 @@ export default Ember.Mixin.create({
     }
   }),
 
-  src: Ember.computed('fastboot.isFastBoot', function() {
+  src: Ember.computed('fastboot.isFastBoot', 'image', function() {
+    let image = this.get('image');
+
     if (!this.get('fastboot.isFastBoot')) {
-      return this.createInitials();
+      return image ? image : this.createInitials();
+    } else {
+      return image ? image : '';
     }
   }),
 
   fastboot: Ember.computed(function() {
     return Ember.getOwner(this).lookup('service:fastboot');
+  }),
+
+  onError: Ember.computed('image', function() {
+    if (this.get('image')) {
+      return this._checkImage.bind(this);
+    }
   }),
 
   createInitials() {
@@ -92,5 +103,9 @@ export default Ember.Mixin.create({
     return {
       'background-color': this.get('backgroundColor'),
     };
+  },
+
+  _checkImage(e) {
+    e.srcElement.src = this.createInitials();
   },
 });

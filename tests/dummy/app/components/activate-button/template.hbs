@@ -1,0 +1,5 @@
+{{#if activeExample}}
+  <a class="btn btn-lg btn-outline btn-ember" {{action 'deactivate'}}>Back to examples</a>
+{{else}}
+  <a class="btn btn-lg btn-outline btn-ember" {{action 'activate' exampleName}}>Live example</a>
+{{/if}}
