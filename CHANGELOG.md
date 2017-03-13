@@ -1,7 +1,26 @@
 # Change Log
 
-## [2.4.0](https://github.com/exelord/ember-initials/tree/2.4.0) (2017-02-26)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.3.1...2.4.0)
+## [v3.0.0](https://github.com/exelord/ember-initials/tree/v3.0.0) (2017-03-13)
+[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.4.0...v3.0.0)
+
+**Implemented enhancements:**
+
+- Avatars as Images, Gravatars, Initials and adorables... 4 in 1 [\#21](https://github.com/Exelord/ember-initials/pull/21) ([Exelord](https://github.com/Exelord))
+- Improve priavte api [\#17](https://github.com/Exelord/ember-initials/pull/17) ([Exelord](https://github.com/Exelord))
+
+**Closed issues:**
+
+- Helper can't be found [\#15](https://github.com/Exelord/ember-initials/issues/15)
+- What is the browser support for your addon?  [\#14](https://github.com/Exelord/ember-initials/issues/14)
+- Support for users images [\#20](https://github.com/Exelord/ember-initials/issues/20)
+- Support for gravatars [\#19](https://github.com/Exelord/ember-initials/issues/19)
+
+**Merged pull requests:**
+
+- Add no sizing attributes note to readme [\#18](https://github.com/Exelord/ember-initials/pull/18) ([Frozenfire92](https://github.com/Frozenfire92))
+
+## [v2.4.0](https://github.com/exelord/ember-initials/tree/v2.4.0) (2017-02-26)
+[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.3.1...v2.4.0)
 
 **Implemented enhancements:**
 
