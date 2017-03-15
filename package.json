@@ -1,14 +1,16 @@
 {
   "dependencies": {},
   "fastboot": {
-    "moduleWhitelist": [],
+    "moduleWhitelist": [
+      "md5"
+    ],
     "schemaVersion": 2,
     "manifest": {
       "appFiles": [
-        "fastboot/dummy-e56fda31289b040b91db063b73ad9685.js"
+        "fastboot/dummy-c423ac45ee917ef14e0b7930740ee359.js"
       ],
       "vendorFiles": [
-        "fastboot/vendor-ab60a0a65c8a6e5ffce41606d8e1c731.js"
+        "fastboot/vendor-89abb4527b0d9f90c11c8fe319b59626.js"
       ],
       "htmlFile": "index.html"
     },
@@ -25,7 +27,7 @@
       },
       "APP": {
         "name": "ember-initials",
-        "version": "2.4.0+0c58f42a",
+        "version": "3.0.1",
         "autoboot": false
       },
       "exportApplicationGlobal": false
