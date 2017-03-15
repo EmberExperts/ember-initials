@@ -3,8 +3,7 @@
     "document",
     "window",
     "unescape",
-    "-Promise",
-    "md5"
+    "-Promise"
   ],
   "browser": true,
   "boss": true,

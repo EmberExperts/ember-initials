@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import Config from 'ember-initials/config';
+import md5 from 'md5';
 
 export default Ember.Mixin.create({
   tagName: 'img',
