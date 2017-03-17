@@ -3,6 +3,6 @@ module.exports = {
   normalizeEntityName: function() {},
 
   afterInstall: function() {
-    return this.addBowerPackagesToProject('blueimp-md5', '^2.7.0');
+    return this.addBowerPackageToProject('blueimp-md5', '^2.7.0');
   }
 };
