@@ -1,6 +1,5 @@
 {
   "name": "ember-initials",
   "dependencies": {
-    "blueimp-md5": "^2.7.0"
   }
 }
