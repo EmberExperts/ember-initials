@@ -1,5 +1,37 @@
 # Change Log
 
+## [v3.1.0](https://github.com/exelord/ember-initials/tree/v3.1.0) (2017-04-08)
+[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.0.3...v3.1.0)
+
+**Implemented enhancements:**
+
+- Remove bower deps [\#26](https://github.com/Exelord/ember-initials/pull/26) ([Exelord](https://github.com/Exelord))
+
+**Closed issues:**
+
+- MD5 stuff breaking new projects [\#25](https://github.com/Exelord/ember-initials/issues/25)
+- Can't seem to upgrade from 2.4.0 to 3.0.0 [\#22](https://github.com/Exelord/ember-initials/issues/22)
+
+**Merged pull requests:**
+
+- Update packages [\#27](https://github.com/Exelord/ember-initials/pull/27) ([Exelord](https://github.com/Exelord))
+
+## [v3.0.3](https://github.com/exelord/ember-initials/tree/v3.0.3) (2017-03-17)
+[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.0.1...v3.0.3)
+
+## [v3.0.1](https://github.com/exelord/ember-initials/tree/v3.0.1) (2017-03-15)
+[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.0.0...v3.0.1)
+
+**Fixed bugs:**
+
+- Add md5 shims [\#24](https://github.com/Exelord/ember-initials/pull/24) ([Exelord](https://github.com/Exelord))
+
+**Closed issues:**
+
+- Is it possible to SPECIFY a background color for any usage of initials? [\#23](https://github.com/Exelord/ember-initials/issues/23)
+- Support for users images [\#20](https://github.com/Exelord/ember-initials/issues/20)
+- Support for gravatars [\#19](https://github.com/Exelord/ember-initials/issues/19)
+
 ## [v3.0.0](https://github.com/exelord/ember-initials/tree/v3.0.0) (2017-03-13)
 [Full Changelog](https://github.com/exelord/ember-initials/compare/v2.4.0...v3.0.0)
 
@@ -12,8 +44,6 @@
 
 - Helper can't be found [\#15](https://github.com/Exelord/ember-initials/issues/15)
 - What is the browser support for your addon?  [\#14](https://github.com/Exelord/ember-initials/issues/14)
-- Support for users images [\#20](https://github.com/Exelord/ember-initials/issues/20)
-- Support for gravatars [\#19](https://github.com/Exelord/ember-initials/issues/19)
 
 **Merged pull requests:**
 
