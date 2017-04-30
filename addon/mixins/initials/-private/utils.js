@@ -1,13 +1,15 @@
-function hashCode(string) {
+export function hashCode(string) {
   let hash = 0;
 
-  if (string && string.length > 0) {
-    for (let i = 0; i < string.length; i++) {
-      hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
+  if (string.length === 0) return hash;
+
+  for (let i = 0; i < string.length; i++) {
+    let char = string.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash |= 0; // Convert to 32bit integer
   }
 
-  return hash & hash;
+  return hash;
 }
 
 export function colorIndex(seedText, colorsLength) {
