@@ -34,7 +34,6 @@
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
     "broccoli-asset-rev": "2.5.0",
-    "deep-equal": "^1.0.1",
     "ember-ajax": "2.5.6",
     "ember-bootstrap": "1.0.0-alpha.9",
     "ember-cli": "2.12.1",
