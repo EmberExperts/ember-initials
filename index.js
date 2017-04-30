@@ -13,8 +13,7 @@ module.exports = {
 
     app.import('vendor/ember-initials/md5.js');
     app.import('vendor/ember-initials/shims/md5/' + shimFor('md5'), {
-      type: 'vendor',
-      exports: { md5: ['md5'] }
+      type: 'vendor'
     });
 
     app.import('vendor/ember-initials/object_hash.js');

@@ -1,3 +1,4 @@
+/* eslint-env node */
 define('md5', [], function() {
   'use strict';
 

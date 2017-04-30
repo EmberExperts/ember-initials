@@ -1,5 +1,6 @@
+/* eslint-env node */
 define('md5', [], function() {
   return {
-    'default': FastBoot.require('md5')
+    'default': FastBoot.require('blueimp-md5')
   };
 });

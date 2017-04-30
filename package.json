@@ -72,7 +72,7 @@
     "object-hash": "^1.1.8"
   },
   "fastbootDependencies": [
-    "md5",
+    "blueimp-md5",
     "object-hash"
   ],
   "ember-addon": {
