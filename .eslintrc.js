@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   root: true,
   parserOptions: {
@@ -11,7 +12,6 @@ module.exports = {
   rules: {
   },
   globals: {
-    md5: true,
     define: true,
     FastBoot: true
   }

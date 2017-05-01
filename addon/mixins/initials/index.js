@@ -1,10 +1,12 @@
 import Ember from 'ember';
 import { colorIndex } from './-private/utils';
-import { generateInitials, generateImage, revokeImage } from './-private/generators';
+import { generateInitials } from './-private/generators';
 
 export default Ember.Mixin.create({
   tagName: 'img',
   attributeBindings: ['width', 'height', 'src', 'onError'],
+
+  initialsStore: Ember.inject.service('ember-initials/initials-store'),
 
   defaultName: '?',
   defaultBackground: '#dd6a58',
@@ -38,7 +40,6 @@ export default Ember.Mixin.create({
   ],
 
   initialsObserver: Ember.observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', function () {
-    revokeImage(this.get('src'));
     this.notifyPropertyChange('src');
   }),
 
@@ -72,7 +73,7 @@ export default Ember.Mixin.create({
   }),
 
   createInitials() {
-    return generateImage(this.initialsProperties());
+    return this.get('initialsStore').initialsFor(this.initialsProperties());
   },
 
   initialsProperties() {
@@ -84,11 +85,6 @@ export default Ember.Mixin.create({
       textStyles: Ember.assign(this._textStyles(), this.get('textStyles')),
       backgroundStyles: Ember.assign(this._backgroundStyles(), this.get('backgroundStyles')),
     };
-  },
-
-  willDestroyElement() {
-    this._super(...arguments);
-    revokeImage(this.get('src'));
   },
 
   _textStyles() {
