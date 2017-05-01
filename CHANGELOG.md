@@ -1,5 +1,17 @@
 # Change Log
 
+## [3.2.0](https://github.com/exelord/ember-initials/tree/3.2.0) (2017-05-01)
+[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.1.0...3.2.0)
+
+**Implemented enhancements:**
+
+- Refactor package [\#31](https://github.com/Exelord/ember-initials/pull/31) ([Exelord](https://github.com/Exelord))
+- Initials caching [\#30](https://github.com/Exelord/ember-initials/pull/30) ([Exelord](https://github.com/Exelord))
+
+**Closed issues:**
+
+- Seeing 404's for image blobs, can't figure out why -- in Chrome, not Firefox \*hrmph\* [\#29](https://github.com/Exelord/ember-initials/issues/29)
+
 ## [v3.1.0](https://github.com/exelord/ember-initials/tree/v3.1.0) (2017-04-08)
 [Full Changelog](https://github.com/exelord/ember-initials/compare/v3.0.3...v3.1.0)
 
