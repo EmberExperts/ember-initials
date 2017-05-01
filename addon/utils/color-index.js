@@ -1,4 +1,11 @@
-export function hashCode(string) {
+export default function (seedText, colorsLength) {
+  let code = hashCode(seedText);
+  return Math.abs(Math.floor(code % colorsLength));
+}
+
+// Private
+
+function hashCode(string) {
   let hash = 0;
 
   if (string.length === 0) return hash;
@@ -10,9 +17,4 @@ export function hashCode(string) {
   }
 
   return hash;
-}
-
-export function colorIndex(seedText, colorsLength) {
-  let code = hashCode(seedText);
-  return Math.abs(Math.floor(code % colorsLength));
 }

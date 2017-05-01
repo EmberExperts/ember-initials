@@ -12,12 +12,12 @@ module.exports = {
     this._super.included(app);
 
     app.import('vendor/ember-initials/md5.js');
-    app.import('vendor/ember-initials/shims/md5/' + shimFor('md5'), {
+    app.import('vendor/shims/md5/' + shimFor('md5'), {
       type: 'vendor'
     });
 
     app.import('vendor/ember-initials/object_hash.js');
-    app.import('vendor/ember-initials/shims/object-hash/' + shimFor('object-hash'), {
+    app.import('vendor/shims/object-hash/' + shimFor('object-hash'), {
       type: 'vendor'
     });
   },
