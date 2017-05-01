@@ -11,12 +11,10 @@ export default Ember.Service.extend({
 
   initialsFor(properties) {
     let key = hash(properties);
-    let bufferedUrl = this.get(`initials`)[key];
+    return this.get(`initials`)[key] || this._create(key, properties);
+  },
 
-    if (bufferedUrl) {
-      return bufferedUrl;
-    } else {
-      return this.get('initials')[key] = generateImage(properties);
-    }
+  _create(key, properties) {
+    return this.get('initials')[key] = generateImage(properties);
   }
 });
