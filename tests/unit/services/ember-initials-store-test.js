@@ -15,17 +15,19 @@ test('it uses image generator', function(assert) {
 
 test('initialsFor', function(assert) {
   let service = this.subject();
+  service.set('initials', {});
+
   let properties = { width: 100, height: 100, initials: "SC", initialsColor: "red" };
-  assert.ok(service.initialsFor(properties))
+  assert.ok(service.initialsFor(properties));
+  assert.equal(Object.keys(service.get('initials')).length, 1);
+
+  assert.ok(service.initialsFor(properties));
   assert.equal(Object.keys(service.get('initials')).length, 1);
 });
 
 test('removeAll', function(assert) {
   let service = this.subject();
-
-  let properties = { width: 100, height: 100, initials: "SC", initialsColor: "red" };
-  service.initialsFor(properties);
-  assert.equal(Object.keys(service.get('initials')).length, 1);
+  service.set('initials', {a: 1, b: 2});
 
   service.removeAll();
   assert.equal(Object.keys(service.get('initials')).length, 0);
