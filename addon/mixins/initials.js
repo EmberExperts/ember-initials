@@ -1,12 +1,12 @@
 import Ember from 'ember';
-import { colorIndex } from './-private/utils';
-import { generateInitials } from './-private/generators';
+import ColorIndex from '../utils/color-index';
+import Initials from '../utils/initials';
 
 export default Ember.Mixin.create({
   tagName: 'img',
   attributeBindings: ['width', 'height', 'src', 'onError'],
 
-  initialsStore: Ember.inject.service('ember-initials/initials-store'),
+  initialsStore: Ember.inject.service('ember-initials-store'),
 
   defaultName: '?',
   defaultBackground: '#dd6a58',
@@ -47,7 +47,7 @@ export default Ember.Mixin.create({
     if (this.get('seedText') === this.get('defaultName')) {
       return this.get('defaultBackground');
     } else {
-      let index = colorIndex(this.get('seedText'), this.get('colors.length'));
+      let index = ColorIndex(this.get('seedText'), this.get('colors.length'));
       return this.get('colors')[index];
     }
   }),
@@ -80,7 +80,7 @@ export default Ember.Mixin.create({
     return {
       width: 100,
       height: 100,
-      initials: generateInitials(this.get('name') || this.get('defaultName')),
+      initials: Initials(this.get('name') || this.get('defaultName')),
       initialsColor: this.get('textColor'),
       textStyles: Ember.assign(this._textStyles(), this.get('textStyles')),
       backgroundStyles: Ember.assign(this._backgroundStyles(), this.get('backgroundStyles')),
