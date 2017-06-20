@@ -82,8 +82,8 @@ export default Ember.Mixin.create({
       height: 100,
       initials: Initials(this.get('name') || this.get('defaultName')),
       initialsColor: this.get('textColor'),
-      textStyles: Ember.assign(this._textStyles(), this.get('textStyles')),
-      backgroundStyles: Ember.assign(this._backgroundStyles(), this.get('backgroundStyles')),
+      textStyles: Ember.assign({}, this._textStyles(), this.get('textStyles')),
+      backgroundStyles: Ember.assign({}, this._backgroundStyles(), this.get('backgroundStyles')),
     };
   },
 

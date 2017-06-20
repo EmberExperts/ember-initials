@@ -24,7 +24,7 @@ export default Ember.Mixin.create({
 
   config: Ember.computed(function() {
     let appSettings = Ember.getOwner(this).resolveRegistration('config:environment').emberInitials || {};
-    return Ember.assign(Config, appSettings);
+    return Ember.assign({}, Config, appSettings);
   }),
 
   fastboot: Ember.computed(function() {
