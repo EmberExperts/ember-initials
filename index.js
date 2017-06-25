@@ -12,14 +12,10 @@ module.exports = {
     this._super.included(app);
 
     app.import('vendor/ember-initials/md5.js');
-    app.import('vendor/shims/md5/' + shimFor('md5'), {
-      type: 'vendor'
-    });
+    app.import('vendor/shims/md5.js', { type: 'vendor' });
 
     app.import('vendor/ember-initials/object_hash.js');
-    app.import('vendor/shims/object-hash/' + shimFor('object-hash'), {
-      type: 'vendor'
-    });
+    app.import('vendor/shims/object-hash.js', { type: 'vendor' });
   },
 
   md5Path() {
@@ -45,15 +41,4 @@ module.exports = {
 
     return mergeTrees(trees);
   }
-}
-
-function shimFor(name) {
-  return isFastBoot() ? `${name}-fastboot.js` : `${name}.js`;
-}
-
-// Checks to see whether this build is targeting FastBoot. Note that we cannot
-// check this at boot time--the environment variable is only set once the build
-// has started, which happens after this file is evaluated.
-function isFastBoot() {
-  return process.env.EMBER_CLI_FASTBOOT === 'true';
 }
