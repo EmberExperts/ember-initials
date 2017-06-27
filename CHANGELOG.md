@@ -1,7 +1,27 @@
 # Change Log
 
-## [3.2.0](https://github.com/exelord/ember-initials/tree/3.2.0) (2017-05-01)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.1.0...3.2.0)
+## [3.3.0](https://github.com/exelord/ember-initials/tree/3.3.0) (2017-06-27)
+[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.2.1...3.3.0)
+
+**Implemented enhancements:**
+
+- Upgrade packages [\#35](https://github.com/Exelord/ember-initials/pull/35) ([Exelord](https://github.com/Exelord))
+
+**Fixed bugs:**
+
+- Fix breaking changes in FastBoot 1.0 [\#34](https://github.com/Exelord/ember-initials/issues/34)
+- Upgrade packages [\#35](https://github.com/Exelord/ember-initials/pull/35) ([Exelord](https://github.com/Exelord))
+- Fix potential problem with ember assign [\#33](https://github.com/Exelord/ember-initials/pull/33) ([Exelord](https://github.com/Exelord))
+
+**Closed issues:**
+
+- could not install [\#32](https://github.com/Exelord/ember-initials/issues/32)
+
+## [v3.2.1](https://github.com/exelord/ember-initials/tree/v3.2.1) (2017-05-01)
+[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.2.0...v3.2.1)
+
+## [v3.2.0](https://github.com/exelord/ember-initials/tree/v3.2.0) (2017-05-01)
+[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.1.0...v3.2.0)
 
 **Implemented enhancements:**
 
