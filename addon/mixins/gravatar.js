@@ -18,17 +18,13 @@ export default Ember.Mixin.create({
   height: Ember.computed.reads('size'),
   width: Ember.computed.reads('size'),
 
-  src: Ember.computed('email', 'size', 'image', 'defaultImage', 'fastboot.isFastBoot', function() {
-    return this.get('fastboot.isFastBoot') || this.get('image') ? this.get('image') : this.generateGravatarUrl();
+  src: Ember.computed('email', 'size', 'image', 'defaultImage', function() {
+    return this.get('image') ? this.get('image') : this.generateGravatarUrl();
   }),
 
   config: Ember.computed(function() {
     let appSettings = Ember.getOwner(this).resolveRegistration('config:environment').emberInitials || {};
     return Ember.assign({}, Config, appSettings);
-  }),
-
-  fastboot: Ember.computed(function() {
-    return Ember.getOwner(this).lookup('service:fastboot');
   }),
 
   generateGravatarUrl() {
