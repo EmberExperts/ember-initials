@@ -1,0 +1,14 @@
+{
+  "assets": {
+    "assets/dummy-fastboot.js": "assets/dummy-fastboot-1173feef7486eedae3df411ced5fc1f8.js",
+    "assets/dummy.css": "assets/dummy-106e177687bed531c506ae82cda16b6c.css",
+    "assets/dummy.js": "assets/dummy-9fbe01ec888aebd8eab37415ec2e7b04.js",
+    "assets/vendor.css": "assets/vendor-0dc29032c3fa14f751f656c1113c331e.css",
+    "assets/vendor.js": "assets/vendor-87443838fbd25f25c8faa2b09d7dd72a.js",
+    "images/atom.png": "images/atom-8da5d02e2322e8ccb9a38b440e1be542.png",
+    "images/default.jpg": "images/default-d5f51047d8bd6327ec4a74361a7aae7f.jpg",
+    "images/logo.png": "images/logo-10fb2135bcedeacb73d983c131296556.png",
+    "images/og-image.jpg": "images/og-image-662c992280587dab66deb50c687e89c4.jpg"
+  },
+  "prepend": ""
+}
