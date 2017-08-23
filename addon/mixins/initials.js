@@ -44,6 +44,8 @@ export default Ember.Mixin.create({
   }),
 
   backgroundColor: Ember.computed('colors.length', 'seedText', 'defaultName', 'defaultBackground', function () {
+    if (this.isDestoryed) { return; }
+    
     if (this.get('seedText') === this.get('defaultName')) {
       return this.get('defaultBackground');
     } else {
