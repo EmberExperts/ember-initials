@@ -1,10 +1,11 @@
 {
   "assets": {
-    "assets/dummy-fastboot.js": "assets/dummy-fastboot-1173feef7486eedae3df411ced5fc1f8.js",
-    "assets/dummy.css": "assets/dummy-106e177687bed531c506ae82cda16b6c.css",
-    "assets/dummy.js": "assets/dummy-9fbe01ec888aebd8eab37415ec2e7b04.js",
-    "assets/vendor.css": "assets/vendor-0dc29032c3fa14f751f656c1113c331e.css",
-    "assets/vendor.js": "assets/vendor-87443838fbd25f25c8faa2b09d7dd72a.js",
+    "assets/assetMap.json": "assets/assetMap.json",
+    "assets/dummy-fastboot.js": "assets/dummy-fastboot-8af7c10f53bf3cdc4e024e178ab7d5b4.js",
+    "assets/dummy.css": "assets/dummy-755971d824c9e643736e5246501ea968.css",
+    "assets/dummy.js": "assets/dummy-f9940a2c55b5ae337bc02db4d36867a0.js",
+    "assets/vendor.css": "assets/vendor-17ce9a4e5964c82dbc2dc79cee797f1d.css",
+    "assets/vendor.js": "assets/vendor-072f15d9146c933e062cf6825a633d09.js",
     "images/atom.png": "images/atom-8da5d02e2322e8ccb9a38b440e1be542.png",
     "images/default.jpg": "images/default-d5f51047d8bd6327ec4a74361a7aae7f.jpg",
     "images/logo.png": "images/logo-10fb2135bcedeacb73d983c131296556.png",
