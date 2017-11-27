@@ -1,7 +1,19 @@
 # Change Log
 
-## [3.3.0](https://github.com/exelord/ember-initials/tree/3.3.0) (2017-06-27)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.2.1...3.3.0)
+## [3.4.0](https://github.com/Exelord/ember-initials/tree/3.4.0) (2017-11-27)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.3.0...3.4.0)
+
+**Implemented enhancements:**
+
+- Packages upgrades [\#39](https://github.com/Exelord/ember-initials/pull/39) ([Exelord](https://github.com/Exelord))
+
+**Closed issues:**
+
+- how to generate round avatar [\#38](https://github.com/Exelord/ember-initials/issues/38)
+- Test failures when setting a value on a destroyed initials mixin. [\#36](https://github.com/Exelord/ember-initials/issues/36)
+
+## [v3.3.0](https://github.com/Exelord/ember-initials/tree/v3.3.0) (2017-06-27)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.2.1...v3.3.0)
 
 **Implemented enhancements:**
 
@@ -17,11 +29,11 @@
 
 - could not install [\#32](https://github.com/Exelord/ember-initials/issues/32)
 
-## [v3.2.1](https://github.com/exelord/ember-initials/tree/v3.2.1) (2017-05-01)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.2.0...v3.2.1)
+## [v3.2.1](https://github.com/Exelord/ember-initials/tree/v3.2.1) (2017-05-01)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.2.0...v3.2.1)
 
-## [v3.2.0](https://github.com/exelord/ember-initials/tree/v3.2.0) (2017-05-01)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.1.0...v3.2.0)
+## [v3.2.0](https://github.com/Exelord/ember-initials/tree/v3.2.0) (2017-05-01)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.1.0...v3.2.0)
 
 **Implemented enhancements:**
 
@@ -32,8 +44,8 @@
 
 - Seeing 404's for image blobs, can't figure out why -- in Chrome, not Firefox \*hrmph\* [\#29](https://github.com/Exelord/ember-initials/issues/29)
 
-## [v3.1.0](https://github.com/exelord/ember-initials/tree/v3.1.0) (2017-04-08)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.0.3...v3.1.0)
+## [v3.1.0](https://github.com/Exelord/ember-initials/tree/v3.1.0) (2017-04-08)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.0.3...v3.1.0)
 
 **Implemented enhancements:**
 
@@ -48,11 +60,11 @@
 
 - Update packages [\#27](https://github.com/Exelord/ember-initials/pull/27) ([Exelord](https://github.com/Exelord))
 
-## [v3.0.3](https://github.com/exelord/ember-initials/tree/v3.0.3) (2017-03-17)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.0.1...v3.0.3)
+## [v3.0.3](https://github.com/Exelord/ember-initials/tree/v3.0.3) (2017-03-17)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.0.1...v3.0.3)
 
-## [v3.0.1](https://github.com/exelord/ember-initials/tree/v3.0.1) (2017-03-15)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v3.0.0...v3.0.1)
+## [v3.0.1](https://github.com/Exelord/ember-initials/tree/v3.0.1) (2017-03-15)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.0.0...v3.0.1)
 
 **Fixed bugs:**
 
@@ -64,8 +76,8 @@
 - Support for users images [\#20](https://github.com/Exelord/ember-initials/issues/20)
 - Support for gravatars [\#19](https://github.com/Exelord/ember-initials/issues/19)
 
-## [v3.0.0](https://github.com/exelord/ember-initials/tree/v3.0.0) (2017-03-13)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.4.0...v3.0.0)
+## [v3.0.0](https://github.com/Exelord/ember-initials/tree/v3.0.0) (2017-03-13)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v2.4.0...v3.0.0)
 
 **Implemented enhancements:**
 
@@ -81,27 +93,27 @@
 
 - Add no sizing attributes note to readme [\#18](https://github.com/Exelord/ember-initials/pull/18) ([Frozenfire92](https://github.com/Frozenfire92))
 
-## [v2.4.0](https://github.com/exelord/ember-initials/tree/v2.4.0) (2017-02-26)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.3.1...v2.4.0)
+## [v2.4.0](https://github.com/Exelord/ember-initials/tree/v2.4.0) (2017-02-26)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v2.3.1...v2.4.0)
 
 **Implemented enhancements:**
 
 - Upgrade packages [\#13](https://github.com/Exelord/ember-initials/pull/13) ([Exelord](https://github.com/Exelord))
 - New page [\#12](https://github.com/Exelord/ember-initials/pull/12) ([Exelord](https://github.com/Exelord))
 
-## [v2.3.1](https://github.com/exelord/ember-initials/tree/v2.3.1) (2017-02-26)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.3.0...v2.3.1)
+## [v2.3.1](https://github.com/Exelord/ember-initials/tree/v2.3.1) (2017-02-26)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v2.3.0...v2.3.1)
 
-## [v2.3.0](https://github.com/exelord/ember-initials/tree/v2.3.0) (2017-02-23)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.2.0...v2.3.0)
+## [v2.3.0](https://github.com/Exelord/ember-initials/tree/v2.3.0) (2017-02-23)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v2.2.0...v2.3.0)
 
 **Implemented enhancements:**
 
 - Fastboot compatibility  [\#10](https://github.com/Exelord/ember-initials/issues/10)
 - Fix fastboot errors [\#11](https://github.com/Exelord/ember-initials/pull/11) ([Exelord](https://github.com/Exelord))
 
-## [v2.2.0](https://github.com/exelord/ember-initials/tree/v2.2.0) (2017-01-06)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.1.1...v2.2.0)
+## [v2.2.0](https://github.com/Exelord/ember-initials/tree/v2.2.0) (2017-01-06)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v2.1.1...v2.2.0)
 
 **Implemented enhancements:**
 
@@ -111,15 +123,15 @@
 
 - Fix IE compatibility [\#8](https://github.com/Exelord/ember-initials/pull/8) ([Exelord](https://github.com/Exelord))
 
-## [v2.1.1](https://github.com/exelord/ember-initials/tree/v2.1.1) (2016-12-26)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.1.0...v2.1.1)
+## [v2.1.1](https://github.com/Exelord/ember-initials/tree/v2.1.1) (2016-12-26)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v2.1.0...v2.1.1)
 
 **Fixed bugs:**
 
 - Fix revoking images [\#7](https://github.com/Exelord/ember-initials/pull/7) ([Exelord](https://github.com/Exelord))
 
-## [v2.1.0](https://github.com/exelord/ember-initials/tree/v2.1.0) (2016-12-18)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.0.3...v2.1.0)
+## [v2.1.0](https://github.com/Exelord/ember-initials/tree/v2.1.0) (2016-12-18)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v2.0.3...v2.1.0)
 
 **Fixed bugs:**
 
@@ -130,20 +142,20 @@
 
 - Optimize SVG initials [\#6](https://github.com/Exelord/ember-initials/pull/6) ([Exelord](https://github.com/Exelord))
 
-## [v2.0.3](https://github.com/exelord/ember-initials/tree/v2.0.3) (2016-11-26)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.0.2...v2.0.3)
+## [v2.0.3](https://github.com/Exelord/ember-initials/tree/v2.0.3) (2016-11-26)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v2.0.2...v2.0.3)
 
 **Fixed bugs:**
 
 - Fix latin initials [\#3](https://github.com/Exelord/ember-initials/pull/3) ([Exelord](https://github.com/Exelord))
 
-## [v2.0.2](https://github.com/exelord/ember-initials/tree/v2.0.2) (2016-11-25)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.0.1...v2.0.2)
+## [v2.0.2](https://github.com/Exelord/ember-initials/tree/v2.0.2) (2016-11-25)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v2.0.1...v2.0.2)
 
-## [v2.0.1](https://github.com/exelord/ember-initials/tree/v2.0.1) (2016-11-21)
-[Full Changelog](https://github.com/exelord/ember-initials/compare/v2.0.0...v2.0.1)
+## [v2.0.1](https://github.com/Exelord/ember-initials/tree/v2.0.1) (2016-11-21)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v2.0.0...v2.0.1)
 
-## [v2.0.0](https://github.com/exelord/ember-initials/tree/v2.0.0) (2016-11-21)
+## [v2.0.0](https://github.com/Exelord/ember-initials/tree/v2.0.0) (2016-11-21)
 **Merged pull requests:**
 
 - v1.0.0 [\#2](https://github.com/Exelord/ember-initials/pull/2) ([Exelord](https://github.com/Exelord))
