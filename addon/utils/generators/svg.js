@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember$ from 'jquery';
 import Base from './base';
 
 export default class extends Base {
@@ -11,7 +11,7 @@ export default class extends Base {
     let svgElement = this._generateSvgElement(properties.width, properties.height, properties.backgroundStyles);
 
     svgElement.append(textElement);
-    let finalElement = Ember.$('<div>').append(svgElement);
+    let finalElement = Ember$('<div>').append(svgElement);
     let blob = new Blob([finalElement.html()], { type: "image/svg+xml" });
     return URL.createObjectURL(blob);
   }
@@ -30,7 +30,7 @@ export default class extends Base {
   }
 
   _generateElement(name, styles = {}, attrs = {}) {
-    return Ember.$(name).attr(attrs).css(styles);
+    return Ember$(name).attr(attrs).css(styles);
   }
 
   _generateSvgElement(width, height, styles = {}) {

@@ -1,6 +1,4 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import Gravatar from 'ember-initials/mixins/gravatar';
-
-const { Component } = Ember;
 
 export default Component.extend(Gravatar);
