@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import Ember$ from 'jquery';
+import { Promise as EmberPromise } from 'rsvp';
 import { test } from 'ember-qunit';
 import { moduleForComponent } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
@@ -6,10 +7,10 @@ import hbs from 'htmlbars-inline-precompile';
 moduleForComponent('ember-initials', 'Ember initials Component Tests', { integration: true });
 
 function imagePromise(container, svg = true) {
-  return new Ember.RSVP.Promise((resolve) => {
+  return new EmberPromise((resolve) => {
     if (svg) {
-      Ember.$.get(container.$('img').attr('src'), (image) => {
-        resolve(Ember.$(image));
+      Ember$.get(container.$('img').attr('src'), (image) => {
+        resolve(Ember$(image));
       });
     } else {
       resolve(container.$('img'));

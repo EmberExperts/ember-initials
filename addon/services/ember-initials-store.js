@@ -1,15 +1,19 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Service from '@ember/service';
 import hash from 'object-hash';
 import SvgGenerator from '../utils/generators/svg';
 
-const { computed, Service } = Ember;
-
 export default Service.extend({
-  initials: {},
+  initials: null,
 
   generator: computed(function() {
     return new SvgGenerator;
   }),
+
+  init() {
+    this._super(...arguments);
+    this.set('initials', {});
+  },
 
   removeAll() {
     Object.keys(this.get(`initials`)).forEach((key) => this.get('generator').revoke(key))

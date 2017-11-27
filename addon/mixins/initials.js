@@ -1,23 +1,28 @@
-import Ember from 'ember';
+import { assign } from '@ember/polyfills';
+import { getOwner } from '@ember/application';
+import { observer, computed } from '@ember/object';
+import { reads } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Mixin from '@ember/object/mixin';
 import ColorIndex from '../utils/color-index';
 import Initials from '../utils/initials';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   tagName: 'img',
   attributeBindings: ['width', 'height', 'src', 'onError'],
 
-  initialsStore: Ember.inject.service('ember-initials-store'),
+  initialsStore: service('ember-initials-store'),
 
   defaultName: '?',
   defaultBackground: '#dd6a58',
 
   image: null,
-  name: Ember.computed.reads('defaultName'),
-  seedText: Ember.computed.reads('name'),
+  name: reads('defaultName'),
+  seedText: reads('name'),
 
   size: 30,
-  height: Ember.computed.reads('size'),
-  width: Ember.computed.reads('size'),
+  height: reads('size'),
+  width: reads('size'),
 
   backgroundStyles: {},
   textStyles: {},
@@ -39,11 +44,11 @@ export default Ember.Mixin.create({
     '#b49255', '#a94136', '#5461b4',
   ],
 
-  initialsObserver: Ember.observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', function () {
+  initialsObserver: observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', function () {
     this.notifyPropertyChange('src');
   }),
 
-  backgroundColor: Ember.computed('colors.length', 'seedText', 'defaultName', 'defaultBackground', function () {
+  backgroundColor: computed('colors.length', 'seedText', 'defaultName', 'defaultBackground', function () {
     if (this.get('seedText') === this.get('defaultName')) {
       return this.get('defaultBackground');
     } else {
@@ -52,7 +57,7 @@ export default Ember.Mixin.create({
     }
   }),
 
-  src: Ember.computed('fastboot.isFastBoot', 'image', function() {
+  src: computed('fastboot.isFastBoot', 'image', function() {
     let image = this.get('image');
 
     if (!this.get('fastboot.isFastBoot')) {
@@ -62,11 +67,11 @@ export default Ember.Mixin.create({
     }
   }),
 
-  fastboot: Ember.computed(function() {
-    return Ember.getOwner(this).lookup('service:fastboot');
+  fastboot: computed(function() {
+    return getOwner(this).lookup('service:fastboot');
   }),
 
-  onError: Ember.computed('image', function() {
+  onError: computed('image', function() {
     if (this.get('image')) {
       return this._checkImage.bind(this);
     }
@@ -82,8 +87,8 @@ export default Ember.Mixin.create({
       height: 100,
       initials: Initials(this.get('name') || this.get('defaultName')),
       initialsColor: this.get('textColor'),
-      textStyles: Ember.assign({}, this._textStyles(), this.get('textStyles')),
-      backgroundStyles: Ember.assign({}, this._backgroundStyles(), this.get('backgroundStyles')),
+      textStyles: assign({}, this._textStyles(), this.get('textStyles')),
+      backgroundStyles: assign({}, this._backgroundStyles(), this.get('backgroundStyles')),
     };
   },
 

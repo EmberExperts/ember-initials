@@ -1,6 +1,8 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import { reads, or } from '@ember/object/computed';
+import Mixin from '@ember/object/mixin';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   tagName: 'img',
   attributeBindings: ['width', 'height', 'src', 'title', 'alt'],
 
@@ -11,12 +13,12 @@ export default Ember.Mixin.create({
   alt: 'User Avatar',
 
   size: 30,
-  height: Ember.computed.reads('size'),
-  width: Ember.computed.reads('size'),
+  height: reads('size'),
+  width: reads('size'),
 
-  src: Ember.computed.or('image', 'adorable'),
+  src: or('image', 'adorable'),
 
-  adorable: Ember.computed('email', 'size', function() {
+  adorable: computed('email', 'size', function() {
     return `https://api.adorable.io/avatars/${this.get('size')}/${this.get('email')}`;
   })
 });

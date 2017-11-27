@@ -1,8 +1,12 @@
-import Ember from 'ember';
+import { assign } from '@ember/polyfills';
+import { getOwner } from '@ember/application';
+import { reads } from '@ember/object/computed';
+import { computed } from '@ember/object';
+import Mixin from '@ember/object/mixin';
 import Config from 'ember-initials/config';
 import md5 from 'md5';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   tagName: 'img',
   attributeBindings: ['width', 'height', 'src'],
 
@@ -10,21 +14,21 @@ export default Ember.Mixin.create({
 
   image: null,
   relativeUrl: false,
-  defaultImage: Ember.computed(function() {
+  defaultImage: computed(function() {
     return this.get('config.gravatar.defaultImage');
   }),
 
   size: 30,
-  height: Ember.computed.reads('size'),
-  width: Ember.computed.reads('size'),
+  height: reads('size'),
+  width: reads('size'),
 
-  src: Ember.computed('email', 'size', 'image', 'defaultImage', function() {
+  src: computed('email', 'size', 'image', 'defaultImage', function() {
     return this.get('image') ? this.get('image') : this.generateGravatarUrl();
   }),
 
-  config: Ember.computed(function() {
-    let appSettings = Ember.getOwner(this).resolveRegistration('config:environment').emberInitials || {};
-    return Ember.assign({}, Config, appSettings);
+  config: computed(function() {
+    let appSettings = getOwner(this).resolveRegistration('config:environment').emberInitials || {};
+    return assign({}, Config, appSettings);
   }),
 
   generateGravatarUrl() {
