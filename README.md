@@ -31,6 +31,11 @@ Ember Initials gives you a built-in components which you can use in yours templa
 ```hbs
 {{ember-initials name="John Doe"}}
 ```
+or
+
+```hbs
+{{ember-initials/initials name="John Doe"}}
+```
 
 ##### Image avatars:
 ```hbs

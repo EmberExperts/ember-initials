@@ -1,48 +1,37 @@
+import Mixin from '@ember/object/mixin';
+import Avatar from 'ember-initials/mixins/avatar';
 import { assign } from '@ember/polyfills';
-import { getOwner } from '@ember/application';
 import { observer, computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
-import Mixin from '@ember/object/mixin';
-import ColorIndex from '../utils/color-index';
-import Initials from '../utils/initials';
+import ColorIndex from 'ember-initials/utils/color-index';
+import Initials from 'ember-initials/utils/initials';
 
-export default Mixin.create({
-  tagName: 'img',
-  attributeBindings: ['width', 'height', 'src', 'onError'],
-
+export default Mixin.create(Avatar, {
   initialsStore: service('ember-initials-store'),
+
+  image: null,
+  colors: null,
+  textStyles: null,
+  backgroundStyles: null,
 
   defaultName: '?',
   defaultBackground: '#dd6a58',
 
-  image: null,
+  fontSize: 50,
+  fontWeight: 200,
+  textColor: 'white',
+  fontFamily: 'Helvetica Neue Light, Arial, sans-serif',
+
   name: reads('defaultName'),
   seedText: reads('name'),
 
-  size: 30,
-  height: reads('size'),
-  width: reads('size'),
+  src: computed('fastboot.isFastBoot', 'image', function() {
+    let image = this.get('image');
 
-  backgroundStyles: {},
-  textStyles: {},
-
-  textColor: 'white',
-  fontSize: 50,
-  fontWeight: 200,
-  fontFamily: 'Helvetica Neue Light, Arial, sans-serif',
-
-  colors: [
-    '#1abc9c', '#16a085', '#f1c40f',
-    '#f39c12', '#2ecc71', '#27ae60',
-    '#e67e22', '#d35400', '#3498db',
-    '#2980b9', '#e74c3c', '#c0392b',
-    '#9b59b6', '#8e44ad', '#bdc3c7',
-    '#34495e', '#2c3e50', '#95a5a6',
-    '#7f8c8d', '#ec87bf', '#d870ad',
-    '#f69785', '#9ba37e', '#b49255',
-    '#b49255', '#a94136', '#5461b4',
-  ],
+    if (image) return image;
+    return this.get('fastboot.isFastBoot') ? '' : this.createInitials();
+  }),
 
   initialsObserver: observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', function () {
     this.notifyPropertyChange('src');
@@ -57,19 +46,25 @@ export default Mixin.create({
     }
   }),
 
-  src: computed('fastboot.isFastBoot', 'image', function() {
-    let image = this.get('image');
+  init() {
+    this._super(...arguments);
 
-    if (!this.get('fastboot.isFastBoot')) {
-      return image ? image : this.createInitials();
-    } else {
-      return image ? image : '';
-    }
-  }),
-
-  fastboot: computed(function() {
-    return getOwner(this).lookup('service:fastboot');
-  }),
+    this.setProperties({
+      backgroundStyles: {},
+      textStyles: {},
+      colors: [
+        '#1abc9c', '#16a085', '#f1c40f',
+        '#f39c12', '#2ecc71', '#27ae60',
+        '#e67e22', '#d35400', '#3498db',
+        '#2980b9', '#e74c3c', '#c0392b',
+        '#9b59b6', '#8e44ad', '#bdc3c7',
+        '#34495e', '#2c3e50', '#95a5a6',
+        '#7f8c8d', '#ec87bf', '#d870ad',
+        '#f69785', '#9ba37e', '#b49255',
+        '#b49255', '#a94136', '#5461b4',
+      ]
+    })
+  },
 
   onError: computed('image', function() {
     if (this.get('image')) {

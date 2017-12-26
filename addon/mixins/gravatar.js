@@ -1,34 +1,19 @@
-import { assign } from '@ember/polyfills';
-import { getOwner } from '@ember/application';
-import { reads } from '@ember/object/computed';
-import { computed } from '@ember/object';
 import Mixin from '@ember/object/mixin';
-import Config from 'ember-initials/config';
+import Avatar from 'ember-initials/mixins/avatar';
+import { computed } from '@ember/object';
 import md5 from 'md5';
 
-export default Mixin.create({
-  tagName: 'img',
-  attributeBindings: ['width', 'height', 'src'],
-
+export default Mixin.create(Avatar, {
   email: null,
-
   image: null,
   relativeUrl: false,
+
   defaultImage: computed(function() {
     return this.get('config.gravatar.defaultImage');
   }),
 
-  size: 30,
-  height: reads('size'),
-  width: reads('size'),
-
   src: computed('email', 'size', 'image', 'defaultImage', function() {
     return this.get('image') ? this.get('image') : this.generateGravatarUrl();
-  }),
-
-  config: computed(function() {
-    let appSettings = getOwner(this).resolveRegistration('config:environment').emberInitials || {};
-    return assign({}, Config, appSettings);
   }),
 
   generateGravatarUrl() {
@@ -41,10 +26,11 @@ export default Mixin.create({
   },
 
   defaultImageUrl() {
-    if (this.get('relativeUrl') && this.get('defaultImage')) {
-      return `${window.location.origin}/${this.get('defaultImage')}`;
-    } else {
-      return this.get('defaultImage');
-    }
+    let defaultImage = this.get('defaultImage');
+    return this.get('relativeUrl') && defaultImage ? this._absoluteImageSrc(defaultImage) : defaultImage;
+  },
+
+  _absoluteImageSrc(relativePath) {
+    return `${window.location.origin}/${relativePath}`;
   }
 });
