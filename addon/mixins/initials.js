@@ -3,13 +3,10 @@ import Avatar from 'ember-initials/mixins/avatar';
 import { assign } from '@ember/polyfills';
 import { observer, computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
-import { inject as service } from '@ember/service';
 import ColorIndex from 'ember-initials/utils/color-index';
 import Initials from 'ember-initials/utils/initials';
 
 export default Mixin.create(Avatar, {
-  initialsStore: service('ember-initials-store'),
-
   image: null,
   colors: null,
   textStyles: null,
@@ -73,7 +70,7 @@ export default Mixin.create(Avatar, {
   }),
 
   createInitials() {
-    return this.get('initialsStore').initialsFor(this.initialsProperties());
+    return this.get('avatarsStore').initialsFor(this.initialsProperties());
   },
 
   initialsProperties() {
