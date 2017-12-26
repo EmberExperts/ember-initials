@@ -1,11 +1,10 @@
-[![Build Status](https://travis-ci.org/Exelord/ember-initials.svg?branch=master)](https://travis-ci.org/Exelord/ember-initials)
-[![Dependency Status](https://gemnasium.com/badges/github.com/Exelord/ember-initials.svg)](https://gemnasium.com/github.com/Exelord/ember-initials)
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/Exelord/ember-initials/master/ember-initials.png" alt="ember-initials"/>
+
+  [![Build Status](https://travis-ci.org/Exelord/ember-initials.svg?branch=master)](https://travis-ci.org/Exelord/ember-initials) [![dependencies Status](https://david-dm.org/exelord/ember-initials/status.svg)](https://david-dm.org/exelord/ember-initials) [![Gitter](https://badges.gitter.im/Exelord/ember-initials.svg)](https://gitter.im/Exelord/ember-initials?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Maintainability](https://api.codeclimate.com/v1/badges/05c3ebd3e7a075ab21ef/maintainability)](https://codeclimate.com/github/Exelord/ember-initials/maintainability)
 </p>
 
-Ember Initials is a package for generating simple avatars using users initials, images, gravatars or adorables. It supports Ember 2.8 (or higher) apps. Thanks to highly customizable interface you can define defaults and even set fallbacks.
+Ember Initials is a package for generating simple avatars using users initials, images, gravatars or adorables. It definitely supports Ember 2.12 (or higher). Thanks to highly customizable interface you can define defaults and even set fallbacks.
 
 ## Demo App with code generators
 Demo app with interactive examples you can find at [http://exelord.github.io/ember-initials][9225812a]
