@@ -1,7 +1,17 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/Exelord/ember-initials/master/ember-initials.png" alt="ember-initials"/>
-
-  [![Build Status](https://travis-ci.org/Exelord/ember-initials.svg?branch=master)](https://travis-ci.org/Exelord/ember-initials) [![dependencies Status](https://david-dm.org/exelord/ember-initials/status.svg)](https://david-dm.org/exelord/ember-initials) [![Gitter](https://badges.gitter.im/Exelord/ember-initials.svg)](https://gitter.im/Exelord/ember-initials?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Maintainability](https://api.codeclimate.com/v1/badges/05c3ebd3e7a075ab21ef/maintainability)](https://codeclimate.com/github/Exelord/ember-initials/maintainability)
+  <a href="https://travis-ci.org/Exelord/ember-initials">
+    <img src="https://travis-ci.org/Exelord/ember-initials.svg?branch=master">
+  </a>
+  <a href="https://david-dm.org/exelord/ember-initials">
+    <img src="https://david-dm.org/exelord/ember-initials/status.svg">
+  </a>
+  <a href="https://gitter.im/Exelord/ember-initials?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge">
+    <img src="https://badges.gitter.im/Exelord/ember-initials.svg">
+  </a>
+  <a href="https://codeclimate.com/github/Exelord/ember-initials/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/05c3ebd3e7a075ab21ef/maintainability">
+  </a>
 </p>
 
 Ember Initials is a package for generating simple avatars using users initials, images, gravatars or adorables. It definitely supports Ember 2.12 (or higher). Thanks to highly customizable interface you can define defaults and even set fallbacks.
