@@ -1,24 +1,16 @@
-import { computed } from '@ember/object';
-import { reads, or } from '@ember/object/computed';
 import Mixin from '@ember/object/mixin';
+import Avatar from 'ember-initials/mixins/avatar';
+import { computed } from '@ember/object';
 
-export default Mixin.create({
-  tagName: 'img',
-  attributeBindings: ['width', 'height', 'src', 'title', 'alt'],
-
+export default Mixin.create(Avatar, {
   email: '',
   image: '',
 
-  title: 'User Avatar',
-  alt: 'User Avatar',
+  src: computed('image', 'email', 'size', function() {
+    return this.get('image') || this._adorableSrc(this.get('email'), this.get('size'));
+  }),
 
-  size: 30,
-  height: reads('size'),
-  width: reads('size'),
-
-  src: or('image', 'adorable'),
-
-  adorable: computed('email', 'size', function() {
-    return `https://api.adorable.io/avatars/${this.get('size')}/${this.get('email')}`;
-  })
+  _adorableSrc(email, size) {
+    return `https://api.adorable.io/avatars/${size}/${email}`;
+  }
 });

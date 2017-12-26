@@ -3,8 +3,15 @@ import { Promise as EmberPromise } from 'rsvp';
 import { test } from 'ember-qunit';
 import { moduleForComponent } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import { initialize as storeInitializer } from 'ember-initials/initializers/ember-initials-store';
 
-moduleForComponent('ember-initials', 'Ember initials Component Tests', { integration: true });
+moduleForComponent('ember-initials', 'Ember initials Component Tests', {
+  integration: true,
+
+  beforeEach() {
+    storeInitializer(this);
+  }
+});
 
 function imagePromise(container, svg = true) {
   return new EmberPromise((resolve) => {
@@ -17,6 +24,11 @@ function imagePromise(container, svg = true) {
     }
   });
 }
+
+test('has alternative component', function (assert) {
+  this.render(hbs`{{ember-initials/initials name="Super cool"}}`);
+  assert.equal(this.$('img').length, 1);
+});
 
 test('has correct tag name', function (assert) {
   this.render(hbs`{{ember-initials name="Super cool"}}`);
