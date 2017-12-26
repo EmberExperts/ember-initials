@@ -1,7 +1,14 @@
 # Change Log
 
-## [3.4.0](https://github.com/Exelord/ember-initials/tree/3.4.0) (2017-11-27)
-[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.3.0...3.4.0)
+## [v3.5.0](https://github.com/Exelord/ember-initials/tree/v3.5.0) (2017-12-26)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.4.0...v3.5.0)
+
+**Implemented enhancements:**
+
+- Ember 2.17 upgrade [\#40](https://github.com/Exelord/ember-initials/pull/40) ([Exelord](https://github.com/Exelord))
+
+## [v3.4.0](https://github.com/Exelord/ember-initials/tree/v3.4.0) (2017-11-27)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.3.0...v3.4.0)
 
 **Implemented enhancements:**
 
