@@ -39,7 +39,11 @@ export default EmberObject.extend({
     let pKeys = Object.keys(properties).sort();
     let result = [];
     pKeys.forEach((key) => {
-      result.concat([key, properties[key]]);
+      let value = properties[key];
+      if (typeOf(value) !== 'string') {
+        value = this._ensureHashable(value)
+      }
+      result = result.concat([key, value]);
     });
     return result.toString();
   }
