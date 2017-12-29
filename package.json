@@ -65,15 +65,13 @@
     "loader.js": "4.6.0"
   },
   "dependencies": {
-    "blueimp-md5": "2.10.0",
+    "ember-cli-babel": "6.11.0",
     "broccoli-funnel": "2.0.1",
     "broccoli-merge-trees": "2.0.0",
-    "ember-cli-babel": "6.11.0",
-    "object-hash": "1.2.0"
+    "blueimp-md5": "2.10.0"
   },
   "fastbootDependencies": [
-    "blueimp-md5",
-    "object-hash"
+    "blueimp-md5"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config",
