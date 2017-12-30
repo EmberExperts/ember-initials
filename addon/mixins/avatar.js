@@ -2,6 +2,7 @@ import Mixin from '@ember/object/mixin';
 import { reads } from '@ember/object/computed';
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Mixin.create({
   tagName: 'img',
@@ -23,9 +24,7 @@ export default Mixin.create({
     return getOwner(this).lookup('service:fastboot');
   }),
 
-  avatarsStore: computed(function() {
-    return getOwner(this).lookup('store:ember-initials');
-  }),
+  avatarsStore: service('ember-initials-store'),
 
   onError() {}
 });

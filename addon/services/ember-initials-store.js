@@ -1,9 +1,9 @@
+import Service from '@ember/service';
 import { computed } from '@ember/object';
-import EmberObject from "@ember/object";
-import hash from 'object-hash';
 import SvgGenerator from '../utils/generators/svg';
+import hash from 'ember-initials/utils/hash';
 
-export default EmberObject.extend({
+export default Service.extend({
   cache: null,
 
   generator: computed(function() {
