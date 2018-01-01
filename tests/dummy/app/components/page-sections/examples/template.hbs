@@ -1,22 +1,22 @@
 <div id="examples">
-  <div class="container">
+  <div class="{{if activeExample 'container' 'container-fluid'}}">
     <div class="section-heading">
       <h1 data-wow-delay=".3s" class="title wow fadeInDown" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInDown;">Live Examples</h1>
     </div>
 
-    <div class="{{unless activeExample 'col-md-4 col-sm-6'}}">
+    <div class="{{unless activeExample 'col-md-3 col-sm-6'}}">
       {{avatar-adorable activeExample=activeExample}}
     </div>
 
-    <div class="{{unless activeExample 'col-md-4 col-sm-6'}}">
+    <div class="{{unless activeExample 'col-md-3 col-sm-6'}}">
       {{avatar-initials activeExample=activeExample}}
     </div>
 
-    <div class="{{unless activeExample 'col-md-4 col-sm-6'}}">
+    <div class="{{unless activeExample 'col-md-3 col-sm-6'}}">
       {{avatar-gravatar activeExample=activeExample}}
     </div>
 
-    <div class="{{unless activeExample 'col-md-4 col-sm-6'}}">
+    <div class="{{unless activeExample 'col-md-3 col-sm-6'}}">
       {{avatar-image activeExample=activeExample}}
     </div>
   </div>
