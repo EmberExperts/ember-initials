@@ -1,4 +1,3 @@
-/* eslint-env node */
 define('object-hash', [], function() {
   'use strict';
 
