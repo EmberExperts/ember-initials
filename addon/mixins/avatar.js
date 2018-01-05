@@ -23,9 +23,5 @@ export default Mixin.create({
     return getOwner(this).lookup('service:fastboot');
   }),
 
-  avatarsStore: computed(function() {
-    return getOwner(this).lookup('store:ember-initials');
-  }),
-
   onError() {}
 });

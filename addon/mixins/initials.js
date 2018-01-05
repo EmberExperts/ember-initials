@@ -5,6 +5,8 @@ import { observer, computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
 import ColorIndex from 'ember-initials/utils/color-index';
 import Initials from 'ember-initials/utils/initials';
+import { getOwner } from '@ember/application';
+import Store from '../utils/store';
 
 export default Mixin.create(Avatar, {
   image: null,
@@ -43,6 +45,10 @@ export default Mixin.create(Avatar, {
     }
   }),
 
+  cacheStore: computed(function() {
+    return this._lookupForCacheStore() || this._registerCacheStore();
+  }),
+
   init() {
     this._super(...arguments);
 
@@ -70,7 +76,7 @@ export default Mixin.create(Avatar, {
   }),
 
   createInitials() {
-    return this.get('avatarsStore').initialsFor(this.initialsProperties());
+    return this.get('cacheStore').initialsFor(this.initialsProperties());
   },
 
   initialsProperties() {
@@ -101,4 +107,13 @@ export default Mixin.create(Avatar, {
   _checkImage(e) {
     e.srcElement.src = this.createInitials();
   },
+
+  _lookupForCacheStore() {
+    return getOwner(this).lookup('store:ember-initials');
+  },
+
+  _registerCacheStore() {
+    getOwner(this).register('store:ember-initials', Store);
+    return this._lookupForCacheStore();
+  }
 });
