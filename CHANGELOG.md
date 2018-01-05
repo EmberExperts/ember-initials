@@ -1,5 +1,17 @@
 # Change Log
 
+## [v3.6.1](https://github.com/Exelord/ember-initials/tree/v3.6.1) (2018-01-05)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.6.0...v3.6.1)
+
+**Implemented enhancements:**
+
+- Initialize cache store only when used [\#49](https://github.com/Exelord/ember-initials/pull/49) ([Exelord](https://github.com/Exelord))
+
+**Fixed bugs:**
+
+- Initialize cache store only when used [\#49](https://github.com/Exelord/ember-initials/pull/49) ([Exelord](https://github.com/Exelord))
+- Fix container initializer [\#45](https://github.com/Exelord/ember-initials/pull/45) ([Exelord](https://github.com/Exelord))
+
 ## [v3.6.0](https://github.com/Exelord/ember-initials/tree/v3.6.0) (2017-12-26)
 [Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.5.0...v3.6.0)
 
