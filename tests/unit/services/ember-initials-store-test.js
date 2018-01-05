@@ -1,23 +1,20 @@
-import { module, test } from 'ember-qunit';
+import { moduleFor, test } from 'ember-qunit';
 import Base from 'ember-initials/utils/generators/base';
-import Store from 'ember-initials/utils/store';
 
-module('Unit | Store | Ember Initials', {
-  subject: Store.create()
-});
+moduleFor('service:ember-initials-store', 'Unit | Service | ember initials store');
 
 test('it exists', function(assert) {
-  let store = this.subject;
+  let store = this.subject();
   assert.ok(store);
 });
 
 test('it uses image generator', function(assert) {
-  let store = this.subject;
+  let store = this.subject();
   assert.ok(store.get('generator') instanceof Base);
 });
 
 test('initialsFor', function(assert) {
-  let store = this.subject;
+  let store = this.subject();
   store.set('cache', {});
 
   let properties = { width: 100, height: 100, initials: "SC", initialsColor: "red" };
@@ -29,7 +26,7 @@ test('initialsFor', function(assert) {
 });
 
 test('removeAll', function(assert) {
-  let store = this.subject;
+  let store = this.subject();
   store.set('cache', {a: 1, b: 2});
 
   store.removeAll();
