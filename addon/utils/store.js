@@ -1,6 +1,6 @@
 import { computed } from '@ember/object';
 import EmberObject from "@ember/object";
-import hash from 'object-hash';
+import hash from '../utils/hash';
 import SvgGenerator from '../utils/generators/svg';
 
 export default EmberObject.extend({
