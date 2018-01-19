@@ -1,7 +1,7 @@
 # Change Log
 
-## [v3.6.2](https://github.com/Exelord/ember-initials/tree/v3.6.2) (2018-01-19)
-[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.6.1...v3.6.2)
+## [v3.7.0](https://github.com/Exelord/ember-initials/tree/v3.7.0) (2018-01-19)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.6.1...v3.7.0)
 
 **Implemented enhancements:**
 
