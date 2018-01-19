@@ -1,5 +1,22 @@
 # Change Log
 
+## [v3.6.2](https://github.com/Exelord/ember-initials/tree/v3.6.2) (2018-01-19)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.6.1...v3.6.2)
+
+**Implemented enhancements:**
+
+- Upgrade Ember 2.18 [\#47](https://github.com/Exelord/ember-initials/pull/47) ([Exelord](https://github.com/Exelord))
+- Add tests for object hash [\#44](https://github.com/Exelord/ember-initials/pull/44) ([Exelord](https://github.com/Exelord))
+
+**Fixed bugs:**
+
+- Newest release fails in fastboot [\#42](https://github.com/Exelord/ember-initials/issues/42)
+- Allow to override colors and styles [\#50](https://github.com/Exelord/ember-initials/pull/50) ([Exelord](https://github.com/Exelord))
+
+**Closed issues:**
+
+- Cannot read property 'initialsFor' of undefined [\#46](https://github.com/Exelord/ember-initials/issues/46)
+
 ## [v3.6.1](https://github.com/Exelord/ember-initials/tree/v3.6.1) (2018-01-05)
 [Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.6.0...v3.6.1)
 
