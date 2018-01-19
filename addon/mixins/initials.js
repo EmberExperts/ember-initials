@@ -10,9 +10,6 @@ import Store from '../utils/store';
 
 export default Mixin.create(Avatar, {
   image: null,
-  colors: null,
-  textStyles: null,
-  backgroundStyles: null,
 
   defaultName: '?',
   defaultBackground: '#dd6a58',
@@ -24,6 +21,28 @@ export default Mixin.create(Avatar, {
 
   name: reads('defaultName'),
   seedText: reads('name'),
+
+  textStyles: computed(function() {
+    return {};
+  }),
+
+  backgroundStyles: computed(function() {
+    return {};
+  }),
+
+  colors: computed(function() {
+    return [
+      '#1abc9c', '#16a085', '#f1c40f',
+      '#f39c12', '#2ecc71', '#27ae60',
+      '#e67e22', '#d35400', '#3498db',
+      '#2980b9', '#e74c3c', '#c0392b',
+      '#9b59b6', '#8e44ad', '#bdc3c7',
+      '#34495e', '#2c3e50', '#95a5a6',
+      '#7f8c8d', '#ec87bf', '#d870ad',
+      '#f69785', '#9ba37e', '#b49255',
+      '#b49255', '#a94136', '#5461b4',
+    ];
+  }),
 
   src: computed('fastboot.isFastBoot', 'image', function() {
     let image = this.get('image');
@@ -48,26 +67,6 @@ export default Mixin.create(Avatar, {
   cacheStore: computed(function() {
     return this._lookupForCacheStore() || this._registerCacheStore();
   }),
-
-  init() {
-    this._super(...arguments);
-
-    this.setProperties({
-      backgroundStyles: {},
-      textStyles: {},
-      colors: [
-        '#1abc9c', '#16a085', '#f1c40f',
-        '#f39c12', '#2ecc71', '#27ae60',
-        '#e67e22', '#d35400', '#3498db',
-        '#2980b9', '#e74c3c', '#c0392b',
-        '#9b59b6', '#8e44ad', '#bdc3c7',
-        '#34495e', '#2c3e50', '#95a5a6',
-        '#7f8c8d', '#ec87bf', '#d870ad',
-        '#f69785', '#9ba37e', '#b49255',
-        '#b49255', '#a94136', '#5461b4',
-      ]
-    })
-  },
 
   onError: computed('image', function() {
     if (this.get('image')) {
