@@ -70,7 +70,7 @@ export default Mixin.create(Avatar, {
 
   onError: computed('image', function() {
     if (this.get('image')) {
-      return this._checkImage.bind(this);
+      return this._assignInitialsSrc.bind(this);
     }
   }),
 
@@ -103,7 +103,7 @@ export default Mixin.create(Avatar, {
     };
   },
 
-  _checkImage(e) {
+  _assignInitialsSrc(e) {
     e.srcElement.src = this.createInitials();
   },
 

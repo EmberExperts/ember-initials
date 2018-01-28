@@ -15,11 +15,6 @@ export default EmberObject.extend({
     this.set('cache', {});
   },
 
-  removeAll() {
-    Object.keys(this.get(`cache`)).forEach((key) => this.get('generator').revoke(key))
-    this.set('cache', {});
-  },
-
   initialsFor(properties) {
     let key = hash(properties);
     return this.get('cache')[key] || this._create(key, properties);
