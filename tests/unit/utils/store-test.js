@@ -27,11 +27,3 @@ test('initialsFor', function(assert) {
   assert.ok(store.initialsFor(properties));
   assert.equal(Object.keys(store.get('cache')).length, 1);
 });
-
-test('removeAll', function(assert) {
-  let store = this.subject;
-  store.set('cache', {a: 1, b: 2});
-
-  store.removeAll();
-  assert.equal(Object.keys(store.get('cache')).length, 0);
-});
