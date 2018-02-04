@@ -1,5 +1,12 @@
 # Change Log
 
+## [v3.8.0](https://github.com/Exelord/ember-initials/tree/v3.8.0) (2018-02-04)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.7.0...v3.8.0)
+
+**Implemented enhancements:**
+
+- Remove jQuery dependency [\#51](https://github.com/Exelord/ember-initials/pull/51) ([Exelord](https://github.com/Exelord))
+
 ## [v3.7.0](https://github.com/Exelord/ember-initials/tree/v3.7.0) (2018-01-19)
 [Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.6.1...v3.7.0)
 
