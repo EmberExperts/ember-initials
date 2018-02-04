@@ -37,14 +37,13 @@ export default class extends Base {
   }
 
   _generateElement(name, content = '', styles = {}, attrs = {}) {
-    let attrsString = Object.keys(attrs).map((key) => {
-      return `${key}="${attrs[key]}"`;
-    }).join(' ');
-
-    let stylesString = Object.keys(styles).map((key) => {
-      return `${key}: ${styles[key]};`;
-    }).join(' ');
+    let attrsString = this._transformObject(attrs, (key) => `${key}="${attrs[key]}"`)
+    let stylesString = this._transformObject(styles, (key) => `${key}: ${styles[key]};`)
 
     return `<${name} ${attrsString} style="${stylesString}">${content}</${name}>`
+  }
+
+  _transformObject(object, transform = function() {}) {
+    return Object.keys(object).map((key) => transform(key)).join(' ');
   }
 }
