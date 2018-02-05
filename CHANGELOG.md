@@ -1,5 +1,12 @@
 # Change Log
 
+## [v3.9.0](https://github.com/Exelord/ember-initials/tree/v3.9.0) (2018-02-05)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.8.0...v3.9.0)
+
+**Implemented enhancements:**
+
+- Remove object-hash dependency [\#52](https://github.com/Exelord/ember-initials/pull/52) ([Exelord](https://github.com/Exelord))
+
 ## [v3.8.0](https://github.com/Exelord/ember-initials/tree/v3.8.0) (2018-02-04)
 [Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.7.0...v3.8.0)
 
