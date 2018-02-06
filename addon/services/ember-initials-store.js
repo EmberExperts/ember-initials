@@ -1,7 +1,6 @@
 import Service from '@ember/service';
 import { computed } from '@ember/object';
 import SvgGenerator from '../utils/generators/svg';
-import hash from 'ember-initials/utils/hash';
 
 export default Service.extend({
   cache: null,
@@ -21,7 +20,7 @@ export default Service.extend({
   },
 
   initialsFor(properties) {
-    let key = hash(properties);
+    let key = `${properties.backgroundColor}-${properties.initials}-${properties.initialsColor}`;
     return this.get('cache')[key] || this._create(key, properties);
   },
 

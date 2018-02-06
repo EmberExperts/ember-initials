@@ -81,6 +81,7 @@ export default Mixin.create(Avatar, {
       initialsColor: this.get('textColor'),
       textStyles: assign({}, this._textStyles(), this.get('textStyles')),
       backgroundStyles: assign({}, this._backgroundStyles(), this.get('backgroundStyles')),
+      backgroundColor: this.get('backgroundColor')
     };
   },
 
