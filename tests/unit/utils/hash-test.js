@@ -1,6 +1,5 @@
 import hash from 'dummy/utils/hash';
 import { module, test } from 'qunit';
-import md5 from 'md5';
 
 module('Unit | Utility | hash');
 
@@ -12,12 +11,12 @@ test('it works', function(assert) {
 
 test('it knows how to handle an object', function(assert) {
   let key = hash({a: 'b', c: 'd'});
-  assert.equal(key, md5('a,b,c,d'));
+  assert.equal(key, 'a,b,c,d');
 });
 
 test('it knows how to order keys', function(assert) {
   let key = hash({c: 'd', a: 'b'});
-  assert.equal(key, md5('a,b,c,d'));
+  assert.equal(key, 'a,b,c,d');
 });
 
 test('it knows how to handle nested objects', function(assert) {
@@ -31,7 +30,7 @@ test('it knows how to handle nested objects', function(assert) {
   };
 
   let key = hash(properties);
-  assert.equal(key, md5("a,b,c,d,e,f,g,h,i,j"))
+  assert.equal(key, "a,b,c,d,e,f,g,h,i,j")
 });
 
 test('it knows how to handle integers', function(assert) {
@@ -41,5 +40,5 @@ test('it knows how to handle integers', function(assert) {
 
   let key = hash(properties);
 
-  assert.equal(key, md5('a,1'));
+  assert.equal(key, 'a,1');
 })

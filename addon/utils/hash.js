@@ -1,5 +1,4 @@
 import { typeOf, isBlank } from '@ember/utils';
-import md5 from 'md5';
 
 export default function hash(properties, hashIt = true) {
   if (isBlank(properties)) {
@@ -20,7 +19,7 @@ export default function hash(properties, hashIt = true) {
   });
 
   if (hashIt) {
-    return md5(result.toString());
+    return result.toString();
   }
 
   return result.toString();
