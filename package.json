@@ -62,15 +62,13 @@
     "ember-load-initializers": "1.0.0",
     "ember-resolver": "4.5.0",
     "ember-source": "~2.18.0",
-    "eslint-plugin-ember": "^5.0.3",
-    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-ember": "5.0.3",
+    "eslint-plugin-node": "6.0.0",
     "loader.js": "4.6.0"
   },
   "dependencies": {
-    "blueimp-md5": "2.10.0",
-    "broccoli-funnel": "2.0.1",
-    "broccoli-merge-trees": "2.0.0",
-    "ember-cli-babel": "6.11.0"
+    "ember-cli-babel": "6.11.0",
+    "ember-md5": "1.1.0"
   },
   "fastbootDependencies": [
     "blueimp-md5"
