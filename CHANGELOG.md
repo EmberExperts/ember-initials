@@ -1,5 +1,12 @@
 # Change Log
 
+## [v3.11.0](https://github.com/Exelord/ember-initials/tree/v3.11.0) (2018-02-18)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.10.0...v3.11.0)
+
+**Implemented enhancements:**
+
+- Upgrade to ember 3.0 [\#54](https://github.com/Exelord/ember-initials/pull/54) ([Exelord](https://github.com/Exelord))
+
 ## [v3.10.0](https://github.com/Exelord/ember-initials/tree/v3.10.0) (2018-02-18)
 [Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.9.0...v3.10.0)
 
