@@ -1,5 +1,12 @@
 # Change Log
 
+## [v3.10.0](https://github.com/Exelord/ember-initials/tree/v3.10.0) (2018-02-18)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.9.0...v3.10.0)
+
+**Implemented enhancements:**
+
+- Simplify build process [\#53](https://github.com/Exelord/ember-initials/pull/53) ([Exelord](https://github.com/Exelord))
+
 ## [v3.9.0](https://github.com/Exelord/ember-initials/tree/v3.9.0) (2018-02-05)
 [Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.8.0...v3.9.0)
 
