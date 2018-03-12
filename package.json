@@ -70,8 +70,8 @@
     "loader.js": "4.6.0"
   },
   "dependencies": {
-    "ember-cli-babel": "6.11.0",
-    "ember-md5": "1.1.0"
+    "blueimp-md5": "2.10.0",
+    "ember-cli-babel": "6.11.0"
   },
   "fastbootDependencies": [
     "blueimp-md5"
