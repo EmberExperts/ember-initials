@@ -1,5 +1,16 @@
 # Change Log
 
+## [v3.11.1](https://github.com/Exelord/ember-initials/tree/v3.11.1) (2018-03-21)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.11.0...v3.11.1)
+
+**Closed issues:**
+
+- md5 issue with fresh install [\#56](https://github.com/Exelord/ember-initials/issues/56)
+
+**Merged pull requests:**
+
+- Fix md5 [\#57](https://github.com/Exelord/ember-initials/pull/57) ([Exelord](https://github.com/Exelord))
+
 ## [v3.11.0](https://github.com/Exelord/ember-initials/tree/v3.11.0) (2018-02-18)
 [Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.10.0...v3.11.0)
 
