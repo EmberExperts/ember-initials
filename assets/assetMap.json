@@ -2,10 +2,10 @@
   "assets": {
     "assets/assetMap.json": "assets/assetMap.json",
     "assets/dummy-fastboot.js": "assets/dummy-fastboot-8af7c10f53bf3cdc4e024e178ab7d5b4.js",
-    "assets/dummy.css": "assets/dummy-755971d824c9e643736e5246501ea968.css",
-    "assets/dummy.js": "assets/dummy-a15acbe03b85cc7b4aff02239e6a67ac.js",
+    "assets/dummy.css": "assets/dummy-7a60c775e9eaafbfb863aa915863117c.css",
+    "assets/dummy.js": "assets/dummy-15fbfa6dac1337703d22d4773e366512.js",
     "assets/vendor.css": "assets/vendor-17ce9a4e5964c82dbc2dc79cee797f1d.css",
-    "assets/vendor.js": "assets/vendor-ccebcbcad670e17b8f957025c8fcc2b7.js",
+    "assets/vendor.js": "assets/vendor-f33d0c3d46963c2848f9a1d0a77a2bba.js",
     "images/atom.png": "images/atom-8da5d02e2322e8ccb9a38b440e1be542.png",
     "images/default.jpg": "images/default-d5f51047d8bd6327ec4a74361a7aae7f.jpg",
     "images/logo.png": "images/logo-10fb2135bcedeacb73d983c131296556.png",
