@@ -1,5 +1,16 @@
 # Change Log
 
+## [v3.12.0](https://github.com/Exelord/ember-initials/tree/v3.12.0) (2018-05-01)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.11.1...v3.12.0)
+
+**Implemented enhancements:**
+
+- Feature upgrades 3.1 [\#59](https://github.com/Exelord/ember-initials/pull/59) ([Exelord](https://github.com/Exelord))
+
+**Closed issues:**
+
+- Build Canceled: Broccoli Builder ran into an error with `Concat` plugin [\#55](https://github.com/Exelord/ember-initials/issues/55)
+
 ## [v3.11.1](https://github.com/Exelord/ember-initials/tree/v3.11.1) (2018-03-21)
 [Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.11.0...v3.11.1)
 
