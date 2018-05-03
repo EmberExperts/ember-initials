@@ -31,7 +31,7 @@
     "test:all": "ember try:each"
   },
   "engines": {
-    "node": "^6.6.0"
+    "node": "^4.5 || 6.* || >= 7.*"
   },
   "devDependencies": {
     "bootstrap-sass": "3.3.7",
