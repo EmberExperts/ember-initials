@@ -1,5 +1,16 @@
 # Change Log
 
+## [v3.12.1](https://github.com/Exelord/ember-initials/tree/v3.12.1) (2018-05-06)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.12.0...v3.12.1)
+
+**Closed issues:**
+
+- Node.js Version Issues [\#60](https://github.com/Exelord/ember-initials/issues/60)
+
+**Merged pull requests:**
+
+- update engines package.json [\#61](https://github.com/Exelord/ember-initials/pull/61) ([donaldwasserman](https://github.com/donaldwasserman))
+
 ## [v3.12.0](https://github.com/Exelord/ember-initials/tree/v3.12.0) (2018-05-01)
 [Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.11.1...v3.12.0)
 
