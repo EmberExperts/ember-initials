@@ -1,5 +1,12 @@
 # Change Log
 
+## [v3.12.2](https://github.com/Exelord/ember-initials/tree/v3.12.2) (2018-05-17)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.12.1...v3.12.2)
+
+**Merged pull requests:**
+
+- \[FIX\] Support for engine add-on [\#63](https://github.com/Exelord/ember-initials/pull/63) ([marcemira](https://github.com/marcemira))
+
 ## [v3.12.1](https://github.com/Exelord/ember-initials/tree/v3.12.1) (2018-05-06)
 [Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.12.0...v3.12.1)
 
