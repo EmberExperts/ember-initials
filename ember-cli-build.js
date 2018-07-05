@@ -12,6 +12,9 @@ module.exports = function (defaults) {
     fingerprint: {
       exclude: ['apple-touch-icon', 'favicon', 'mstile']
     },
+    'ember-bootstrap': {
+      bootstrapVersion: 3
+    },
     favicons: {
       faviconsConfig: {
         appName: 'Ember Initials',
