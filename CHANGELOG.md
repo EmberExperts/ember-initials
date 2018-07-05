@@ -1,5 +1,18 @@
 # Change Log
 
+## [v3.13.0](https://github.com/Exelord/ember-initials/tree/v3.13.0) (2018-07-04)
+[Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.12.2...v3.13.0)
+
+**Implemented enhancements:**
+
+- Update dependencies [\#66](https://github.com/Exelord/ember-initials/pull/66) ([Exelord](https://github.com/Exelord))
+
+**Closed issues:**
+
+- avatar using all width and height [\#65](https://github.com/Exelord/ember-initials/issues/65)
+- Make alt text and title configurable [\#64](https://github.com/Exelord/ember-initials/issues/64)
+- ember-initials is not a helper [\#58](https://github.com/Exelord/ember-initials/issues/58)
+
 ## [v3.12.2](https://github.com/Exelord/ember-initials/tree/v3.12.2) (2018-05-17)
 [Full Changelog](https://github.com/Exelord/ember-initials/compare/v3.12.1...v3.12.2)
 
