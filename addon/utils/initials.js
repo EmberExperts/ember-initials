@@ -1,5 +1,5 @@
 export default function(name) {
-  let initials = name ? name.trim() : '';
+  let initials = name ? name.replace(/([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g, '').trim() : '';
   let letters = initials.split(' ');
 
   if (letters.length > 1) {
