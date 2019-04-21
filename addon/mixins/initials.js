@@ -55,12 +55,24 @@ export default Mixin.create(Avatar, {
     this.notifyPropertyChange('src');
   }),
 
-  backgroundColor: computed('colors.length', 'seedText', 'defaultName', 'defaultBackground', function () {
-    if (this.get('seedText') === this.get('defaultName')) {
-      return this.get('defaultBackground');
-    } else {
-      let index = ColorIndex(this.get('seedText'), this.get('colors.length'));
-      return this.get('colors')[index];
+  backgroundColor: computed('colors.length', 'seedText', 'defaultName', 'defaultBackground', {
+    get() {
+      let { colors, seedText, defaultName, defaultBackground } = this;
+
+      if (this._backgroundColor) {
+        return this._backgroundColor;
+      }
+
+      if (seedText === defaultName) {
+        return defaultBackground;
+      } else {
+        let index = ColorIndex(seedText, colors.length);
+        return colors[index];
+      }
+    },
+
+    set(key, value) {
+      return this._backgroundColor = value;
     }
   }),
 
