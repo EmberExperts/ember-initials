@@ -24,6 +24,6 @@ module('ember-initials/image', function(hooks) {
 
     await render(hbs`{{ember-initials/image image=userAvatar}}`);
 
-    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.get('userAvatar')));
+    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), null));
   });
 });

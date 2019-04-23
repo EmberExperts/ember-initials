@@ -21,7 +21,7 @@ export default class extends Base {
       x: '50%',
       dy: '0.35em',
       'text-anchor': 'middle',
-      'pointer-events': 'auto',
+      'pointer-events': 'none',
       fill: color,
     });
   }

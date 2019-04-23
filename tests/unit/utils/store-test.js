@@ -1,6 +1,6 @@
-import { module, test } from 'qunit';
 import Base from 'ember-initials/utils/generators/base';
 import Store from 'ember-initials/utils/store';
+import { module, test } from 'qunit';
 
 module('Unit | Store | Ember Initials', function(hooks) {
   hooks.beforeEach(function() {
@@ -19,13 +19,12 @@ module('Unit | Store | Ember Initials', function(hooks) {
 
   test('initialsFor', function(assert) {
     let store = this.subject;
-    store.set('cache', {});
 
     let properties = { width: 100, height: 100, initials: "SC", initialsColor: "red" };
     assert.ok(store.initialsFor(properties));
-    assert.equal(Object.keys(store.get('cache')).length, 1);
+    assert.equal(store.cache.size, 1);
 
     assert.ok(store.initialsFor(properties));
-    assert.equal(Object.keys(store.get('cache')).length, 1);
+    assert.equal(store.cache.size, 1);
   });
 });
