@@ -21,6 +21,17 @@ Demo app with interactive examples you can find at [http://exelord.github.io/emb
 
 [9225812a]: http://exelord.github.io/ember-initials/ "Ember Initials Demo App"
 
+## Compatibility
+
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
+
+This addon has been tested on:
+- IE 10 and UP including EDGE
+- Firefox 44 and UP
+- Chrome 48 and UP
+- Opera 35 and UP
+
 ## Install
 `ember install ember-initials`
 
@@ -138,11 +149,3 @@ or
 - `email` - Email which will be used to generating unique adorable avatar
 
 - `size` - size of the avatar in pixels (set `null` if you do not want to use elements attributes like `width` and `height`)
-
-## Browser compatibility
-
-This addon has been checked on:
-- IE 10 and UP including EDGE
-- Firefox 44 and UP
-- Chrome 48 and UP
-- Opera 35 and UP
