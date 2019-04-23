@@ -57,11 +57,11 @@ export default Mixin.create(Avatar, {
 
   backgroundColor: computed('colors.length', 'seedText', 'defaultName', 'defaultBackground', {
     get() {
-      let { colors, seedText, defaultName, defaultBackground } = this;
-
       if (this._backgroundColor) {
         return this._backgroundColor;
       }
+      
+      let { colors, seedText, defaultName, defaultBackground } = this;
 
       if (seedText === defaultName) {
         return defaultBackground;
