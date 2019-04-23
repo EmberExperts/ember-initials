@@ -18,7 +18,7 @@ export default EmberObject.extend({
   },
 
   _create(properties) {
-    const url = this.get('generator').generate(properties);
+    const url = this.generator.generate(properties);
     return this.cache.set(properties, url) && url;
   }
 });

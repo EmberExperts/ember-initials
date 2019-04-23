@@ -26,6 +26,6 @@ module('ember-initials/gravatar', function(hooks) {
 
     await render(hbs`{{ember-initials/gravatar image=userAvatar}}`);
 
-    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.get('userAvatar')));
+    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.userAvatar));
   });
 });

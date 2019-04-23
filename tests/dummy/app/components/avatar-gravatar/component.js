@@ -9,10 +9,10 @@ export default Component.extend({
   exampleName: 'gravatar',
 
   active: computed('activeExample', 'exampleName', function() {
-    return this.get('activeExample') === this.get('exampleName');
+    return this.activeExample === this.exampleName;
   }),
 
   visible: computed('activeExample', 'active', function() {
-    return !this.get('activeExample') || this.get('active');
+    return !this.activeExample || this.active;
   }),
 });

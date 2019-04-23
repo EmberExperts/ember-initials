@@ -10,12 +10,12 @@ export default Image.extend({
   defaultImage: reads('config.gravatar.defaultImageUrl'),
 
   src: computed('email', 'size', 'image', 'defaultImage', function() {
-    return this.get('image') ? this.get('image') : this.generateGravatarUrl();
+    return this.image ? this.image : this.generateGravatarUrl();
   }).readOnly(),
 
   generateGravatarUrl() {
-    let hash = md5(this.get('email'));
-    let size = this.get('size');
+    let hash = md5(this.email);
+    let size = this.size;
     let defaultImage = this.defaultImageUrl();
     let image = defaultImage ? `&default=${defaultImage}` : '';
 
@@ -23,8 +23,8 @@ export default Image.extend({
   },
 
   defaultImageUrl() {
-    let defaultImage = this.get('defaultImage');
-    return this.get('relativeUrl') && defaultImage ? this._absoluteImageSrc(defaultImage) : defaultImage;
+    let defaultImage = this.defaultImage;
+    return this.relativeUrl && defaultImage ? this._absoluteImageSrc(defaultImage) : defaultImage;
   },
 
   _absoluteImageSrc(relativePath) {

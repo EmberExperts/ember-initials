@@ -48,7 +48,7 @@ module('ember-initials', function(hooks) {
 
     await render(hbs`{{ember-initials image=userAvatar}}`);
 
-    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.get('userAvatar')));
+    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.userAvatar));
   });
 
   test('when image is set and exist', async function(assert) {
@@ -58,7 +58,7 @@ module('ember-initials', function(hooks) {
 
     await render(hbs`{{ember-initials image=userAvatar name="Ember Initials"}}`);
 
-    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.get('userAvatar')));
+    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.userAvatar));
   });
 
   test('when image is set but is empty', async function(assert) {
@@ -79,6 +79,6 @@ module('ember-initials', function(hooks) {
 
     await render(hbs`{{ember-initials gravatarEmail=gravatarEmail image=userAvatar name="Ember Initials"}}`);
 
-    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.get('userAvatar')));
+    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.userAvatar));
   });
 });

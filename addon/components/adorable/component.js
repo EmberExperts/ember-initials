@@ -5,7 +5,7 @@ export default Image.extend({
   email: '',
 
   defaultImage: computed('email', 'size', function() {
-    return this._adorableSrc(this.get('email'), this.get('size'));
+    return this._adorableSrc(this.email, this.size);
   }).readOnly(),
 
   onError: computed('email', 'size', function() {

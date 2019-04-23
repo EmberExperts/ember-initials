@@ -76,16 +76,16 @@ export default Component.extend({
   }),
 
   initials: computed('name', 'defaultName', function() {
-    return Initials(this.get('name') || this.get('defaultName'));
+    return Initials(this.name || this.defaultName);
   }).readOnly(),
 
   src: computed(
     'isFastBoot', 'image', 'backgroundColor', 'initials', 'textColor', 'fontSize', 'fontWeight', 'fontFamily',
   function() {
-    let image = this.get('image');
+    let image = this.image;
 
     if (image) return image;
-    return this.get('isFastBoot') ? '' : this.createInitials();
+    return this.isFastBoot ? '' : this.createInitials();
   }).readOnly(),
 
   cacheStore: computed(function() {
@@ -93,13 +93,13 @@ export default Component.extend({
   }).readOnly(),
 
   onError: computed('image', function() {
-    if (this.get('image')) {
+    if (this.image) {
       return this._assignInitialsSrc.bind(this);
     }
   }).readOnly(),
 
   createInitials() {
-    return this.get('cacheStore').initialsFor(this.initialsProperties());
+    return this.cacheStore.initialsFor(this.initialsProperties());
   },
 
   initialsProperties() {
@@ -107,23 +107,23 @@ export default Component.extend({
       width: 100,
       height: 100,
       initials: this.initials,
-      initialsColor: this.get('textColor'),
-      textStyles: assign({}, this._textStyles(), this.get('textStyles')),
-      backgroundStyles: assign({}, this._backgroundStyles(), this.get('backgroundStyles')),
+      initialsColor: this.textColor,
+      textStyles: assign({}, this._textStyles(), this.textStyles),
+      backgroundStyles: assign({}, this._backgroundStyles(), this.backgroundStyles),
     };
   },
 
   _textStyles() {
     return {
-      'font-family': this.get('fontFamily'),
-      'font-weight': this.get('fontWeight'),
-      'font-size': `${this.get('fontSize')}px`,
+      'font-family': this.fontFamily,
+      'font-weight': this.fontWeight,
+      'font-size': `${this.fontSize}px`,
     };
   },
 
   _backgroundStyles() {
     return {
-      'background-color': this.get('backgroundColor'),
+      'background-color': this.backgroundColor,
     };
   },
 
