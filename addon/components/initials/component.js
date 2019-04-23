@@ -1,17 +1,23 @@
 import { getOwner } from '@ember/application';
+import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
-import Mixin from '@ember/object/mixin';
 import { assign } from '@ember/polyfills';
-import Avatar from 'ember-initials/mixins/avatar';
+import { inject as service } from '@ember/service';
 import ColorIndex from 'ember-initials/utils/color-index';
 import Initials from 'ember-initials/utils/initials';
 import overridableComputed from 'ember-initials/utils/overridable-computed';
 import Store from 'ember-initials/utils/store';
+import layout from './template';
 
-export default Mixin.create(Avatar, {
+export default Component.extend({
+  fastboot: service(),
+
+  layout,
+  tagName: '',
+
+  size: 30,
   image: null,
-
   defaultBackground: '#dd6a58',
   fontSize: 50,
   fontWeight: 'Helvetica Neue Light, Arial, sans-serif',
@@ -19,9 +25,22 @@ export default Mixin.create(Avatar, {
   textColor: 'white',
   defaultName: '?',
 
+  isFastBoot: reads('fastboot.isFastBoot'),
+
+  title: reads('name'),
+  height: reads('size'),
+  width: reads('size'),
   alt: reads('name'),
   name: reads('defaultName'),
   seedText: reads('name'),
+
+  config: computed(function() {
+    return getOwner(this).resolveRegistration('config:environment').emberInitials;
+  }).readOnly(),
+
+  shouldRenderSVG: computed('isFastBoot', 'image', function() {
+    return !this.image && this.isFastBoot
+  }),
 
   textStyles: overridableComputed(function() {
     return {};
@@ -56,8 +75,12 @@ export default Mixin.create(Avatar, {
     }
   }),
 
+  initials: computed('name', 'defaultName', function() {
+    return Initials(this.get('name') || this.get('defaultName'));
+  }).readOnly(),
+
   src: computed(
-    'isFastBoot', 'image', 'backgroundColor', 'name', 'textColor', 'fontSize', 'fontWeight', 'fontFamily',
+    'isFastBoot', 'image', 'backgroundColor', 'initials', 'textColor', 'fontSize', 'fontWeight', 'fontFamily',
   function() {
     let image = this.get('image');
 
@@ -83,7 +106,7 @@ export default Mixin.create(Avatar, {
     return {
       width: 100,
       height: 100,
-      initials: Initials(this.get('name') || this.get('defaultName')),
+      initials: this.initials,
       initialsColor: this.get('textColor'),
       textStyles: assign({}, this._textStyles(), this.get('textStyles')),
       backgroundStyles: assign({}, this._backgroundStyles(), this.get('backgroundStyles')),

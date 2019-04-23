@@ -1,1 +1,2 @@
-export { default } from 'ember-initials/components/image';
+export { default } from 'ember-initials/components/image/component';
+

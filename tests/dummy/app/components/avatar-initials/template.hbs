@@ -3,17 +3,17 @@
     <div class="col-sm-4">
       <div class="text-center">
         <p class="lead"><code>ember-initials</code></p>
-        {{ember-initials class="img-circle"
-          size=size
-          name=name
-          seedText=seedText
-          defaultName=defaultName
-          textColor=textColor
-          fontSize=fontSize
-          fontWeight=fontWeight
-          fontFamily=fontFamily
-          image=image
-        }}
+        <EmberInitials class="img-circle"
+          @size={{size}}
+          @name={{name}}
+          @seedText={{seedText}}
+          @defaultName={{defaultName}}
+          @textColor={{textColor}}
+          @fontSize={{fontSize}}
+          @fontWeight={{fontWeight}}
+          @fontFamily={{fontFamily}}
+          @image={{image}}
+        />
         <p class="example-intro">This component has been designed to display user initials based on user name and unique string like email. But it can also work as a fallback for users avatars.</p>
         {{activate-button exampleName=exampleName activeExample=activeExample}}
       </div>
@@ -104,17 +104,17 @@
   {{else}}
     <div class="text-center">
       <p class="lead"><code>ember-initials</code></p>
-      {{ember-initials class="img-circle"
-        size=size
-        name=name
-        seedText=seedText
-        defaultName=defaultName
-        textColor=textColor
-        fontSize=fontSize
-        fontWeight=fontWeight
-        fontFamily=fontFamily
-        image=image
-      }}
+      <EmberInitials class="img-circle"
+        @size={{size}}
+        @name={{name}}
+        @seedText={{seedText}}
+        @defaultName={{defaultName}}
+        @textColor={{textColor}}
+        @fontSize={{fontSize}}
+        @fontWeight={{fontWeight}}
+        @fontFamily={{fontFamily}}
+        @image={{image}}
+      />
       <p class="example-intro">This component has been designed to display user initials based on user name and unique string like email. But it can also work as a fallback for users avatars.</p>
       {{activate-button exampleName=exampleName activeExample=activeExample}}
     </div>

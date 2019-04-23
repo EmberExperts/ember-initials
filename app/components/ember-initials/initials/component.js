@@ -1,1 +1,2 @@
-export { default } from 'ember-initials/components/initials';
+export { default } from 'ember-initials/components/initials/component';
+

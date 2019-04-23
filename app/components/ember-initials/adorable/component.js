@@ -1,1 +1,2 @@
-export { default } from 'ember-initials/components/adorable';
+export { default } from 'ember-initials/components/adorable/component';
+

@@ -1,15 +1,18 @@
+import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
-import Mixin from '@ember/object/mixin';
 import md5 from 'blueimp-md5';
-import Avatar from 'ember-initials/mixins/avatar';
+import Image from '../image/component';
 
-export default Mixin.create(Avatar, {
+export default Image.extend({
   email: null,
-  image: null,
   relativeUrl: false,
 
   defaultImage: reads('config.gravatar.defaultImageUrl'),
+
+  config: computed(function() {
+    return getOwner(this).resolveRegistration('config:environment').emberInitials;
+  }).readOnly(),
 
   src: computed('email', 'size', 'image', 'defaultImage', function() {
     return this.get('image') ? this.get('image') : this.generateGravatarUrl();
