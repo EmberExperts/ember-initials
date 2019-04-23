@@ -2,5 +2,8 @@
 
 module.exports = {
   extends: 'recommended',
-  ignore: ['tests/**']
+  ignore: ['tests/**'],
+  rules: {
+    'no-inline-styles': false
+  }
 };

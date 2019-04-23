@@ -6,7 +6,7 @@
     height={{this.height}}
     pointer-events="none"
     viewBox="0 0 100 100"
-    style="background-color: {{this.backgroundColor}}; user-select: none; vertical-align: middle">
+    style={{html-safe (concat "background-color: " this.backgroundColor "; user-select: none; vertical-align: middle")}}>
     <text
       y="50%"
       x="50%"
@@ -14,7 +14,7 @@
       text-anchor="middle"
       pointer-events="none"
       fill={{this.textColor}}
-      style="font-family: {{this.fontFamily}}; font-weight: {{this.fontWeight}}; font-size: {{this.fontSize}}px;">
+      style={{html-safe (concat "font-family: " this.fontFamily "; font-weight: " this.fontWeight "; font-size: " this.fontSize "px;")}}>
       {{this.initials}}
     </text>
   </svg>
