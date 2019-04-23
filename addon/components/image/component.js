@@ -1,7 +1,8 @@
 import { getOwner } from '@ember/application';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { or, reads } from '@ember/object/computed';
+import { reads } from '@ember/object/computed';
+import overridableComputed from 'ember-initials/utils/overridable-computed';
 import layout from './template';
 
 export default Component.extend({
@@ -14,7 +15,9 @@ export default Component.extend({
   alt: 'User Avatar',
   title: 'User Avatar',
 
-  src: or('image', 'defaultImage'),
+  src: overridableComputed('image', 'defaultImage', function() {
+    return this.image || this.defaultImage;
+  }),
 
   height: reads('size'),
   width: reads('size'),
