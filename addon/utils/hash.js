@@ -1,4 +1,4 @@
-import md5 from 'md5';
+import md5 from 'blueimp-md5';
 
 export default function hash(object = {}) {
   return md5(serialize(object));

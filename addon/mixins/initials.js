@@ -1,11 +1,11 @@
-import Mixin from '@ember/object/mixin';
-import Avatar from 'ember-initials/mixins/avatar';
-import { assign } from '@ember/polyfills';
-import { observer, computed } from '@ember/object';
+import { getOwner } from '@ember/application';
+import { computed, observer } from '@ember/object';
 import { reads } from '@ember/object/computed';
+import Mixin from '@ember/object/mixin';
+import { assign } from '@ember/polyfills';
+import Avatar from 'ember-initials/mixins/avatar';
 import ColorIndex from 'ember-initials/utils/color-index';
 import Initials from 'ember-initials/utils/initials';
-import { getOwner } from '@ember/application';
 import Store from '../utils/store';
 
 export default Mixin.create(Avatar, {
@@ -44,11 +44,11 @@ export default Mixin.create(Avatar, {
     ];
   }),
 
-  src: computed('fastboot.isFastBoot', 'image', function() {
+  src: computed('isFastBoot', 'image', function() {
     let image = this.get('image');
 
     if (image) return image;
-    return this.get('fastboot.isFastBoot') ? '' : this.createInitials();
+    return this.get('isFastBoot') ? '' : this.createInitials();
   }),
 
   initialsObserver: observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', function () {
@@ -60,7 +60,7 @@ export default Mixin.create(Avatar, {
       if (this._backgroundColor) {
         return this._backgroundColor;
       }
-      
+
       let { colors, seedText, defaultName, defaultBackground } = this;
 
       if (seedText === defaultName) {

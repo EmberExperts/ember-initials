@@ -1,114 +1,84 @@
-import Ember$ from 'jquery';
-import { Promise as EmberPromise } from 'rsvp';
-import { test } from 'ember-qunit';
-import { moduleForComponent } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
+import getImage from 'dummy/tests/helpers/get-image';
+import { setupRenderingTest } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import { module, test } from 'qunit';
 
-moduleForComponent('ember-initials', 'Ember initials Component Tests', {
-  integration: true,
-});
+module('ember-initials', function(hooks) {
+  setupRenderingTest(hooks);
 
-function imagePromise(container, svg = true) {
-  return new EmberPromise((resolve) => {
-    if (svg) {
-      Ember$.get(container.$('img').attr('src'), (image) => {
-        resolve(Ember$(image));
-      });
-    } else {
-      resolve(container.$('img'));
-    }
+  test('has alternative component', async function(assert) {
+    await render(hbs`{{ember-initials/initials name="Super cool"}}`);
+    assert.dom('img').exists({ count: 1 });
   });
-}
 
-test('has alternative component', function (assert) {
-  this.render(hbs`{{ember-initials/initials name="Super cool"}}`);
-  assert.equal(this.$('img').length, 1);
-});
-
-test('has correct tag name', function (assert) {
-  this.render(hbs`{{ember-initials name="Super cool"}}`);
-  assert.equal(this.$('img').length, 1);
-});
-
-test('has correct initials', function (assert) {
-  let done = assert.async();
-
-  this.render(hbs`{{ember-initials name="Super cool"}}`);
-
-  imagePromise(this).then((svg) => {
-    let initials = svg.text();
-    assert.equal(initials, 'SC');
-    done();
+  test('has correct tag name', async function(assert) {
+    await render(hbs`{{ember-initials name="Super cool"}}`);
+    assert.dom('img').exists({ count: 1 });
   });
-});
 
-test('has correct default name', function (assert) {
-  let done = assert.async();
-  this.render(hbs`{{ember-initials}}`);
+  test('has correct initials', async function(assert) {
+    assert.expect(1);
 
-  imagePromise(this).then((svg) => {
-    let initials = svg.text();
-    assert.equal(initials, '?');
-    done();
+    await render(hbs`{{ember-initials name="Super cool"}}`);
+
+    await getImage(this).then((img) => assert.equal(img.textContent, 'SC'));
   });
-});
 
-test('when name and default name are empty', function (assert) {
-  let done = assert.async();
-  this.render(hbs`{{ember-initials name='' defaultName=''}}`);
+  test('has correct default name', async function(assert) {
+    assert.expect(1);
 
-  imagePromise(this).then((svg) => {
-    let initials = svg.text();
-    assert.equal(initials, '');
-    done();
+    await render(hbs`{{ember-initials}}`);
+
+    await getImage(this).then((img) => assert.equal(img.textContent, '?'));
   });
-});
 
-test('when src is overridden by an image', function (assert) {
-  let done = assert.async();
-  this.set('userAvatar', '/images/logo.png');
-  this.render(hbs`{{ember-initials src=userAvatar}}`);
+  test('when name and default name are empty', async function(assert) {
+    assert.expect(1);
 
-  imagePromise(this, false).then((image) => {
-    let src = image.attr('src');
-    assert.equal(src, this.get('userAvatar'));
-    done();
+    await render(hbs`{{ember-initials name='' defaultName=''}}`);
+
+    await getImage(this).then((img) => assert.equal(img.textContent, ''));
   });
-});
 
-test('when image is set and exist', function (assert) {
-  let done = assert.async();
-  this.set('userAvatar', '/images/logo.png');
-  this.render(hbs`{{ember-initials image=userAvatar name="Ember Initials"}}`);
+  test('when src is overridden by an image', async function(assert) {
+    assert.expect(1);
 
-  imagePromise(this, false).then((image) => {
-    let src = image.attr('src');
-    assert.equal(src, this.get('userAvatar'));
-    done();
+    this.set('userAvatar', '/images/logo.png');
+
+    await render(hbs`{{ember-initials src=userAvatar}}`);
+
+    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.get('userAvatar')));
   });
-});
 
-test('when image is set but is empty', function (assert) {
-  let done = assert.async();
-  this.set('userAvatar', '');
-  this.render(hbs`{{ember-initials image=userAvatar name="Ember Initials"}}`);
+  test('when image is set and exist', async function(assert) {
+    assert.expect(1);
 
-  imagePromise(this).then((svg) => {
-    let initials = svg.text();
-    assert.equal(initials, 'EI');
-    done();
+    this.set('userAvatar', '/images/logo.png');
+
+    await render(hbs`{{ember-initials image=userAvatar name="Ember Initials"}}`);
+
+    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.get('userAvatar')));
   });
-});
 
-test('when gravatar is set', function (assert) {
-  let done = assert.async();
-  this.set('userAvatar', '/images/logo.png');
-  this.set('gravatarEmail', 'example@example.com');
-  this.render(hbs`{{ember-initials gravatarEmail=gravatarEmail image=userAvatar name="Ember Initials"}}`);
+  test('when image is set but is empty', async function(assert) {
+    assert.expect(1);
 
-  imagePromise(this, false).then((image) => {
-    let src = image.attr('src');
-    assert.equal(src, this.get('userAvatar'));
-    done();
+    this.set('userAvatar', '');
+
+    await render(hbs`{{ember-initials image=userAvatar name="Ember Initials"}}`);
+
+    await getImage(this).then((img) => assert.equal(img.textContent, 'EI'));
+  });
+
+  test('when gravatar is set', async function(assert) {
+    assert.expect(1);
+
+    this.set('userAvatar', '/images/logo.png');
+    this.set('gravatarEmail', 'example@example.com');
+
+    await render(hbs`{{ember-initials gravatarEmail=gravatarEmail image=userAvatar name="Ember Initials"}}`);
+
+    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.get('userAvatar')));
   });
 });

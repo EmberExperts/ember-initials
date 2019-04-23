@@ -1,7 +1,7 @@
-import Mixin from '@ember/object/mixin';
-import Avatar from 'ember-initials/mixins/avatar';
 import { computed } from '@ember/object';
-import md5 from 'md5';
+import Mixin from '@ember/object/mixin';
+import md5 from 'blueimp-md5';
+import Avatar from 'ember-initials/mixins/avatar';
 
 export default Mixin.create(Avatar, {
   email: null,
