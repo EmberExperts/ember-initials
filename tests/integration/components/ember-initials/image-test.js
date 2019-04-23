@@ -1,43 +1,29 @@
-import Ember$ from 'jquery';
-import { Promise as EmberPromise } from 'rsvp';
-import { test } from 'ember-qunit';
-import { moduleForComponent } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
+import getImage from 'dummy/tests/helpers/get-image';
+import { setupRenderingTest } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import { module, test } from 'qunit';
 
-moduleForComponent('ember-initials/gravatar', 'Ember initials Component Tests', { integration: true });
+module('ember-initials/image', function(hooks) {
+  setupRenderingTest(hooks);
 
-function imagePromise(container, svg = true) {
-  return new EmberPromise((resolve) => {
-    if (svg) {
-      Ember$.get(container.$('img').attr('src'), (image) => {
-        resolve(Ember$(image));
-      });
-    } else {
-      resolve(container.$('img'));
-    }
+  test('when image is set and exist', async function(assert) {
+    assert.expect(1);
+
+    this.set('userAvatar', '/images/logo.png');
+
+    await render(hbs`{{ember-initials/image image=userAvatar}}`);
+
+    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.get('userAvatar')));
   });
-}
 
-test('when image is set and exist', function (assert) {
-  let done = assert.async();
-  this.set('userAvatar', '/images/logo.png');
-  this.render(hbs`{{ember-initials/image image=userAvatar}}`);
+  test('when image is empty defaultImage is rendered', async function(assert) {
+    assert.expect(1);
 
-  imagePromise(this, false).then((image) => {
-    let src = image.attr('src');
-    assert.equal(src, this.get('userAvatar'));
-    done();
-  });
-});
+    this.set('userAvatar', '');
 
-test('when image is empty defaultImage is rendered', function (assert) {
-  let done = assert.async();
-  this.set('userAvatar', '');
-  this.render(hbs`{{ember-initials/image image=userAvatar}}`);
+    await render(hbs`{{ember-initials/image image=userAvatar}}`);
 
-  imagePromise(this, false).then((image) => {
-    let src = image.attr('src');
-    assert.equal(src, '');
-    done();
+    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.get('userAvatar')));
   });
 });

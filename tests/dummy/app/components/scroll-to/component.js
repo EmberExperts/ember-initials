@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import Ember$ from 'jquery';
 import { next } from '@ember/runloop';
 
 export default Component.extend({
@@ -8,9 +7,10 @@ export default Component.extend({
 
   click() {
     next(() => {
-      Ember$('html, body').animate({
-        scrollTop: Ember$(this.get('href')).offset().top + this.get('offset')
-      }, 1000);
+      let element = document.querySelector(this.get('href'));
+      let position = element.offsetTop + this.get('offset');
+
+      window.scroll({ top: position, behavior: 'smooth' });
     });
   }
 });

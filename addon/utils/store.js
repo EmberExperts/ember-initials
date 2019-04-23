@@ -1,14 +1,13 @@
-import { computed } from '@ember/object';
-import EmberObject from "@ember/object";
-import hash from '../utils/hash';
+import EmberObject, { computed } from "@ember/object";
 import SvgGenerator from '../utils/generators/svg';
+import hash from '../utils/hash';
 
 export default EmberObject.extend({
   cache: null,
 
   generator: computed(function() {
     return new SvgGenerator;
-  }),
+  }).readOnly(),
 
   init() {
     this._super(...arguments);

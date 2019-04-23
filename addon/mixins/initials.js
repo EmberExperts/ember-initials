@@ -1,36 +1,37 @@
-import Mixin from '@ember/object/mixin';
-import Avatar from 'ember-initials/mixins/avatar';
-import { assign } from '@ember/polyfills';
-import { observer, computed } from '@ember/object';
+import { getOwner } from '@ember/application';
+import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
+import Mixin from '@ember/object/mixin';
+import { assign } from '@ember/polyfills';
+import Avatar from 'ember-initials/mixins/avatar';
 import ColorIndex from 'ember-initials/utils/color-index';
 import Initials from 'ember-initials/utils/initials';
-import { getOwner } from '@ember/application';
-import Store from '../utils/store';
+import overridableComputed from 'ember-initials/utils/overridable-computed';
+import Store from 'ember-initials/utils/store';
 
 export default Mixin.create(Avatar, {
   image: null,
 
-  defaultName: '?',
   defaultBackground: '#dd6a58',
-
   fontSize: 50,
-  fontWeight: 200,
+  fontWeight: 'Helvetica Neue Light, Arial, sans-serif',
+  fontFamily: 200,
   textColor: 'white',
-  fontFamily: 'Helvetica Neue Light, Arial, sans-serif',
+  defaultName: '?',
 
+  alt: reads('name'),
   name: reads('defaultName'),
   seedText: reads('name'),
 
-  textStyles: computed(function() {
+  textStyles: overridableComputed(function() {
     return {};
   }),
 
-  backgroundStyles: computed(function() {
+  backgroundStyles: overridableComputed(function() {
     return {};
   }),
 
-  colors: computed(function() {
+  colors: overridableComputed(function() {
     return [
       '#1abc9c', '#16a085', '#f1c40f',
       '#f39c12', '#2ecc71', '#27ae60',
@@ -44,47 +45,35 @@ export default Mixin.create(Avatar, {
     ];
   }),
 
-  src: computed('fastboot.isFastBoot', 'image', function() {
-    let image = this.get('image');
+  backgroundColor: overridableComputed('colors.[]', 'seedText', 'defaultName', 'defaultBackground', function() {
+    let { colors, seedText, defaultName, defaultBackground } = this;
 
-    if (image) return image;
-    return this.get('fastboot.isFastBoot') ? '' : this.createInitials();
-  }),
-
-  initialsObserver: observer('name', 'seedText', 'fontSize', 'fontWeight', 'fontFamily', 'textColor', 'defaultName', function () {
-    this.notifyPropertyChange('src');
-  }),
-
-  backgroundColor: computed('colors.length', 'seedText', 'defaultName', 'defaultBackground', {
-    get() {
-      if (this._backgroundColor) {
-        return this._backgroundColor;
-      }
-      
-      let { colors, seedText, defaultName, defaultBackground } = this;
-
-      if (seedText === defaultName) {
-        return defaultBackground;
-      } else {
-        let index = ColorIndex(seedText, colors.length);
-        return colors[index];
-      }
-    },
-
-    set(key, value) {
-      return this._backgroundColor = value;
+    if (seedText === defaultName) {
+      return defaultBackground;
+    } else {
+      let index = ColorIndex(seedText, colors.length);
+      return colors[index];
     }
   }),
 
+  src: computed(
+    'isFastBoot', 'image', 'backgroundColor', 'name', 'textColor', 'fontSize', 'fontWeight', 'fontFamily',
+  function() {
+    let image = this.get('image');
+
+    if (image) return image;
+    return this.get('isFastBoot') ? '' : this.createInitials();
+  }).readOnly(),
+
   cacheStore: computed(function() {
     return this._lookupForCacheStore() || this._registerCacheStore();
-  }),
+  }).readOnly(),
 
   onError: computed('image', function() {
     if (this.get('image')) {
       return this._assignInitialsSrc.bind(this);
     }
-  }),
+  }).readOnly(),
 
   createInitials() {
     return this.get('cacheStore').initialsFor(this.initialsProperties());
