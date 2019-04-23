@@ -14,11 +14,12 @@ export default EmberObject.extend({
   },
 
   initialsFor(properties) {
-    return this.cache.get(properties) || this._create(properties);
+    const key = JSON.stringify(properties);
+    return this.cache.get(key) || this._create(key, properties);
   },
 
-  _create(properties) {
+  _create(key, properties) {
     const url = this.generator.generate(properties);
-    return this.cache.set(properties, url) && url;
+    return this.cache.set(key, url) && url;
   }
 });
