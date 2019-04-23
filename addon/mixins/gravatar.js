@@ -1,4 +1,5 @@
 import { computed } from '@ember/object';
+import { reads } from '@ember/object/computed';
 import Mixin from '@ember/object/mixin';
 import md5 from 'blueimp-md5';
 import Avatar from 'ember-initials/mixins/avatar';
@@ -8,13 +9,11 @@ export default Mixin.create(Avatar, {
   image: null,
   relativeUrl: false,
 
-  defaultImage: computed(function() {
-    return this.get('config.gravatar.defaultImage');
-  }),
+  defaultImage: reads('config.gravatar.defaultImageUrl'),
 
   src: computed('email', 'size', 'image', 'defaultImage', function() {
     return this.get('image') ? this.get('image') : this.generateGravatarUrl();
-  }),
+  }).readOnly(),
 
   generateGravatarUrl() {
     let hash = md5(this.get('email'));

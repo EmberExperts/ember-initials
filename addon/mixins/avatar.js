@@ -21,7 +21,7 @@ export default Mixin.create({
 
   config: computed(function() {
     return getOwner(this).resolveRegistration('config:environment').emberInitials;
-  }),
+  }).readOnly(),
 
   onError() {}
 });
