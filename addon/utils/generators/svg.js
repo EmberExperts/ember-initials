@@ -1,7 +1,7 @@
 export default class Svg {
   generate(properties) {
     let textElement = this._generateTextElement(properties.initials, properties.initialsColor, properties.textStyles);
-    return this._generateSvgElement(textElement, properties.width, properties.height, properties.backgroundStyles);
+    return this._generateSvgElement(textElement, properties.backgroundStyles);
   }
 
   // Private
@@ -17,10 +17,8 @@ export default class Svg {
     });
   }
 
-  _generateSvgElement(text, width, height, styles = {}) {
+  _generateSvgElement(text, styles = {}) {
     return this._generateElement('svg', text, styles, {
-      width,
-      height,
       xmlns: 'http://www.w3.org/2000/svg',
       'pointer-events': 'none',
       'viewBox': '0 0 100 100'

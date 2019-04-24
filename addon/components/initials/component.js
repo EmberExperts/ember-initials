@@ -78,14 +78,12 @@ export default Component.extend({
     return Initials(this.name || this.defaultName);
   }).readOnly(),
 
-  src: computed('image', 'height', 'width', 'backgroundStyles', 'initials', 'textColor', 'textStyles', function() {
+  src: computed('image', 'backgroundStyles', 'initials', 'textColor', 'textStyles', function() {
     if (this.image) {
       return this.image;
     }
 
     const properties = {
-      width: this.width,
-      height: this.height,
       initials: this.initials,
       initialsColor: this.textColor,
       textStyles: this.textStyles,
