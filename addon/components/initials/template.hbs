@@ -1,32 +1,11 @@
-{{#if this.shouldRenderSVG}}
-  <svg ...attributes
-    xmlns="http://www.w3.org/2000/svg"
-    width={{this.width}}
-    height={{this.height}}
-    pointer-events="none"
-    viewBox="0 0 100 100"
-    style={{html-safe (concat "background-color: " this.backgroundColor "; user-select: none; vertical-align: middle")}}>
-    <text
-      y="50%"
-      x="50%"
-      dy="0.35em"
-      text-anchor="middle"
-      pointer-events="none"
-      fill={{this.textColor}}
-      style={{html-safe (concat "font-family: " this.fontFamily "; font-weight: " this.fontWeight "; font-size: " this.fontSize "px;")}}>
-      {{this.initials}}
-    </text>
-  </svg>
-{{else}}
-  {{#let (component "ember-initials/image") as |Image|}}
-    <Image ...attributes
-      @class={{this.class}}
-      @width={{this.width}}
-      @height={{this.height}}
-      @src={{this.src}}
-      @alt={{this.alt}}
-      @title={{this.title}}
-      @onError={{this.onError}}
-    />
-  {{/let}}
-{{/if}}
+{{#let (component "ember-initials/image") as |Image|}}
+  <Image ...attributes
+    @class={{this.class}}
+    @width={{this.width}}
+    @height={{this.height}}
+    @src={{this.src}}
+    @alt={{this.alt}}
+    @title={{this.title}}
+    @onError={{this.onError}}
+  />
+{{/let}}

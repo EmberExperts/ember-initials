@@ -1,13 +1,13 @@
 export default function(name) {
   let initials = name ? name.trim() : '';
-  let letters = initials.split(' ');
+  let words = initials.split(' ');
 
-  if (letters.length > 1) {
-    let first = capitalizedFirstLetter(letters.shift());
-    let last = capitalizedFirstLetter(letters.pop());
+  if (words.length > 1) {
+    let first = capitalizedFirstLetter(words.shift());
+    let last = capitalizedFirstLetter(words.pop());
     initials = first + last;
-  } else if (letters.length === 1) {
-    initials = capitalizedFirstLetter(letters.shift());
+  } else if (words.length === 1) {
+    initials = capitalizedFirstLetter(words.shift());
   }
 
   return initials;

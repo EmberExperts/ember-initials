@@ -1,16 +1,7 @@
-import Base from './base';
-
-export default class extends Base {
-  revoke(url) {
-    URL.revokeObjectURL(url);
-  }
-
+export default class Svg {
   generate(properties) {
     let textElement = this._generateTextElement(properties.initials, properties.initialsColor, properties.textStyles);
-    let svgElement = this._generateSvgElement(textElement, properties.width, properties.height, properties.backgroundStyles);
-    let blob = new Blob([svgElement], { type: "image/svg+xml" });
-
-    return URL.createObjectURL(blob);
+    return this._generateSvgElement(textElement, properties.width, properties.height, properties.backgroundStyles);
   }
 
   // Private

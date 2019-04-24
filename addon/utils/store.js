@@ -1,10 +1,11 @@
 import EmberObject, { computed } from "@ember/object";
+import svgToMiniDataURI from 'mini-svg-data-uri';
 import SvgGenerator from '../utils/generators/svg';
 
 export default EmberObject.extend({
   cache: null,
 
-  generator: computed(function() {
+  svgGenerator: computed(function() {
     return new SvgGenerator;
   }).readOnly(),
 
@@ -19,7 +20,9 @@ export default EmberObject.extend({
   },
 
   _create(key, properties) {
-    const url = this.generator.generate(properties);
-    return this.cache.set(key, url) && url;
+    const element = this.svgGenerator.generate(properties);
+    const data = svgToMiniDataURI(element);
+
+    return this.cache.set(key, data) && data;
   }
 });

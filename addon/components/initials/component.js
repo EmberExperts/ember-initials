@@ -3,7 +3,6 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
 import { assign } from '@ember/polyfills';
-import { inject as service } from '@ember/service';
 import ColorIndex from 'ember-initials/utils/color-index';
 import Initials from 'ember-initials/utils/initials';
 import overridableComputed from 'ember-initials/utils/overridable-computed';
@@ -11,8 +10,6 @@ import Store from 'ember-initials/utils/store';
 import layout from './template';
 
 export default Component.extend({
-  fastboot: service(),
-
   layout,
   tagName: '',
 
@@ -25,8 +22,6 @@ export default Component.extend({
   textColor: 'white',
   defaultName: '?',
 
-  isFastBoot: reads('fastboot.isFastBoot'),
-
   title: reads('name'),
   height: reads('size'),
   width: reads('size'),
@@ -34,20 +29,24 @@ export default Component.extend({
   name: reads('defaultName'),
   seedText: reads('name'),
 
-  config: computed(function() {
-    return getOwner(this).resolveRegistration('config:environment').emberInitials;
-  }).readOnly(),
+  textStyles: overridableComputed('fontSize', 'fontWeight', 'fontFamily', {
+    get() {
+      return this._defaultTextStyles();
+    },
 
-  shouldRenderSVG: computed('isFastBoot', 'image', function() {
-    return !this.image && this.isFastBoot
+    set(key, value = {}) {
+      return assign({}, this._defaultTextStyles(), value);
+    }
   }),
 
-  textStyles: overridableComputed(function() {
-    return {};
-  }),
+  backgroundStyles: overridableComputed('backgroundColor', {
+    get() {
+      return this._defaultBackgroundStyles();
+    },
 
-  backgroundStyles: overridableComputed(function() {
-    return {};
+    set(key, value = {}) {
+      return assign({}, this._defaultBackgroundStyles(), value);
+    }
   }),
 
   colors: overridableComputed(function() {
@@ -79,41 +78,32 @@ export default Component.extend({
     return Initials(this.name || this.defaultName);
   }).readOnly(),
 
-  src: computed(
-    'isFastBoot', 'image', 'backgroundColor', 'initials', 'textColor', 'fontSize', 'fontWeight', 'fontFamily',
-  function() {
-    let image = this.image;
+  src: computed('image', 'height', 'width', 'backgroundStyles', 'initials', 'textColor', 'textStyles', function() {
+    if (this.image) {
+      return this.image;
+    }
 
-    if (image) return image;
-    return this.isFastBoot ? '' : this.createInitials();
+    const properties = {
+      width: this.width,
+      height: this.height,
+      initials: this.initials,
+      initialsColor: this.textColor,
+      textStyles: this.textStyles,
+      backgroundStyles: this.backgroundStyles,
+    };
+
+    return this.cacheStore.initialsFor(properties);
   }).readOnly(),
 
   cacheStore: computed(function() {
     return this._lookupForCacheStore() || this._registerCacheStore();
   }).readOnly(),
 
-  onError: computed('image', function() {
-    if (this.image) {
-      return this._assignInitialsSrc.bind(this);
-    }
+  onError: computed(function() {
+    return (e) => e.srcElement.src = this.initialsSrc;
   }).readOnly(),
 
-  createInitials() {
-    return this.cacheStore.initialsFor(this.initialsProperties());
-  },
-
-  initialsProperties() {
-    return {
-      width: 100,
-      height: 100,
-      initials: this.initials,
-      initialsColor: this.textColor,
-      textStyles: assign({}, this._textStyles(), this.textStyles),
-      backgroundStyles: assign({}, this._backgroundStyles(), this.backgroundStyles),
-    };
-  },
-
-  _textStyles() {
+  _defaultTextStyles() {
     return {
       'font-family': this.fontFamily,
       'font-weight': this.fontWeight,
@@ -121,14 +111,12 @@ export default Component.extend({
     };
   },
 
-  _backgroundStyles() {
+  _defaultBackgroundStyles() {
     return {
+      'user-select': 'none',
+      'vertical-align': 'middle',
       'background-color': this.backgroundColor,
     };
-  },
-
-  _assignInitialsSrc(e) {
-    e.srcElement.src = this.createInitials();
   },
 
   _lookupForCacheStore() {
