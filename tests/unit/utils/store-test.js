@@ -1,4 +1,3 @@
-import Base from 'ember-initials/utils/generators/base';
 import Store from 'ember-initials/utils/store';
 import { module, test } from 'qunit';
 
@@ -10,11 +9,6 @@ module('Unit | Store | Ember Initials', function(hooks) {
   test('it exists', function(assert) {
     let store = this.subject;
     assert.ok(store);
-  });
-
-  test('it uses image generator', function(assert) {
-    let store = this.subject;
-    assert.ok(store.get('generator') instanceof Base);
   });
 
   test('initialsFor', function(assert) {
