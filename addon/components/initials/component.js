@@ -1,11 +1,10 @@
 import { getOwner } from '@ember/application';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
 import { assign } from '@ember/polyfills';
 import ColorIndex from 'ember-initials/utils/color-index';
+import { computed, overridableComputed } from 'ember-initials/utils/computed';
 import Initials from 'ember-initials/utils/initials';
-import overridableComputed from 'ember-initials/utils/overridable-computed';
 import Store from 'ember-initials/utils/store';
 import layout from './template';
 
@@ -76,7 +75,7 @@ export default Component.extend({
 
   initials: computed('name', 'defaultName', function() {
     return Initials(this.name || this.defaultName);
-  }).readOnly(),
+  }),
 
   src: computed('image', 'backgroundStyles', 'initials', 'textColor', 'textStyles', function() {
     if (this.image) {
@@ -91,15 +90,15 @@ export default Component.extend({
     };
 
     return this.cacheStore.initialsFor(properties);
-  }).readOnly(),
+  }),
 
   cacheStore: computed(function() {
     return this._lookupForCacheStore() || this._registerCacheStore();
-  }).readOnly(),
+  }),
 
   onError: computed(function() {
     return (e) => e.srcElement.src = this.initialsSrc;
-  }).readOnly(),
+  }),
 
   _defaultTextStyles() {
     return {

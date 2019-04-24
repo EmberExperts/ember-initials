@@ -1,4 +1,5 @@
-import EmberObject, { computed } from "@ember/object";
+import EmberObject from "@ember/object";
+import { computed } from 'ember-initials/utils/computed';
 import svgToMiniDataURI from 'mini-svg-data-uri';
 import SvgGenerator from '../utils/generators/svg';
 
@@ -7,7 +8,7 @@ export default EmberObject.extend({
 
   svgGenerator: computed(function() {
     return new SvgGenerator;
-  }).readOnly(),
+  }),
 
   init() {
     this._super(...arguments);

@@ -1,8 +1,7 @@
 import { getOwner } from '@ember/application';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
-import overridableComputed from 'ember-initials/utils/overridable-computed';
+import { computed, overridableComputed } from 'ember-initials/utils/computed';
 import layout from './template';
 
 export default Component.extend({
@@ -25,7 +24,7 @@ export default Component.extend({
 
   config: computed(function() {
     return getOwner(this).resolveRegistration('config:environment').emberInitials;
-  }).readOnly(),
+  }),
 
   onError() {}
 });

@@ -1,6 +1,6 @@
-import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
 import md5 from 'blueimp-md5';
+import { computed } from 'ember-initials/utils/computed';
 import Image from '../image/component';
 
 export default Image.extend({
@@ -11,7 +11,7 @@ export default Image.extend({
 
   src: computed('email', 'size', 'image', 'defaultImage', function() {
     return this.image ? this.image : this.generateGravatarUrl();
-  }).readOnly(),
+  }),
 
   generateGravatarUrl() {
     let hash = md5(this.email);
