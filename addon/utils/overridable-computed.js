@@ -1,5 +1,10 @@
 import { computed, get, set } from '@ember/object';
 
+function cacheFor(object) {
+  const cache = get(object, '__CP_CACHE__');
+  return cache || set(object, '__CP_CACHE__', new Map());
+}
+
 export default function(...args) {
   let config = {};
 
@@ -13,9 +18,8 @@ export default function(...args) {
 
   return computed(...dependentKeys, {
     get(key) {
-      if (get(this, `__CP_CACHE__${key}`) !== undefined) {
-        return get(this, `__CP_CACHE__${key}`);
-      }
+      const cache = cacheFor(this);
+      if (cache.has(key)) return cache.get(key);
 
       if (config.get) {
         return config.get.apply(this, arguments)
@@ -23,7 +27,8 @@ export default function(...args) {
     },
 
     set(key, value) {
-      return set(this, `__CP_CACHE__${key}`, config.set ? config.set.apply(this, arguments) : value);
+      value = config.set ? config.set.apply(this, arguments) : value;
+      return cacheFor(this).set(key, value) && value;
     }
   })
 }
