@@ -1,9 +1,4 @@
-import { computed as emberComputed, get, set } from '@ember/object';
-
-function cacheFor(object) {
-  const cache = get(object, '__CP_CACHE__');
-  return cache || set(object, '__CP_CACHE__', new Map());
-}
+import { computed as emberComputed, set } from '@ember/object';
 
 export function overridableComputed(...args) {
   let config = {};
@@ -18,8 +13,7 @@ export function overridableComputed(...args) {
 
   return emberComputed(...dependentKeys, {
     get(key) {
-      const cache = cacheFor(this);
-      if (cache.has(key)) return cache.get(key);
+      if (`#${key}` in this) return this[`#${key}`];
 
       if (config.get) {
         return config.get.apply(this, arguments)
@@ -27,8 +21,7 @@ export function overridableComputed(...args) {
     },
 
     set(key, value) {
-      value = config.set ? config.set.apply(this, arguments) : value;
-      return cacheFor(this).set(key, value) && value;
+      return set(this, `#${key}`, config.set ? config.set.apply(this, arguments) : value);
     }
   })
 }
