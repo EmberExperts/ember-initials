@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  extends: 'recommended',
+  extends: 'octane',
   ignore: ['tests/**'],
   rules: {
     'no-inline-styles': false

@@ -3,6 +3,8 @@ import { reads } from '@ember/object/computed';
 import Component from '@ember/component';
 
 export default Component.extend({
+  tagName: '',
+
   name: 'Ember Initials',
   defaultName: '?',
   seedText: reads('name'),

@@ -1,22 +1,25 @@
 module.exports = {
   root: true,
+  parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2017,
-    sourceType: 'module'
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    ecmaFeatures: {
+      legacyDecorators: true
+    }
   },
+  plugins: [
+    'ember'
+  ],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended'
   ],
   env: {
-    'browser': true
-  },
-  globals: {
-    define: true,
-    FastBoot: true
+    browser: true
   },
   rules: {
-    'ember/use-ember-get-and-set': 0
+    'ember/no-jquery': 'error'
   },
   overrides: [
     // node files
@@ -27,6 +30,7 @@ module.exports = {
         'ember-cli-build.js',
         'index.js',
         'testem.js',
+        'blueprints/*/index.js',
         'config/**/*.js',
         'tests/dummy/config/**/*.js'
       ],
@@ -37,8 +41,7 @@ module.exports = {
         'tests/dummy/app/**'
       ],
       parserOptions: {
-        sourceType: 'script',
-        ecmaVersion: 2015
+        sourceType: 'script'
       },
       env: {
         browser: false,

@@ -1,4 +1,3 @@
-import { getOwner } from '@ember/application';
 import Component from '@ember/component';
 import { reads } from '@ember/object/computed';
 import { assign } from '@ember/polyfills';
@@ -93,7 +92,7 @@ export default Component.extend({
   }),
 
   cacheStore: computed(function() {
-    return this._lookupForCacheStore() || this._registerCacheStore();
+    return new Store();
   }),
 
   onError: computed(function() {
@@ -114,14 +113,5 @@ export default Component.extend({
       'vertical-align': 'middle',
       'background-color': this.backgroundColor,
     };
-  },
-
-  _lookupForCacheStore() {
-    return getOwner(this).lookup('store:ember-initials');
-  },
-
-  _registerCacheStore() {
-    getOwner(this).register('store:ember-initials', Store);
-    return this._lookupForCacheStore();
   }
 });
