@@ -15,11 +15,11 @@ module('Unit | Store | Ember Initials', function(hooks) {
     let store = this.subject;
 
     let properties = { width: 100, height: 100, initials: "SC", initialsColor: "red" };
-    assert.ok(store.initialsFor(properties));
-    assert.equal(Store.cache.size, 1);
+    assert.ok(store.getItem(properties));
+    assert.equal(store.length, 1);
 
     let newProperties = { width: 100, height: 100, initials: "SC", initialsColor: "red" };
-    assert.ok(store.initialsFor(newProperties));
-    assert.equal(Store.cache.size, 1);
+    assert.ok(store.getItem(newProperties));
+    assert.equal(store.length, 1);
   });
 });

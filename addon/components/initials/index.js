@@ -119,7 +119,7 @@ class InitialsAvatarComponent extends ImageAvatarComponent {
       backgroundStyles: this.backgroundStyles,
     };
 
-    return cache.initialsFor(properties);
+    return cache.getItem(properties);
   }
 }
 
