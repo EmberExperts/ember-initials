@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 
 module('Unit | Store | Ember Initials', function(hooks) {
   hooks.beforeEach(function() {
-    this.subject = Store.create();
+    this.subject = new Store()
   });
 
   test('it exists', function(assert) {
@@ -16,10 +16,10 @@ module('Unit | Store | Ember Initials', function(hooks) {
 
     let properties = { width: 100, height: 100, initials: "SC", initialsColor: "red" };
     assert.ok(store.initialsFor(properties));
-    assert.equal(store.cache.size, 1);
+    assert.equal(Store.cache.size, 1);
 
     let newProperties = { width: 100, height: 100, initials: "SC", initialsColor: "red" };
     assert.ok(store.initialsFor(newProperties));
-    assert.equal(store.cache.size, 1);
+    assert.equal(Store.cache.size, 1);
   });
 });
