@@ -18,7 +18,7 @@ module.exports = function (defaults) {
     favicons: {
       faviconsConfig: {
         appName: 'Ember Initials',
-        appDescription: 'Ember Initials is a package for generating simple avatars with users initials. It support Ember 2 apps. Thanks to highly customizable interface you can define your own colors, defaults and styles.',
+        appDescription: 'Ember Initials is a package for generating simple avatars with users initials. Thanks to highly customizable interface you can define your own colors, defaults and styles.',
         developerName: 'Exelord',
         developerURL: 'www.macsour.com',
         background: '#ffffff',
