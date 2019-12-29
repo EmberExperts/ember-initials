@@ -1,0 +1,205 @@
+defaults: &defaults
+  docker:
+    - image: circleci/node:10-browsers
+      environment:
+        JOBS: 1
+  working_directory: ~/ember-initials
+
+version: 2.1
+jobs:
+  checkout_code:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Generate reports folder
+          run: mkdir -p ./reports
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  install_dependencies:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - restore_cache:
+          keys:
+            - node-dependencies-{{ checksum "package-lock.json" }}
+      - run: npm config set spin false
+      - run:
+          name: Installing node modules
+          command: npm ci
+      - save_cache:
+          key: node-dependencies-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  lint:hbs:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Lint Handlebars
+          command: npm run lint:hbs
+
+  lint:js:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Lint JavaScript
+          command: npm run lint:js
+
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests
+          command: node_modules/.bin/ember ember try:one ember-default --skip-cleanup=true
+      - store_test_results:
+          path: './reports'
+      - store_artifacts:
+          path: './reports'
+
+
+  test_lts_3_8:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember LTS 3.8
+          command: node_modules/.bin/ember ember try:one ember-lts-3.8 --skip-cleanup=true
+      - store_test_results:
+          path: './reports'
+      - store_artifacts:
+          path: './reports'
+
+
+  test_lts_3_12:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember LTS 3.12
+          command: node_modules/.bin/ember ember try:one ember-lts-3.12 --skip-cleanup=true
+      - store_test_results:
+          path: './reports'
+      - store_artifacts:
+          path: './reports'
+
+
+  test_release:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember Release
+          command: node_modules/.bin/ember ember try:one ember-release --skip-cleanup=true
+      - store_test_results:
+          path: './reports'
+      - store_artifacts:
+          path: './reports'
+
+
+  test_beta:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember Beta
+          command: node_modules/.bin/ember ember try:one ember-beta --skip-cleanup=true
+      - store_test_results:
+          path: './reports'
+      - store_artifacts:
+          path: './reports'
+
+
+  test_canary:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember Canary
+          command: node_modules/.bin/ember ember try:one ember-canary --skip-cleanup=true
+      - store_test_results:
+          path: './reports'
+      - store_artifacts:
+          path: './reports'
+
+
+  test_default_with_jquery:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember Default With jQuery
+          command: node_modules/.bin/ember ember try:one ember-default-with-jquery --skip-cleanup=true
+      - store_test_results:
+          path: './reports'
+      - store_artifacts:
+          path: './reports'
+
+  test_classic:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember Classic
+          command: node_modules/.bin/ember ember try:one ember-classic --skip-cleanup=true
+      - store_test_results:
+          path: './reports'
+      - store_artifacts:
+          path: './reports'
+
+workflows:
+  version: 2
+  test_matrix:
+    jobs:
+      - checkout_code
+      - install_dependencies:
+          requires:
+            - checkout_code
+      - lint:
+          requires:
+            - install_dependencies
+      - test:
+          requires:
+            - install_dependencies
+      - test_lts_3_8:
+          requires:
+            - install_dependencies
+      - test_lts_3_12:
+          requires:
+            - install_dependencies
+      - test_release:
+          requires:
+            - install_dependencies
+      - test_beta:
+          requires:
+            - install_dependencies
+      - test_canary:
+          requires:
+            - install_dependencies
+      - test_default_with_jquery:
+          requires:
+            - install_dependencies
+      - test_classic:
+          requires:
+            - install_dependencies
