@@ -12,8 +12,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Generate reports folder
-          run: mkdir -p ./reports
+          name: Generate tests-results folder
+          command: mkdir -p ./tests-results
       - persist_to_workspace:
           root: .
           paths:
@@ -40,7 +40,7 @@ jobs:
           paths:
             - .
 
-  lint:hbs:
+  lint_hbs:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -49,27 +49,27 @@ jobs:
           name: Lint Handlebars
           command: npm run lint:hbs
 
-  lint:js:
+  lint_js:
     <<: *defaults
     steps:
       - attach_workspace:
           at: .
       - run:
           name: Lint JavaScript
-          command: npm run lint:js
+          command: ESLINT_JUNIT_OUTPUT="tests-results/eslint.xml" npm run lint:js --silent -- -f node_modules/eslint-junit/index.js
 
-  test:
+  test_default:
     <<: *defaults
     steps:
       - attach_workspace:
           at: .
       - run:
           name: Run Tests
-          command: node_modules/.bin/ember ember try:one ember-default --skip-cleanup=true
+          command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-tests.xml
       - store_test_results:
-          path: './reports'
+          path: './tests-results'
       - store_artifacts:
-          path: './reports'
+          path: './tests-results'
 
 
   test_lts_3_8:
@@ -79,11 +79,11 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember LTS 3.8
-          command: node_modules/.bin/ember ember try:one ember-lts-3.8 --skip-cleanup=true
+          command: ./node_modules/.bin/ember try:one ember-lts-3.8 --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-lts-3-8.xml
       - store_test_results:
-          path: './reports'
+          path: './tests-results'
       - store_artifacts:
-          path: './reports'
+          path: './tests-results'
 
 
   test_lts_3_12:
@@ -93,11 +93,11 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember LTS 3.12
-          command: node_modules/.bin/ember ember try:one ember-lts-3.12 --skip-cleanup=true
+          command: ./node_modules/.bin/ember try:one ember-lts-3.12 --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-lts-3-12.xml
       - store_test_results:
-          path: './reports'
+          path: './tests-results'
       - store_artifacts:
-          path: './reports'
+          path: './tests-results'
 
 
   test_release:
@@ -107,11 +107,11 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember Release
-          command: node_modules/.bin/ember ember try:one ember-release --skip-cleanup=true
+          command: ./node_modules/.bin/ember try:one ember-release --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-release.xml
       - store_test_results:
-          path: './reports'
+          path: './tests-results'
       - store_artifacts:
-          path: './reports'
+          path: './tests-results'
 
 
   test_beta:
@@ -121,11 +121,11 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember Beta
-          command: node_modules/.bin/ember ember try:one ember-beta --skip-cleanup=true
+          command: ./node_modules/.bin/ember try:one ember-beta --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-beta.xml
       - store_test_results:
-          path: './reports'
+          path: './tests-results'
       - store_artifacts:
-          path: './reports'
+          path: './tests-results'
 
 
   test_canary:
@@ -135,11 +135,11 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember Canary
-          command: node_modules/.bin/ember ember try:one ember-canary --skip-cleanup=true
+          command: ./node_modules/.bin/ember try:one ember-canary --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-canary.xml
       - store_test_results:
-          path: './reports'
+          path: './tests-results'
       - store_artifacts:
-          path: './reports'
+          path: './tests-results'
 
 
   test_default_with_jquery:
@@ -149,11 +149,11 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember Default With jQuery
-          command: node_modules/.bin/ember ember try:one ember-default-with-jquery --skip-cleanup=true
+          command: ./node_modules/.bin/ember try:one ember-default-with-jquery --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-default-with-jquery.xml
       - store_test_results:
-          path: './reports'
+          path: './tests-results'
       - store_artifacts:
-          path: './reports'
+          path: './tests-results'
 
   test_classic:
     <<: *defaults
@@ -162,24 +162,27 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember Classic
-          command: node_modules/.bin/ember ember try:one ember-classic --skip-cleanup=true
+          command: ./node_modules/.bin/ember try:one ember-classic --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-classic.xml
       - store_test_results:
-          path: './reports'
+          path: './tests-results'
       - store_artifacts:
-          path: './reports'
+          path: './tests-results'
 
 workflows:
   version: 2
-  test_matrix:
+  tests:
     jobs:
       - checkout_code
       - install_dependencies:
           requires:
             - checkout_code
-      - lint:
+      - lint_hbs:
           requires:
             - install_dependencies
-      - test:
+      - lint_js:
+          requires:
+            - install_dependencies
+      - test_default:
           requires:
             - install_dependencies
       - test_lts_3_8:
