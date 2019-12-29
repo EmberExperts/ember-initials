@@ -24,7 +24,7 @@ export default class Svg {
     return `<${name} ${attrsString}>${content}</${name}>`
   }
 
-  _stringify(object, transform = function() {}) {
+  _stringify(object = {}, transform = function() {}) {
     return Object.entries(object).map(([key, value]) => transform(key, value)).join(' ');
   }
 }

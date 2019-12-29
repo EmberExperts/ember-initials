@@ -11,7 +11,7 @@ module('Unit | Store | Ember Initials', function(hooks) {
     assert.ok(store);
   });
 
-  test('initialsFor', function(assert) {
+  test('getItem', function(assert) {
     let store = this.subject;
 
     let properties = { width: 100, height: 100, initials: "SC", initialsColor: "red" };
