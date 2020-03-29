@@ -14,5 +14,5 @@ export default Component.extend({
 
   visible: computed('activeExample', 'active', function() {
     return !this.activeExample || this.active;
-  }),
+  })
 });

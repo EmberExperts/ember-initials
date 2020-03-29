@@ -3,6 +3,7 @@ import SvgGenerator from '../utils/generators/svg';
 
 export default class Store {
   cache = new Map();
+
   svgGenerator = new SvgGenerator();
 
   get length() {
@@ -15,6 +16,7 @@ export default class Store {
 
   getItem(properties) {
     const key = JSON.stringify(properties);
+
     return this.cache.get(key) || this._create(key, properties);
   }
 

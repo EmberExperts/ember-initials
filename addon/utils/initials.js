@@ -1,10 +1,11 @@
 export default function(name) {
   let initials = name ? name.trim() : '';
-  let words = initials.split(' ');
+  const words = initials.split(' ');
 
   if (words.length > 1) {
-    let first = capitalizedFirstLetter(words.shift());
-    let last = capitalizedFirstLetter(words.pop());
+    const first = capitalizedFirstLetter(words.shift());
+    const last = capitalizedFirstLetter(words.pop());
+
     initials = first + last;
   } else if (words.length === 1) {
     initials = capitalizedFirstLetter(words.shift());

@@ -19,9 +19,9 @@ class GravatarAvatarComponent extends ImageAvatarComponent {
   }
 
   generateGravatarUrl() {
-    let hash = md5(this.email);
-    let size = this.size;
-    let url = this.defaultImage ? `&default=${new URL(this.defaultImage, window.location.origin).href}` : '';
+    const hash = md5(this.email);
+    const { size } = this;
+    const url = this.defaultImage ? `&default=${new URL(this.defaultImage, window.location.origin).href}` : '';
 
     return `//www.gravatar.com/avatar/${hash}?size=${size}${url}`;
   }

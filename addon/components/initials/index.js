@@ -11,34 +11,64 @@ import ColorIndex from 'ember-initials/utils/color-index';
 const cache = new Store();
 
 const defaultColors = [
-  '#1abc9c', '#16a085', '#f1c40f',
-  '#f39c12', '#2ecc71', '#27ae60',
-  '#e67e22', '#d35400', '#3498db',
-  '#2980b9', '#e74c3c', '#c0392b',
-  '#9b59b6', '#8e44ad', '#bdc3c7',
-  '#34495e', '#2c3e50', '#95a5a6',
-  '#7f8c8d', '#ec87bf', '#d870ad',
-  '#f69785', '#9ba37e', '#b49255',
-  '#b49255', '#a94136', '#5461b4',
+  '#1abc9c',
+  '#16a085',
+  '#f1c40f',
+  '#f39c12',
+  '#2ecc71',
+  '#27ae60',
+  '#e67e22',
+  '#d35400',
+  '#3498db',
+  '#2980b9',
+  '#e74c3c',
+  '#c0392b',
+  '#9b59b6',
+  '#8e44ad',
+  '#bdc3c7',
+  '#34495e',
+  '#2c3e50',
+  '#95a5a6',
+  '#7f8c8d',
+  '#ec87bf',
+  '#d870ad',
+  '#f69785',
+  '#9ba37e',
+  '#b49255',
+  '#b49255',
+  '#a94136',
+  '#5461b4'
 ];
 
 class InitialsAvatarComponent extends ImageAvatarComponent {
   @tracked defaultBackground = '#dd6a58';
+
   @tracked fontSize = 50;
+
   @tracked fontWeight = 'Helvetica Neue Light, Arial, sans-serif';
+
   @tracked fontFamily = 200;
+
   @tracked textColor = 'white';
+
   @tracked defaultName = '?';
+
   @tracked colors = defaultColors;
 
   @reads('defaultName') name;
+
   @reads('name') alt;
+
   @reads('name') title;
+
   @reads('name') seedText;
 
   @tracked _initials;
+
   @tracked _textStyles;
+
   @tracked _backgroundStyles;
+
   @tracked _backgroundColor;
 
   get src() {
@@ -61,7 +91,7 @@ class InitialsAvatarComponent extends ImageAvatarComponent {
     return {
       'font-family': this.fontFamily,
       'font-weight': this.fontWeight,
-      'font-size': `${this.fontSize}px`,
+      'font-size': `${this.fontSize}px`
     };
   }
 
@@ -69,7 +99,7 @@ class InitialsAvatarComponent extends ImageAvatarComponent {
     return {
       'user-select': 'none',
       'vertical-align': 'middle',
-      'background-color': this.backgroundColor,
+      'background-color': this.backgroundColor
     };
   }
 
@@ -92,14 +122,15 @@ class InitialsAvatarComponent extends ImageAvatarComponent {
   get backgroundColor() {
     if (this._backgroundColor) return this._backgroundColor;
 
-    let { colors, seedText, defaultName, defaultBackground } = this;
+    const { colors, seedText, defaultName, defaultBackground } = this;
 
     if (seedText === defaultName) {
       return defaultBackground;
-    } else {
-      let index = ColorIndex(seedText, colors.length);
-      return colors[index];
     }
+
+    const index = ColorIndex(seedText, colors.length);
+
+    return colors[index];
   }
 
   set backgroundColor(value) {
@@ -116,7 +147,7 @@ class InitialsAvatarComponent extends ImageAvatarComponent {
       initials: this.initials,
       initialsColor: this.textColor,
       textStyles: this.textStyles,
-      backgroundStyles: this.backgroundStyles,
+      backgroundStyles: this.backgroundStyles
     };
 
     return cache.getItem(properties);

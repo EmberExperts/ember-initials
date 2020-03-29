@@ -1,5 +1,7 @@
-export default function (seedText, colorsLength) {
-  let code = hashCode(seedText);
+/* eslint-disable no-bitwise */
+export default function(seedText, colorsLength) {
+  const code = hashCode(seedText);
+
   return Math.abs(Math.floor(code % colorsLength));
 }
 
@@ -10,8 +12,9 @@ function hashCode(string) {
 
   if (string && string.length > 0) {
     for (let i = 0; i < string.length; i++) {
-      let char = string.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
+      const char = string.charCodeAt(i);
+
+      hash = (hash << 5) - hash + char;
       hash |= 0; // Convert to 32bit integer
     }
   }

@@ -7,15 +7,21 @@ import layout from './template';
 
 class ImageAvatarComponent extends Component {
   layout = layout;
+
   tagName = '';
 
   @tracked image;
+
   @tracked size = 30;
+
   @tracked alt = 'User Avatar';
+
   @tracked title = 'User Avatar';
 
   @reads('size') height;
+
   @reads('size') width;
+
   @reads('config.image.defaultImageUrl') defaultImage;
 
   @tracked _src;
@@ -35,7 +41,7 @@ class ImageAvatarComponent extends Component {
   @action
   onError(e) {
     if (this.defaultImage && this.image !== this.defaultImage) {
-      e.srcElement.src = this.defaultImage
+      e.srcElement.src = this.defaultImage;
     }
   }
 }

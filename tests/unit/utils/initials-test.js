@@ -1,32 +1,32 @@
 import { module, test } from 'qunit';
-import Initials from 'ember-initials/utils/initials';
+import initials from 'ember-initials/utils/initials';
 
 module('Unit | Utils | Initials', function() {
   test('initials generator', function(assert) {
     let name;
 
     name = 'John Doe';
-    assert.equal(Initials(name), 'JD');
+    assert.equal(initials(name), 'JD');
 
     name = 'Ľatin Ćhars';
-    assert.equal(Initials(name), 'ĽĆ');
+    assert.equal(initials(name), 'ĽĆ');
 
     name = 'small letters';
-    assert.equal(Initials(name), 'SL');
+    assert.equal(initials(name), 'SL');
 
     name = 'BIG LETTERS';
-    assert.equal(Initials(name), 'BL');
+    assert.equal(initials(name), 'BL');
 
     name = '.@d &^*';
-    assert.equal(Initials(name), '.&');
+    assert.equal(initials(name), '.&');
 
     name = 'one';
-    assert.equal(Initials(name), 'O');
+    assert.equal(initials(name), 'O');
 
     name = 'Two';
-    assert.equal(Initials(name), 'T');
+    assert.equal(initials(name), 'T');
 
     name = 'ćma';
-    assert.equal(Initials(name), 'Ć');
+    assert.equal(initials(name), 'Ć');
   });
 });

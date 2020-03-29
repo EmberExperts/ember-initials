@@ -7,8 +7,8 @@ export default Component.extend({
 
   click() {
     next(() => {
-      let element = document.querySelector(this.href);
-      let position = element.offsetTop + this.offset;
+      const element = document.querySelector(this.href);
+      const position = element.offsetTop + this.offset;
 
       window.scroll({ top: position, behavior: 'smooth' });
     });

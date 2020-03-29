@@ -7,8 +7,6 @@ export default Component.extend({
 
   name: 'Ember Initials',
   defaultName: '?',
-  seedText: reads('name'),
-
   size: '200',
   textColor: 'white',
   fontSize: 55,
@@ -16,6 +14,8 @@ export default Component.extend({
   fontFamily: 'Helvetica Neue Light, Arial, sans-serif',
 
   exampleName: 'initials',
+
+  seedText: reads('name'),
 
   active: computed('activeExample', 'exampleName', function() {
     return this.activeExample === this.exampleName;
