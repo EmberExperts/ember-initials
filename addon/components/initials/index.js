@@ -6,7 +6,7 @@ import { assign } from '@ember/polyfills';
 
 import initialsFor from 'ember-initials/utils/initials';
 import Store from 'ember-initials/utils/store';
-import ColorIndex from 'ember-initials/utils/color-index';
+import colorIndex from 'ember-initials/utils/color-index';
 
 const cache = new Store();
 
@@ -128,7 +128,7 @@ class InitialsAvatarComponent extends ImageAvatarComponent {
       return defaultBackground;
     }
 
-    const index = ColorIndex(seedText, colors.length);
+    const index = colorIndex(seedText, colors.length);
 
     return colors[index];
   }
