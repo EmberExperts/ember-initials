@@ -1,21 +1,21 @@
-{{#if visible}}
-  {{#if active}}
+{{#if this.visible}}
+  {{#if this.active}}
     <div class="col-sm-4">
       <div class="text-center">
         <p class="lead"><code>ember-initials</code></p>
         <EmberInitials class="img-circle"
-          @size={{size}}
-          @name={{name}}
-          @seedText={{seedText}}
-          @defaultName={{defaultName}}
-          @textColor={{textColor}}
-          @fontSize={{fontSize}}
-          @fontWeight={{fontWeight}}
-          @fontFamily={{fontFamily}}
-          @image={{image}}
+          @size={{this.size}}
+          @name={{this.name}}
+          @seedText={{this.seedText}}
+          @defaultName={{this.defaultName}}
+          @textColor={{this.textColor}}
+          @fontSize={{this.fontSize}}
+          @fontWeight={{this.fontWeight}}
+          @fontFamily={{this.fontFamily}}
+          @image={{this.image}}
         />
         <p class="example-intro">This component has been designed to display user initials based on user name and unique string like email. But it can also work as a fallback for users avatars.</p>
-        {{activate-button exampleName=exampleName activeExample=activeExample}}
+        <ActivateButton @exampleName={{this.exampleName}} @activeExample={{this.activeExample}} />
       </div>
     </div>
 
@@ -87,15 +87,15 @@
         {{#tab.pane title="Generated code"}}
           <pre>
         \{{ember-initials
-          size={{size}}
-          name="{{name}}"
-          seedText="{{seedText}}"
-          defaultName="{{defaultName}}"
-          textColor="{{textColor}}"
-          fontSize={{fontSize}}
-          fontWeight={{fontWeight}}
-          fontFamily="{{fontFamily}}"
-          image="{{image}}"
+          size={{this.size}}
+          name="{{this.name}}"
+          seedText="{{this.seedText}}"
+          defaultName="{{this.defaultName}}"
+          textColor="{{this.textColor}}"
+          fontSize={{this.fontSize}}
+          fontWeight={{this.fontWeight}}
+          fontFamily="{{this.fontFamily}}"
+          image="{{this.image}}"
         }}
           </pre>
         {{/tab.pane}}
@@ -105,18 +105,18 @@
     <div class="text-center">
       <p class="lead"><code>ember-initials</code></p>
       <EmberInitials class="img-circle"
-        @size={{size}}
-        @name={{name}}
-        @seedText={{seedText}}
-        @defaultName={{defaultName}}
-        @textColor={{textColor}}
-        @fontSize={{fontSize}}
-        @fontWeight={{fontWeight}}
-        @fontFamily={{fontFamily}}
-        @image={{image}}
+        @size={{this.size}}
+        @name={{this.name}}
+        @seedText={{this.seedText}}
+        @defaultName={{this.defaultName}}
+        @textColor={{this.textColor}}
+        @fontSize={{this.fontSize}}
+        @fontWeight={{this.fontWeight}}
+        @fontFamily={{this.fontFamily}}
+        @image={{this.image}}
       />
       <p class="example-intro">This component has been designed to display user initials based on user name and unique string like email. But it can also work as a fallback for users avatars.</p>
-      {{activate-button exampleName=exampleName activeExample=activeExample}}
+      <ActivateButton @exampleName={{this.exampleName}} @activeExample={{this.activeExample}} />
     </div>
   {{/if}}
 {{/if}}
