@@ -23,7 +23,7 @@ Demo app with interactive examples you can find at [http://exelord.github.io/emb
 
 ## Compatibility
 
-* Ember.js v3.12 or above
+* Ember.js v3.13 or above
 * Ember CLI v2.13 or above
 * Node.js v10 or above
 

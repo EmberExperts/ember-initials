@@ -72,14 +72,14 @@ jobs:
           path: './tests-results'
 
 
-  test_lts_3_12:
+  test_lts_3_13:
     <<: *defaults
     steps:
       - attach_workspace:
           at: .
       - run:
-          name: Run Tests Ember LTS 3.12
-          command: ./node_modules/.bin/ember try:one ember-lts-3.12 --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-lts-3-8.xml
+          name: Run Tests Ember 3.13
+          command: ./node_modules/.bin/ember try:one ember-3.13 --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-lts-3-8.xml
       - store_test_results:
           path: './tests-results'
       - store_artifacts:
@@ -185,7 +185,7 @@ workflows:
       - test_default:
           requires:
             - install_dependencies
-      - test_lts_3_12:
+      - test_lts_3_13:
           requires:
             - install_dependencies
       - test_lts_3_16:
