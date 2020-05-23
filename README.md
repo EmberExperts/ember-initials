@@ -14,7 +14,7 @@
   </a>
 </p>
 
-Ember Initials is a package for generating simple avatars using users initials, images, gravatars or adorables. It definitely supports Ember 3.8 (or higher). Thanks to highly customizable interface you can define defaults and even set fallbacks.
+Ember Initials is a package for generating simple avatars using users initials, images, gravatars or adorables. It definitely supports Ember 3.16 (or higher). Thanks to highly customizable interface you can define defaults and even set fallbacks.
 
 ## Demo App with code generators
 Demo app with interactive examples you can find at [http://exelord.github.io/ember-initials][9225812a]
