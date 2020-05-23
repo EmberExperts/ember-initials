@@ -1,15 +1,16 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  classNames: 'activator',
-
-  actions: {
-    activate(value) {
-      this.set('activeExample', value);
-    },
-
-    deactivate() {
-      this.set('activeExample', null);
-    }
+class ActivateButtonComponent extends Component {
+  @action
+  activate(value) {
+    this.args.onChange(value);
   }
-});
+
+  @action
+  deactivate() {
+    this.args.onChange(null);
+  }
+}
+
+export default ActivateButtonComponent;

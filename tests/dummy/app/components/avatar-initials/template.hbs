@@ -15,7 +15,7 @@
           @image={{this.image}}
         />
         <p class="example-intro">This component has been designed to display user initials based on user name and unique string like email. But it can also work as a fallback for users avatars.</p>
-        <ActivateButton @exampleName={{this.exampleName}} @activeExample={{this.activeExample}} />
+        <ActivateButton @exampleName={{this.exampleName}} @activeExample={{@activeExample}} @onChange={{@onChange}} />
       </div>
     </div>
 
@@ -116,7 +116,7 @@
         @image={{this.image}}
       />
       <p class="example-intro">This component has been designed to display user initials based on user name and unique string like email. But it can also work as a fallback for users avatars.</p>
-      <ActivateButton @exampleName={{this.exampleName}} @activeExample={{this.activeExample}} />
+      <ActivateButton @exampleName={{this.exampleName}} @activeExample={{@activeExample}} @onChange={{@onChange}} />
     </div>
   {{/if}}
 {{/if}}

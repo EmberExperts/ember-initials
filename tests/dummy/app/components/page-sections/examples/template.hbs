@@ -1,24 +1,25 @@
 <div id="examples">
-  <div class="{{if activeExample 'container' 'container-fluid'}}">
+  {{this.activeExample}}
+  <div class="{{if this.activeExample 'container' 'container-fluid'}}">
     <div class="section-heading">
       <h1 data-wow-delay=".3s" class="title wow fadeInDown" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInDown;">Live Examples</h1>
     </div>
 
     <div class="row flex">
-      <div class="{{unless activeExample 'col-md-3 col-sm-6'}}">
-        {{avatar-adorable activeExample=activeExample}}
+      <div class="{{unless this.activeExample 'col-md-3 col-sm-6'}}">
+        <AvatarAdorable @activeExample={{this.activeExample}} @onChange={{this.onChange}} />
       </div>
 
-      <div class="{{unless activeExample 'col-md-3 col-sm-6'}}">
-        {{avatar-initials activeExample=activeExample}}
+      <div class="{{unless this.activeExample 'col-md-3 col-sm-6'}}">
+        <AvatarInitials @activeExample={{this.activeExample}} @onChange={{this.onChange}} />
       </div>
 
-      <div class="{{unless activeExample 'col-md-3 col-sm-6'}}">
-        {{avatar-gravatar activeExample=activeExample}}
+      <div class="{{unless this.activeExample 'col-md-3 col-sm-6'}}">
+        <AvatarGravatar @activeExample={{this.activeExample}} @onChange={{this.onChange}} />
       </div>
 
-      <div class="{{unless activeExample 'col-md-3 col-sm-6'}}">
-        {{avatar-image activeExample=activeExample}}
+      <div class="{{unless this.activeExample 'col-md-3 col-sm-6'}}">
+        <AvatarImage @activeExample={{this.activeExample}} @onChange={{this.onChange}} />
       </div>
     </div>
   </div>

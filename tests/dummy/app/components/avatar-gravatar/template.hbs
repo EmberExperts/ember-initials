@@ -5,7 +5,7 @@
         <p class="lead"><code>ember-initials/gravatar</code></p>
         {{ember-initials/gravatar class="img-rounded" size=size email=email defaultImage=defaultImage image=image relativeUrl=relativeUrl}}
         <p class="example-intro">This component has been designed to display user avatar based on gravatar service. But it can also work as a fallback for users avatars.</p>
-        {{activate-button exampleName=exampleName activeExample=activeExample}}
+        <ActivateButton @exampleName={{this.exampleName}} @activeExample={{@activeExample}} @onChange={{@onChange}} />
       </div>
     </div>
 
@@ -59,7 +59,7 @@
       <p class="lead"><code>ember-initials/gravatar</code></p>
       {{ember-initials/gravatar class="img-rounded" size=size email=email defaultImage=defaultImage image=image relativeUrl=relativeUrl}}
       <p class="example-intro">This component has been designed to display user avatar based on gravatar service. But it can also work as a fallback for users avatars.</p>
-      {{activate-button exampleName=exampleName activeExample=activeExample}}
+      <ActivateButton @exampleName={{this.exampleName}} @activeExample={{@activeExample}} @onChange={{@onChange}} />
     </div>
   {{/if}}
 {{/if}}

@@ -4,7 +4,7 @@
       <p class="lead"><code>ember-initials/image</code></p>
       {{ember-initials/image class="img-thumbnail" image=image size=size defaultImage=defaultImage}}
       <p class="example-intro">This component has been designed to display user avatar from URL with a fallback to the specific default image.</p>
-      {{activate-button exampleName=exampleName activeExample=activeExample}}
+      <ActivateButton @exampleName={{this.exampleName}} @activeExample={{@activeExample}} @onChange={{@onChange}} />
     </div>
 
     <div class="col-sm-8">
@@ -42,7 +42,7 @@
       <p class="lead"><code>ember-initials/image</code></p>
       {{ember-initials/image class="img-thumbnail" image=image size=size defaultImage=defaultImage}}
       <p class="example-intro">This component has been designed to display user avatar from URL with a fallback to the specific default image.</p>
-      {{activate-button exampleName=exampleName activeExample=activeExample}}
+      <ActivateButton @exampleName={{this.exampleName}} @activeExample={{@activeExample}} @onChange={{@onChange}} />
     </div>
   {{/if}}
 {{/if}}

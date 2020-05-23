@@ -4,7 +4,7 @@
       <p class="lead"><code>ember-initials/adorable</code></p>
       {{ember-initials/adorable class="img-thumbnail" image=image size=size email=email}}
       <p class="example-intro">This component has been designed to display user avatar based on <a href="http://avatars.adorable.io/">avatars.adorable.io</a> service.</p>
-      {{activate-button exampleName=exampleName activeExample=activeExample}}
+      <ActivateButton @exampleName={{this.exampleName}} @activeExample={{@activeExample}} @onChange={{@onChange}} />
     </div>
 
     <div class="col-sm-8">
@@ -42,7 +42,7 @@
       <p class="lead"><code>ember-initials/adorable</code></p>
       {{ember-initials/adorable class="img-thumbnail" image=image size=size email=email}}
       <p class="example-intro">This component has been designed to display user avatar based on <a href="http://avatars.adorable.io/">avatars.adorable.io</a> service.</p>
-      {{activate-button exampleName=exampleName activeExample=activeExample}}
+      <ActivateButton @exampleName={{this.exampleName}} @activeExample={{@activeExample}} @onChange={{@onChange}} />
     </div>
   {{/if}}
 {{/if}}

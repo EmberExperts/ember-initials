@@ -1,5 +1,7 @@
-{{#if activeExample}}
-  <a class="btn btn-lg btn-outline btn-ember" {{action 'deactivate'}}>Back to examples</a>
-{{else}}
-  <a class="btn btn-lg btn-outline btn-ember" {{action 'activate' exampleName}}>Live example</a>
-{{/if}}
+<div class="activator">
+  {{#if @activeExample}}
+    <a class="btn btn-lg btn-outline btn-ember" {{on "click" this.deactivate}}>Back to examples</a>
+  {{else}}
+    <a class="btn btn-lg btn-outline btn-ember" {{on "click" (fn this.activate @exampleName)}}>Live example</a>
+  {{/if}}
+</div>
