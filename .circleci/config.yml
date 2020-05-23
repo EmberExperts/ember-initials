@@ -65,7 +65,7 @@ jobs:
           at: .
       - run:
           name: Run Tests
-          command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-tests.xml
+          command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-tests.xml'
       - store_test_results:
           path: './tests-results'
       - store_artifacts:
@@ -79,7 +79,7 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember 3.13
-          command: ./node_modules/.bin/ember try:one ember-3.13 --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-lts-3-8.xml
+          command: ./node_modules/.bin/ember try:one ember-3.13 --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-lts-3-13.xml'
       - store_test_results:
           path: './tests-results'
       - store_artifacts:
@@ -93,7 +93,7 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember LTS 3.16
-          command: ./node_modules/.bin/ember try:one ember-lts-3.16 --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-lts-3-12.xml
+          command: ./node_modules/.bin/ember try:one ember-lts-3.16 --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-lts-3-16.xml'
       - store_test_results:
           path: './tests-results'
       - store_artifacts:
@@ -107,7 +107,7 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember Release
-          command: ./node_modules/.bin/ember try:one ember-release --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-release.xml
+          command: ./node_modules/.bin/ember try:one ember-release --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-release.xml'
       - store_test_results:
           path: './tests-results'
       - store_artifacts:
@@ -121,7 +121,7 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember Beta
-          command: ./node_modules/.bin/ember try:one ember-beta --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-beta.xml
+          command: ./node_modules/.bin/ember try:one ember-beta --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-beta.xml'
       - store_test_results:
           path: './tests-results'
       - store_artifacts:
@@ -135,7 +135,7 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember Canary
-          command: ./node_modules/.bin/ember try:one ember-canary --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-canary.xml
+          command: ./node_modules/.bin/ember try:one ember-canary --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-canary.xml'
       - store_test_results:
           path: './tests-results'
       - store_artifacts:
@@ -149,7 +149,7 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember Default With jQuery
-          command: ./node_modules/.bin/ember try:one ember-default-with-jquery --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-default-with-jquery.xml
+          command: ./node_modules/.bin/ember try:one ember-default-with-jquery --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-default-with-jquery.xml'
       - store_test_results:
           path: './tests-results'
       - store_artifacts:
@@ -162,7 +162,7 @@ jobs:
           at: .
       - run:
           name: Run Tests Ember Classic
-          command: ./node_modules/.bin/ember try:one ember-classic --skip-cleanup=true --- ember test --silent -r xunit > tests-results/ember-classic.xml
+          command: ./node_modules/.bin/ember try:one ember-classic --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-classic.xml'
       - store_test_results:
           path: './tests-results'
       - store_artifacts:
