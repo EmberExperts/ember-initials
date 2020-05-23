@@ -3,10 +3,10 @@ import { reads } from '@ember/object/computed';
 import Component from '@ember/component';
 
 export default Component.extend({
+  tagName: '',
+
   name: 'Ember Initials',
   defaultName: '?',
-  seedText: reads('name'),
-
   size: '200',
   textColor: 'white',
   fontSize: 55,
@@ -15,11 +15,13 @@ export default Component.extend({
 
   exampleName: 'initials',
 
+  seedText: reads('name'),
+
   active: computed('activeExample', 'exampleName', function() {
-    return this.get('activeExample') === this.get('exampleName');
+    return this.activeExample === this.exampleName;
   }),
 
   visible: computed('activeExample', 'active', function() {
-    return !this.get('activeExample') || this.get('active');
+    return !this.activeExample || this.active;
   })
 });

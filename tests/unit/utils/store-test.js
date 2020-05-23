@@ -1,31 +1,28 @@
-import { module, test } from 'qunit';
-import Base from 'ember-initials/utils/generators/base';
 import Store from 'ember-initials/utils/store';
+import { module, test } from 'qunit';
 
 module('Unit | Store | Ember Initials', function(hooks) {
   hooks.beforeEach(function() {
-    this.subject = Store.create();
+    this.subject = new Store();
   });
 
   test('it exists', function(assert) {
-    let store = this.subject;
+    const store = this.subject;
+
     assert.ok(store);
   });
 
-  test('it uses image generator', function(assert) {
-    let store = this.subject;
-    assert.ok(store.get('generator') instanceof Base);
-  });
+  test('getItem', function(assert) {
+    const store = this.subject;
 
-  test('initialsFor', function(assert) {
-    let store = this.subject;
-    store.set('cache', {});
+    const properties = { width: 100, height: 100, initials: 'SC', initialsColor: 'red' };
 
-    let properties = { width: 100, height: 100, initials: "SC", initialsColor: "red" };
-    assert.ok(store.initialsFor(properties));
-    assert.equal(Object.keys(store.get('cache')).length, 1);
+    assert.ok(store.getItem(properties));
+    assert.equal(store.length, 1);
 
-    assert.ok(store.initialsFor(properties));
-    assert.equal(Object.keys(store.get('cache')).length, 1);
+    const newProperties = { width: 100, height: 100, initials: 'SC', initialsColor: 'red' };
+
+    assert.ok(store.getItem(newProperties));
+    assert.equal(store.length, 1);
   });
 });

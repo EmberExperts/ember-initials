@@ -1,0 +1,190 @@
+defaults: &defaults
+  docker:
+    - image: circleci/node:10-browsers
+      environment:
+        JOBS: 1
+  working_directory: ~/ember-initials
+
+version: 2.1
+jobs:
+  checkout_code:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Generate tests-results folder
+          command: mkdir -p ./tests-results
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  install_dependencies:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - restore_cache:
+          keys:
+            - node-dependencies-{{ checksum "package-lock.json" }}
+      - run: npm config set spin false
+      - run:
+          name: Installing node modules
+          command: npm ci
+      - save_cache:
+          key: node-dependencies-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  lint_hbs:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Lint Handlebars
+          command: npm run lint:hbs
+
+  lint_js:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Lint JavaScript
+          command: ESLINT_JUNIT_OUTPUT="tests-results/eslint.xml" npm run lint:js --silent -- -f node_modules/eslint-junit/index.js
+
+  test_default:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests
+          command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-tests.xml'
+      - store_test_results:
+          path: './tests-results'
+      - store_artifacts:
+          path: './tests-results'
+
+  test_lts_3_16:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember LTS 3.16
+          command: ./node_modules/.bin/ember try:one ember-lts-3.16 --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-lts-3-16.xml'
+      - store_test_results:
+          path: './tests-results'
+      - store_artifacts:
+          path: './tests-results'
+
+
+  test_release:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember Release
+          command: ./node_modules/.bin/ember try:one ember-release --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-release.xml'
+      - store_test_results:
+          path: './tests-results'
+      - store_artifacts:
+          path: './tests-results'
+
+
+  test_beta:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember Beta
+          command: ./node_modules/.bin/ember try:one ember-beta --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-beta.xml'
+      - store_test_results:
+          path: './tests-results'
+      - store_artifacts:
+          path: './tests-results'
+
+
+  test_canary:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember Canary
+          command: ./node_modules/.bin/ember try:one ember-canary --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-canary.xml'
+      - store_test_results:
+          path: './tests-results'
+      - store_artifacts:
+          path: './tests-results'
+
+
+  test_default_with_jquery:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember Default With jQuery
+          command: ./node_modules/.bin/ember try:one ember-default-with-jquery --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-default-with-jquery.xml'
+      - store_test_results:
+          path: './tests-results'
+      - store_artifacts:
+          path: './tests-results'
+
+  test_classic:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Run Tests Ember Classic
+          command: ./node_modules/.bin/ember try:one ember-classic --skip-cleanup=true --- 'ember test --silent -r xunit > tests-results/ember-classic.xml'
+      - store_test_results:
+          path: './tests-results'
+      - store_artifacts:
+          path: './tests-results'
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - checkout_code
+      - install_dependencies:
+          requires:
+            - checkout_code
+      - lint_hbs:
+          requires:
+            - install_dependencies
+      - lint_js:
+          requires:
+            - install_dependencies
+      - test_default:
+          requires:
+            - install_dependencies
+      - test_lts_3_16:
+          requires:
+            - install_dependencies
+      - test_release:
+          requires:
+            - install_dependencies
+      - test_beta:
+          requires:
+            - install_dependencies
+      - test_canary:
+          requires:
+            - install_dependencies
+      - test_default_with_jquery:
+          requires:
+            - install_dependencies
+      - test_classic:
+          requires:
+            - install_dependencies

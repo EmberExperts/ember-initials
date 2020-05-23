@@ -10,7 +10,7 @@ module('ember-initials/gravatar', function(hooks) {
   test('when image is not set a gravatar is rendered', async function(assert) {
     assert.expect(1);
 
-    const gravatarUrl = "//www.gravatar.com/avatar/23463b99b62a72f26ed677cc556c44e8?size=30";
+    const gravatarUrl = '//www.gravatar.com/avatar/23463b99b62a72f26ed677cc556c44e8?size=30';
 
     this.set('gravatarEmail', 'example@example.com');
 
@@ -26,6 +26,6 @@ module('ember-initials/gravatar', function(hooks) {
 
     await render(hbs`{{ember-initials/gravatar image=userAvatar}}`);
 
-    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.get('userAvatar')));
+    await getImage(this, false).then((img) => assert.equal(img.getAttribute('src'), this.userAvatar));
   });
 });

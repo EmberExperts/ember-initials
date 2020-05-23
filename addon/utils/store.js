@@ -1,25 +1,29 @@
-import EmberObject, { computed } from "@ember/object";
+import svgToMiniDataURI from 'mini-svg-data-uri';
 import SvgGenerator from '../utils/generators/svg';
-import hash from '../utils/hash';
 
-export default EmberObject.extend({
-  cache: null,
+export default class Store {
+  cache = new Map();
 
-  generator: computed(function() {
-    return new SvgGenerator;
-  }).readOnly(),
+  svgGenerator = new SvgGenerator();
 
-  init() {
-    this._super(...arguments);
-    this.set('cache', {});
-  },
+  get length() {
+    return this.cache.size;
+  }
 
-  initialsFor(properties) {
-    let key = hash(properties);
-    return this.get('cache')[key] || this._create(key, properties);
-  },
+  clear() {
+    this.cache.clear();
+  }
+
+  getItem(properties) {
+    const key = JSON.stringify(properties);
+
+    return this.cache.get(key) || this._create(key, properties);
+  }
 
   _create(key, properties) {
-    return this.get('cache')[key] = this.get('generator').generate(properties);
+    const element = this.svgGenerator.generate(properties);
+    const data = svgToMiniDataURI(element);
+
+    return this.cache.set(key, data) && data;
   }
-});
+}
