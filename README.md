@@ -41,46 +41,46 @@ Ember Initials gives you a built-in components which you can use in yours templa
 
 ##### Initials avatars:
 ```hbs
-{{ember-initials name="John Doe"}}
+<EmberInitials @name="John Doe" />
 ```
 or
 
 ```hbs
-{{ember-initials/initials name="John Doe"}}
+<EmberInitials::Initials @name="John Doe" />
 ```
 
 ##### Image avatars:
 ```hbs
-{{ember-initials/image image="/url/to/avatar.png"}}
+<EmberInitials::Image @image="/url/to/avatar.png" />
 ```
 
 ##### Gravatar avatars:
 ```hbs
-{{ember-initials/gravatar email="gravatar@email.com"}}
+<EmberInitials::Gravatar @email="gravatar@email.com" />
 ```
 
 ##### Adorables avatars:
 ```hbs
-{{ember-initials/adorable email="email.to@generate.com"}}
+<EmberInitials::Adorable @email="email.to@generate.com" />
 ```
 
 > Examples, configuration and code generator are available on [Project Site][9225812a].
 
 ## API Documentation
 
-### `ember-initials`
+### `EmberInitials`
 ```hbs
-{{ember-initials
-  image="images/user.jpg"
-  name="Ember Initials"
-  defaultName="?"
-  seedText="Ember Initials"
-  textColor="white"
-  fontSize=55
-  fontWeight=100
-  fontFamily="Helvetica Neue Light, Arial, sans-serif"
-  size=200
-}}
+<EmberInitials
+  @image="images/user.jpg"
+  @name="Ember Initials"
+  @defaultName="?"
+  @seedText="Ember Initials"
+  @textColor="white"
+  @fontSize=55
+  @fontWeight=100
+  @fontFamily="Helvetica Neue Light, Arial, sans-serif"
+  @size=200
+/>
 ```
 
 - `image` - image url | if image will be not found the initials avatars will be used
@@ -101,13 +101,13 @@ or
 
 - `size` - size of the avatar in pixels (set `null` if you do not want to use elements attributes like `width` and `height`)
 
-### `ember-initials/image`
+### `EmberInitials::Image`
 ```hbs
-{{ember-initials/image
-  image="images/user.jpg"
-  size=200
-  defaultImage="images/default.jpg"
-}}
+<EmberInitials::Image
+  @image="images/user.jpg"
+  @size=200
+  @defaultImage="images/default.jpg"
+/>
 ```
 
 - `image` - image url | if image will be not found the `defaultImage` will be used
@@ -116,15 +116,15 @@ or
 
 - `size` - size of the avatar in pixels (set `null` if you do not want to use elements attributes like `width` and `height`)
 
-### `ember-initials/gravatar`
+### `EmberInitials::Gravatar`
 ```hbs
-{{ember-initials/gravatar
-  image="images/user.jpg"
-  email="example@example.com"
-  defaultImage="images/default.jpg"
-  relativeUrl="true"
-  size=200
-}}
+<EmberInitials::Gravatar
+  @image="images/user.jpg"
+  @email="example@example.com"
+  @defaultImage="images/default.jpg"
+  @relativeUrl="true"
+  @size=200
+/>
 ```
 
 - `image` - image url | if image will be not passed the avatar will be generated form email thanks to gravatar
@@ -137,13 +137,13 @@ or
 
 - `size` - size of the avatar in pixels (set `null` if you do not want to use elements attributes like `width` and `height`)
 
-### `ember-initials/adorable`
+### `EmberInitials::Adorable`
 ```hbs
-{{ember-initials/adorable
-  image="images/user.jpg"
-  email="email@user.com"
-  size=50
-}}
+<EmberInitials::Adorable
+  @image="images/user.jpg"
+  @email="email@user.com"
+  @size=50
+/>
 ```
 - `image` - image url | if image will be not found the avatar will be generated form email thanks to adorable
 
