@@ -45,9 +45,9 @@ class InitialsAvatarComponent extends ImageAvatarComponent {
 
   @tracked fontSize = 50;
 
-  @tracked fontWeight = 'Helvetica Neue Light, Arial, sans-serif';
+  @tracked fontWeight = 200;
 
-  @tracked fontFamily = 200;
+  @tracked fontFamily = 'Helvetica Neue Light, Arial, sans-serif';
 
   @tracked textColor = 'white';
 
