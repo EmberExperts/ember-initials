@@ -19,7 +19,7 @@ class AdorableAvatarComponent extends ImageAvatarComponent {
   }
 
   _adorableSrc(email, size) {
-    return `https://api.adorable.io/avatars/${size}/${email}`;
+    return `https://api.hello-avatar.com/adorables/${size}/${email}`;
   }
 }
 
