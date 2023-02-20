@@ -41,6 +41,14 @@ module('ember-initials', function(hooks) {
     await getImage(this).then((img) => assert.equal(img.textContent, ''));
   });
 
+  test('when name starts with an emoji', async function(assert) {
+    assert.expect(1);
+
+    await render(hbs`{{ember-initials name='🍕Super cool'}}`);
+
+    await getImage(this).then((img) => assert.equal(img.textContent, 'SC'));
+  });
+
   test('when src is overridden by an image', async function(assert) {
     assert.expect(1);
 
