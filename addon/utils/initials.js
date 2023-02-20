@@ -16,6 +16,9 @@ export default function(name) {
 
 // Private
 
+const EMOJI_RE = /\p{Emoji}/gu;
+
 function capitalizedFirstLetter(word) {
-  return word ? word[0].toUpperCase() : '';
+  const trimmed = (word || '').replace(EMOJI_RE, '');
+  return trimmed ? trimmed[0].toUpperCase() : '';
 }
